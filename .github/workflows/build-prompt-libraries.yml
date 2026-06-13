@@ -1,0 +1,34 @@
+name: Build prompt libraries
+
+on:
+  push:
+    paths:
+      - "scripts/**"
+      - ".github/workflows/build-prompt-libraries.yml"
+  pull_request:
+    paths:
+      - "scripts/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and check prompt libraries
+        run: python scripts/build_prompt_libraries.py --ci
+      - name: Build website
+        run: |
+          python scripts/build_site_main.py
+          python scripts/build_site_pages.py
+      - name: Fail if the build changed committed files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Generated files are out of date. Run the build scripts and commit the result."
+            git status --porcelain
+            git --no-pager diff
+            exit 1
+          fi
