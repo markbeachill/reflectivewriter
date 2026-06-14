@@ -1,0 +1,18 @@
+id: medical
+title: "Medical Reflection Tutor Library"
+latest_output: docs/prompt-libraries/latest/04_medical_reflection_library.md
+archive_output: docs/prompt-libraries/v1.0/04_medical_reflection_library_v1_0.md
+tool_metadata_mode: mini
+sections:
+  - pack-sections/medical/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/medical/03-launcher.md
+  - pack-sections/medical/04-router.md
+tools:
+  - tools/reflective-practitioner-entry.md
+  - tools/insight-builder.md
+  - tools/anonymisation-disclosure.md
+  - tools/significant-event-analysis.md
+  - tools/tone-safety-check.md
+  - tools/capability-linkage.md

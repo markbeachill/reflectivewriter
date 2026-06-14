@@ -1,0 +1,18 @@
+id: nhs-healthcare
+title: "NHS and Healthcare Reflection Tutor Library"
+latest_output: docs/prompt-libraries/latest/03_nhs_healthcare_reflection_library.md
+archive_output: docs/prompt-libraries/v1.0/03_nhs_healthcare_reflection_library_v1_0.md
+tool_metadata_mode: mini
+sections:
+  - pack-sections/nhs-healthcare/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/nhs-healthcare/03-launcher.md
+  - pack-sections/nhs-healthcare/04-router.md
+tools:
+  - tools/nmc-revalidation-account.md
+  - tools/placement-reflection.md
+  - tools/significant-event.md
+  - tools/anonymisation-check.md
+  - tools/link-to-code.md
+  - tools/reflective-discussion-prep.md

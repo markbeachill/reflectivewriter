@@ -1,0 +1,18 @@
+id: us-academic
+title: "US and Academic Reflection Tutor Library"
+latest_output: docs/prompt-libraries/latest/05_us_academic_reflection_library.md
+archive_output: docs/prompt-libraries/v1.0/05_us_academic_reflection_library_v1_0.md
+tool_metadata_mode: mini
+sections:
+  - pack-sections/us-academic/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/us-academic/03-launcher.md
+  - pack-sections/us-academic/04-router.md
+tools:
+  - tools/deal-model.md
+  - tools/service-learning.md
+  - tools/reflective-journal.md
+  - tools/link-to-outcomes.md
+  - tools/eportfolio-statement.md
+  - tools/aha-moment.md

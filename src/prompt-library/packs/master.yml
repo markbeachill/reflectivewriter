@@ -1,0 +1,47 @@
+id: master
+title: "Reflective Report Writing Tutor — Master Library"
+latest_output: docs/prompt-libraries/latest/reflective_writing_tutor_master_library.md
+archive_output: docs/prompt-libraries/v1.0/reflective_writing_tutor_master_library_v1_0.md
+tool_metadata_mode: master
+sections:
+  - pack-sections/master/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/master/03-launcher.md
+  - pack-sections/master/04-router.md
+tools:
+  - section-markers/reflective-foundations-tools.md
+  - tools/description-detox.md
+  - tools/so-what-deepener.md
+  - tools/feelings-handled-well.md
+  - tools/depth-ladder.md
+  - tools/learning-into-action.md
+  - tools/reflective-voice.md
+  - section-markers/reflective-frameworks-tools.md
+  - tools/gibbs-cycle.md
+  - tools/what-sowhat-nowwhat.md
+  - tools/kolb-cycle.md
+  - tools/brookfield-lenses.md
+  - tools/choose-a-model.md
+  - tools/anti-box-ticking.md
+  - section-markers/nhs-healthcare-tools.md
+  - tools/nmc-revalidation-account.md
+  - tools/placement-reflection.md
+  - tools/significant-event.md
+  - tools/anonymisation-check.md
+  - tools/link-to-code.md
+  - tools/reflective-discussion-prep.md
+  - section-markers/medical-tools.md
+  - tools/reflective-practitioner-entry.md
+  - tools/insight-builder.md
+  - tools/anonymisation-disclosure.md
+  - tools/significant-event-analysis.md
+  - tools/tone-safety-check.md
+  - tools/capability-linkage.md
+  - section-markers/us-academic-tools.md
+  - tools/deal-model.md
+  - tools/service-learning.md
+  - tools/reflective-journal.md
+  - tools/link-to-outcomes.md
+  - tools/eportfolio-statement.md
+  - tools/aha-moment.md

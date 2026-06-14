@@ -1,239 +1,369 @@
 #!/usr/bin/env python3
-"""Build the Reflective Report Writing Tutor prompt libraries.
+"""Build the Reflective Report Writing Tutor prompt libraries from src/.
 
-Assembles five mini libraries and one master library from shared scaffolding
-and per-tool definitions, writes them to docs/prompt-libraries/latest/ and to a
-fixed archive folder, and zips the mini libraries.
+Source of truth is the file-based layout under src/prompt-library/:
+
+  header.md                        activation instruction (top of every file)
+  shared/01-global-rules.md        the no-ghost-writing ethic + global rules
+  shared/02-markdown-output-rules.md
+  tools/<id>.md                    one self-contained markdown file per tool
+  tool-metadata.json               codes, titles, families, descriptions, aliases
+  pack-sections/<pack>/{00-manifest,03-launcher,04-router}.md   literal text with
+                                   {{AVAILABLE_TOOLS_TABLE}}, {{LAUNCHER_MENU}},
+                                   {{MENU_MAPPING}} placeholders
+  section-markers/<family>-tools.md   group dividers used in the master file
+  packs/<pack>.yml                 which sections + tools make each library
+
+Each pack YAML names its section files and tool files, plus latest_output and
+archive_output paths. The build assembles header + sections + tools, fills the
+generated placeholders from tool-metadata.json, writes the latest and archive
+copies, and zips the five mini libraries.
 
 Usage:
-    python scripts/build_prompt_libraries.py          # build into docs/
-    python scripts/build_prompt_libraries.py --ci     # build + checks, no write needed
+    python scripts/build_prompt_libraries.py            # build into docs/
+    python scripts/build_prompt_libraries.py --check    # verify build is current
+    python scripts/build_prompt_libraries.py --ci       # build + check (CI)
 """
+from __future__ import annotations
+
+import argparse
+import json
 import os
+import re
 import sys
 import zipfile
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Dict, List, Sequence
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+SRC = ROOT / "src" / "prompt-library"
+HEADER = SRC / "header.md"
+TOOL_METADATA = SRC / "tool-metadata.json"
+PACKS_DIR = SRC / "packs"
+RELEASE_YML = SRC / "release.yml"
 
-from _shared import (  # noqa: E402
-    VERSION, activation, GLOBAL_RULES, MARKDOWN_RULES, manifest, launcher, router,
-)
-from _tools_general import LIB1_TOOLS, LIB2_TOOLS  # noqa: E402
-from _tools_specialist import LIB3_TOOLS, LIB4_TOOLS, LIB5_TOOLS  # noqa: E402
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-LATEST = os.path.join(ROOT, "docs", "prompt-libraries", "latest")
-ARCHIVE = os.path.join(ROOT, "docs", "prompt-libraries", f"v{VERSION}")
-
-# --- Library definitions ---------------------------------------------------
-
-LIBRARIES = [
-    {
-        "file": "01_reflective_foundations_library.md",
-        "title": "Reflective Foundations Tutor Library",
-        "purpose": "My job is to help you learn to reflect well and write a clear, honest reflective report in your own voice. Paste a passage of your own reflective writing and I will help you go deeper. I will not write your reflection for you.",
-        "tools": LIB1_TOOLS,
-        "footer": [
-            "Choose a tool to get started, then paste a passage of your own reflective writing. Not sure which tool? Describe your problem in a sentence and I will suggest one or two.",
-            "You can tell me your level, course or task so I can pitch the feedback properly, for example \"first-year education module\" or \"workplace CPD reflection\".",
-            "If you have a prescribed reflective model (such as Gibbs), or a professional standard (such as NMC revalidation, a medical portfolio, or US service-learning), there are specialist libraries for those.",
-        ],
-    },
-    {
-        "file": "02_reflective_frameworks_library.md",
-        "title": "Reflective Frameworks Tutor Library",
-        "purpose": "My job is to help you apply a reflective model to your own experience, or to choose one. I will guide you through the model's stages and ask for your own content; I will not write your reflection for you.",
-        "tools": LIB2_TOOLS,
-        "footer": [
-            "Not sure which model your course wants? Check your assignment brief first; many courses require a particular model. If you are still unsure, use FW5 to choose one.",
-            "Choose a tool to get started, then tell me the experience you want to reflect on, in anonymised terms.",
-        ],
-    },
-    {
-        "file": "03_nhs_healthcare_reflection_library.md",
-        "title": "NHS and Healthcare Reflection Tutor Library",
-        "purpose": "My job is to help nurses, midwives, nursing associates and healthcare students write reflective accounts to UK / NMC expectations, including revalidation accounts and placement reflections. I will not write your account for you, and I will help you keep it anonymous.",
-        "tools": LIB3_TOOLS,
-        "footer": [
-            "This library is built around NMC revalidation and UK healthcare practice, so I will not keep asking you about the format. Always confirm details against current NMC guidance and the official forms, which can change.",
-            "Choose a tool to get started, and describe your experience in anonymised terms only. Never paste anything that could identify a patient, service user or colleague.",
-        ],
-    },
-    {
-        "file": "04_medical_reflection_library.md",
-        "title": "Medical Reflection Tutor Library",
-        "purpose": "My job is to help doctors, medical students, physician associates and anaesthesia associates write reflective entries focused on insight and learning, in line with UK medical reflective-practice guidance. I will not write your entry for you, and I will help you keep it anonymous.",
-        "tools": LIB4_TOOLS,
-        "footer": [
-            "This library is built around The reflective practitioner guidance (Academy of Medical Royal Colleges, COPMeD, GMC and Medical Schools Council), so I will not keep asking you about the format. Confirm details against current guidance and your own college or deanery rules.",
-            "Choose a tool to get started, and describe your experience in anonymised terms only. Never paste patient-identifiable or personal data.",
-        ],
-    },
-    {
-        "file": "05_us_academic_reflection_library.md",
-        "title": "US and Academic Reflection Tutor Library",
-        "purpose": "My job is to help students in US higher education reflect on experiential, civic and service-learning, using models such as DEAL, and to tie reflections to course outcomes. I will guide and question; I will not write your reflection for you.",
-        "tools": LIB5_TOOLS,
-        "footer": [
-            "This library uses US higher-education reflection practice, including the DEAL model. It defaults to US English. Tell me your course and any rubric or learning outcomes so I can pitch the feedback properly.",
-            "Choose a tool to get started, then tell me the experience you want to reflect on.",
-        ],
-    },
+# Order families appear in the master file and in grouped menus.
+FAMILY_ORDER = [
+    "reflective-foundations",
+    "reflective-frameworks",
+    "nhs-healthcare",
+    "medical",
+    "us-academic",
 ]
 
-
-def render_library(lib, public_dir="prompt-libraries/latest"):
-    public_path = f"{public_dir}/{lib['file']}"
-    archive_name = lib["file"].replace(".md", f"_v{VERSION.replace('.', '_')}.md")
-    archive_path = f"prompt-libraries/v{VERSION}/{archive_name}"
-
-    parts = [activation(lib["title"])]
-    parts.append("\n" + manifest(
-        lib["title"], lib["tools"][0]["code"][:2], lib["tools"], public_path, archive_path,
-    ))
-    parts.append("\n" + GLOBAL_RULES)
-    parts.append("\n" + MARKDOWN_RULES)
-
-    menu_lines = [f"{t['menu']}. {t['menu_line']}" for t in lib["tools"]]
-    parts.append("\n" + launcher(lib["title"], lib["purpose"], menu_lines, lib["footer"]))
-
-    mapping_lines = []
-    for t in lib["tools"]:
-        aliases = ", ".join(f"`{a}`" for a in t["aliases"])
-        mapping_lines.append(f"- {aliases} → run `{t['id']}`")
-    parts.append("\n" + router(lib["title"], mapping_lines))
-
-    for t in lib["tools"]:
-        parts.append("\n" + t["body"])
-
-    return "".join(parts), archive_name
+MINI_PACKS = [
+    "reflective-foundations",
+    "reflective-frameworks",
+    "nhs-healthcare",
+    "medical",
+    "us-academic",
+]
+MINI_ZIP = ROOT / "docs" / "prompt-libraries" / "latest" / "reflective_writing_tutor_mini_libraries.zip"
 
 
-def render_master():
-    """One file containing every tool, with a single set of scaffolding."""
-    all_tools = []
-    for lib in LIBRARIES:
-        all_tools.extend(lib["tools"])
-
-    title = "Reflective Report Writing Tutor — Master Library"
-    public_path = "prompt-libraries/latest/reflective_writing_tutor_master_library.md"
-    archive_path = f"prompt-libraries/v{VERSION}/reflective_writing_tutor_master_library_v{VERSION.replace('.', '_')}.md"
-
-    purpose = ("My job is to help you reflect well and write a clear, honest reflective report in "
-               "your own voice, across general skills, named models, and professional standards "
-               "(NHS / NMC, UK medical, and US academic). I will guide and question; I will not "
-               "write your reflection for you.")
-
-    parts = [activation(title)]
-
-    # Master manifest groups tools by library
-    rows = []
-    for lib in LIBRARIES:
-        rows.append(f"\n_{lib['title']}_\n")
-        rows.append("| Menu | Code | ID | Tool title | Use when the writer wants to... |")
-        rows.append("|---:|---|---|---|---|")
-        for t in lib["tools"]:
-            rows.append(f"| {t['menu']} | {t['code']} | {t['id']} | {t['title']} | {t['use_when']} |")
-    manifest_block = f"""<!-- FILE: 00-manifest.md -->
----
-id: manifest
-title: {title}
-type: manifest
-run_policy: reference_only
-version: {VERSION}
-created_for: reflective report writing toolkit
----
-
-This section is for internal reference only. Do not output this section to the user.
-
-# {title}
-
-**Version:** v{VERSION}
-**Last updated:** prompt-library suite v{VERSION}
-**Public download:** `{public_path}`
-**Fixed archive:** `{archive_path}`
-
-This master file contains every tool from all five mini libraries. Use a mini library instead if you are on a free AI plan or want to focus on one area. Activate only `03-launcher` at the start; for every tool use, apply `01-global-rules` and `04-router`.
-
-## Available tools
-{os.linesep.join(rows)}
-
-<!-- END FILE -->
-"""
-    parts.append("\n" + manifest_block)
-    parts.append("\n" + GLOBAL_RULES)
-    parts.append("\n" + MARKDOWN_RULES)
-
-    # Master launcher: grouped menu using full codes
-    menu_lines = []
-    for lib in LIBRARIES:
-        menu_lines.append(f"\n**{lib['title']}**")
-        for t in lib["tools"]:
-            menu_lines.append(f"- {t['menu_line']}")
-    footer = [
-        "Tools are grouped by area. Type a tool code (for example `RF2`, `FW1`, `NH4`, `MD3`, `US1`) or describe what you need and I will suggest a tool.",
-        "If you have a prescribed model or a professional standard, the matching group already builds it in, so I will not over-quiz you on format.",
-        "Tell me your level, course, task and English variety so I can pitch the feedback properly.",
-    ]
-    parts.append("\n" + launcher(title, purpose, menu_lines, footer))
-
-    # Master router: map every full code
-    mapping_lines = []
-    for t in all_tools:
-        aliases = ", ".join(f"`{a}`" for a in t["aliases"] if not a.isdigit())
-        mapping_lines.append(f"- {aliases} → run `{t['id']}`")
-    extra = ("\n## Bare numbers in the master library\n\n"
-             "Because tools share menu numbers across groups, a bare number is ambiguous in this "
-             "master file. If the writer types only a number, ask which group they mean, or invite "
-             "them to use the full code such as `RF1` or `NH1`.\n")
-    parts.append("\n" + router(title, mapping_lines, extra))
-
-    for t in all_tools:
-        parts.append("\n" + t["body"])
-
-    return "".join(parts)
+# --- metadata --------------------------------------------------------------
+@dataclass
+class ToolMeta:
+    id: str
+    code: str
+    title: str
+    family: str
+    family_label: str
+    mini_family_label: str
+    master_manifest_description: str
+    mini_manifest_description: str
+    launcher_description: str
+    aliases: List[str] = field(default_factory=list)
 
 
-def write(path, text):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(text)
+def load_tool_metadata() -> Dict[str, ToolMeta]:
+    data = json.loads(TOOL_METADATA.read_text(encoding="utf-8"))
+    out: Dict[str, ToolMeta] = {}
+    for entry in data["tools"]:
+        out[entry["id"]] = ToolMeta(
+            id=entry["id"],
+            code=entry["code"],
+            title=entry["title"],
+            family=entry["family"],
+            family_label=entry["family_label"],
+            mini_family_label=entry["mini_family_label"],
+            master_manifest_description=entry["master_manifest_description"],
+            mini_manifest_description=entry["mini_manifest_description"],
+            launcher_description=entry["launcher_description"],
+            aliases=entry.get("aliases", []),
+        )
+    return out
 
 
-def main():
-    ci = "--ci" in sys.argv
-    os.makedirs(LATEST, exist_ok=True)
-    os.makedirs(ARCHIVE, exist_ok=True)
+def read_simple_yaml(path: Path) -> Dict[str, object]:
+    """Minimal YAML reader for the flat pack files (scalars + simple lists)."""
+    result: Dict[str, object] = {}
+    current_key = None
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        if not raw.strip() or raw.lstrip().startswith("#"):
+            continue
+        if raw.startswith("  - "):
+            if current_key is None:
+                continue
+            result.setdefault(current_key, [])
+            result[current_key].append(raw[4:].strip())  # type: ignore[union-attr]
+            continue
+        if ":" in raw and not raw.startswith(" "):
+            key, _, value = raw.partition(":")
+            key = key.strip()
+            value = value.strip()
+            if value:
+                result[key] = _unquote(value)
+                current_key = None
+            else:
+                result[key] = []
+                current_key = key
+    return result
 
-    mini_files = []
-    for lib in LIBRARIES:
-        text, archive_name = render_library(lib)
-        # basic checks
-        assert "READ THIS FIRST" in text
-        assert text.count("<!-- FILE:") >= len(lib["tools"]) + 4
-        for marker in ("manifest", "global-rules", "launcher", "04-router"):
-            assert marker in text, f"missing {marker} in {lib['file']}"
-        write(os.path.join(LATEST, lib["file"]), text)
-        write(os.path.join(ARCHIVE, archive_name), text)
-        mini_files.append(lib["file"])
-        print(f"built {lib['file']}  ({len(text):,} bytes, {len(lib['tools'])} tools)")
 
-    master = render_master()
-    write(os.path.join(LATEST, "reflective_writing_tutor_master_library.md"), master)
-    write(os.path.join(ARCHIVE, f"reflective_writing_tutor_master_library_v{VERSION.replace('.', '_')}.md"), master)
-    print(f"built master library ({len(master):,} bytes)")
+def _unquote(value: str) -> str:
+    if len(value) >= 2 and value[0] in "\"'" and value[-1] == value[0]:
+        return value[1:-1]
+    return value
 
-    # zip the mini libraries
-    zip_path = os.path.join(LATEST, "reflective_writing_tutor_mini_libraries.zip")
-    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-        for f in mini_files:
-            z.write(os.path.join(LATEST, f), arcname=f)
-    print(f"built {os.path.basename(zip_path)}")
 
-    if ci:
-        print("CI checks passed.")
+def read_source(rel_path: str) -> str:
+    return (SRC / rel_path).read_text(encoding="utf-8")
+
+
+# --- placeholder generation -------------------------------------------------
+def grouped_tools(tools: Sequence[ToolMeta]) -> List[tuple[str, List[ToolMeta]]]:
+    groups: List[tuple[str, List[ToolMeta]]] = []
+    for family in FAMILY_ORDER:
+        items = [t for t in tools if t.family == family]
+        if items:
+            groups.append((family, items))
+    return groups
+
+
+def generate_available_tools_table(spec: Dict[str, object], tools: Sequence[ToolMeta]) -> str:
+    is_master = spec.get("id") == "master"
+    groups = grouped_tools(tools) if is_master else [(tools[0].family, list(tools))]
+    lines: List[str] = []
+    number = 1
+    for _family, items in groups:
+        heading = items[0].family_label if is_master else items[0].mini_family_label
+        if lines:
+            lines.append("")
+        lines.append(f"**{heading}**")
+        lines.append("")
+        lines.append("| Menu | Code | ID | Tool title | Use when the writer wants to... |")
+        lines.append("|---:|---|---|---|---|")
+        for t in items:
+            desc = t.master_manifest_description if is_master else t.mini_manifest_description
+            lines.append(f"| {number} | {t.code} | {t.id} | {t.title} | {desc} |")
+            number += 1
+    return "\n".join(lines)
+
+
+def generate_launcher_menu(spec: Dict[str, object], tools: Sequence[ToolMeta]) -> str:
+    is_master = spec.get("id") == "master"
+    groups = grouped_tools(tools) if is_master else [(tools[0].family, list(tools))]
+    lines: List[str] = []
+    number = 1
+    for _family, items in groups:
+        if is_master:
+            if lines:
+                lines.append("")
+            lines.append(f"**{items[0].family_label}**")
+        for t in items:
+            lines.append(f"{number}. **{t.code} — {t.title}** — {t.launcher_description}")
+            number += 1
+    return "\n".join(lines)
+
+
+def generate_menu_mapping(spec: Dict[str, object], tools: Sequence[ToolMeta]) -> str:
+    is_master = spec.get("id") == "master"
+    lines: List[str] = []
+    for number, t in enumerate(tools, start=1):
+        if is_master:
+            aliases = [a for a in t.aliases if not a.isdigit()] or [t.code]
+        else:
+            aliases = t.aliases or [str(number), t.code, t.title]
+        alias_str = ", ".join(f"`{a}`" for a in aliases)
+        lines.append(f"- {alias_str} → run `{t.id}`")
+    return "\n".join(lines) + "\n"
+
+
+def render_generated_sections(text: str, spec: Dict[str, object], tools: Sequence[ToolMeta]) -> str:
+    replacements = {
+        "{{AVAILABLE_TOOLS_TABLE}}": generate_available_tools_table(spec, tools),
+        "{{LAUNCHER_MENU}}": generate_launcher_menu(spec, tools),
+        "{{MENU_MAPPING}}": generate_menu_mapping(spec, tools),
+    }
+    for marker, generated in replacements.items():
+        text = text.replace(marker, generated)
+    if "{{" in text or "}}" in text:
+        raise ValueError(f"Unresolved template marker in pack {spec.get('id')}")
+    return text
+
+
+def mini_tool_metadata(block: str, menu_number: int) -> str:
+    """Renumber a tool's menu_number front-matter for its position in a mini pack."""
+    return re.sub(r"^menu_number: .*$", f"menu_number: {menu_number}",
+                  block, count=1, flags=re.MULTILINE)
+
+
+# --- pack assembly ----------------------------------------------------------
+def pack_tool_ids(spec: Dict[str, object]) -> List[str]:
+    ids: List[str] = []
+    for rel in spec.get("tools", []):  # type: ignore[union-attr]
+        rel = str(rel)
+        if rel.startswith("tools/"):
+            ids.append(Path(rel).stem)
+    return ids
+
+
+def ordered_tool_meta(spec: Dict[str, object], metadata: Dict[str, ToolMeta]) -> List[ToolMeta]:
+    out: List[ToolMeta] = []
+    for tool_id in pack_tool_ids(spec):
+        if tool_id not in metadata:
+            raise ValueError(f"Pack {spec.get('id')}: no metadata for tool id {tool_id}")
+        out.append(metadata[tool_id])
+    return out
+
+
+def build_pack(spec: Dict[str, object], metadata: Dict[str, ToolMeta]) -> tuple[Path, Path | None, str]:
+    for key in ("id", "latest_output", "sections", "tools"):
+        if key not in spec:
+            raise ValueError(f"pack {spec.get('id')} missing required key: {key}")
+
+    tool_meta = ordered_tool_meta(spec, metadata)
+    mode = str(spec.get("tool_metadata_mode", "master"))
+
+    parts: List[str] = [HEADER.read_text(encoding="utf-8")]
+    for rel in spec["sections"]:  # type: ignore[union-attr]
+        section = read_source(str(rel))
+        section = render_generated_sections(section, spec, tool_meta)
+        parts.append(section)
+
+    menu_i = 0
+    for rel in spec["tools"]:  # type: ignore[union-attr]
+        rel = str(rel)
+        block = read_source(rel)
+        if rel.startswith("tools/"):
+            menu_i += 1
+            if mode == "mini":
+                block = mini_tool_metadata(block, menu_i)
+        parts.append(block)
+
+    output_text = "\n\n\n".join(p.rstrip("\n") for p in parts).rstrip() + "\n"
+    latest = ROOT / str(spec["latest_output"])
+    archive = ROOT / str(spec["archive_output"]) if spec.get("archive_output") else None
+    return latest, archive, output_text
+
+
+def write_if_changed(path: Path, text: str) -> bool:
+    old = path.read_text(encoding="utf-8") if path.exists() else None
+    if old == text:
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    return True
+
+
+# --- mini zip ---------------------------------------------------------------
+def build_mini_zip_bytes(latest_dir: Path, metadata: Dict[str, ToolMeta]) -> bytes:
+    import io
+    names = []
+    for pack_id in MINI_PACKS:
+        spec = read_simple_yaml(PACKS_DIR / f"{pack_id}.yml")
+        names.append(Path(str(spec["latest_output"])).name)
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for name in names:
+            z.write(latest_dir / name, arcname=name)
+    return buf.getvalue()
+
+
+# --- main -------------------------------------------------------------------
+def iter_packs() -> List[Path]:
+    # mini packs first (in defined order), then master
+    files = [PACKS_DIR / f"{p}.yml" for p in MINI_PACKS]
+    files.append(PACKS_DIR / "master.yml")
+    return files
+
+
+def run(check_only: bool) -> int:
+    metadata = load_tool_metadata()
+    changed: List[str] = []
+    latest_dir = ROOT / "docs" / "prompt-libraries" / "latest"
+
+    for pack_file in iter_packs():
+        spec = read_simple_yaml(pack_file)
+        latest, archive, text = build_pack(spec, metadata)
+        for target in (latest, archive):
+            if target is None:
+                continue
+            if check_only:
+                current = target.read_text(encoding="utf-8") if target.exists() else None
+                if current != text:
+                    changed.append(str(target.relative_to(ROOT)))
+            else:
+                if write_if_changed(target, text):
+                    print(f"built {target.relative_to(ROOT)}")
+        if not check_only:
+            n_tools = len(pack_tool_ids(spec))
+            print(f"  {spec['id']}: {len(text):,} bytes, {n_tools} tools")
+
+    # mini zip
+    zip_bytes = build_mini_zip_bytes(latest_dir, metadata)
+    if check_only:
+        current = MINI_ZIP.read_bytes() if MINI_ZIP.exists() else b""
+        # zip contents (names + payloads) compared, ignoring timestamps
+        if _zip_payload(current) != _zip_payload(zip_bytes):
+            changed.append(str(MINI_ZIP.relative_to(ROOT)))
+    else:
+        MINI_ZIP.parent.mkdir(parents=True, exist_ok=True)
+        MINI_ZIP.write_bytes(zip_bytes)
+        print(f"built {MINI_ZIP.relative_to(ROOT)}")
+
+    if check_only:
+        if changed:
+            print("Out-of-date generated files:", file=sys.stderr)
+            for c in changed:
+                print(f"  {c}", file=sys.stderr)
+            print("\nRun: python scripts/build_prompt_libraries.py", file=sys.stderr)
+            return 1
+        print("Prompt libraries are up to date.")
+    return 0
+
+
+def _zip_payload(data: bytes) -> Dict[str, bytes]:
+    import io
+    if not data:
+        return {}
+    out: Dict[str, bytes] = {}
+    with zipfile.ZipFile(io.BytesIO(data)) as z:
+        for name in sorted(z.namelist()):
+            out[name] = z.read(name)
+    return out
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Build the reflective-writing prompt libraries.")
+    parser.add_argument("--check", action="store_true", help="verify generated files are current")
+    parser.add_argument("--ci", action="store_true", help="build then check (for CI)")
+    args = parser.parse_args()
+
+    if args.check:
+        return run(check_only=True)
+    rc = run(check_only=False)
+    if rc != 0:
+        return rc
+    if args.ci:
+        rc = run(check_only=True)
+        if rc == 0:
+            print("CI checks passed.")
+    return rc
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

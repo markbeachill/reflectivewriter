@@ -35,46 +35,8 @@ about_body = """<main>
 <p>This site is not affiliated with the NMC, GMC, any medical royal college, or any university. It summarises publicly available guidance to help you write your own reflection; it does not replace your course, placement, employer or regulator's own rules. Always check those, especially on confidentiality and anonymisation.</p>
 </section></article>
 </main>"""
-write("about.html", page(f"About | {BRAND}", about_body))
+write("about.html", page(f"About | {BRAND}", about_body, body_class="reference"))
 
-# ---------------------------------------------------------------------------
-# EXAMPLES
-# ---------------------------------------------------------------------------
-examples_body = """<main>
-<article class="reading"><header class="page-intro"><p class="kicker">Examples</p><h1>What a session looks like</h1><p class="lead">Short, illustrative exchanges. Real sessions are interactive: the tutor asks, you answer in your own words, and it responds to what you actually wrote. The tutor never fills in your experience for you.</p></header>
-<section>
-<h2>Moving from description to meaning</h2>
-<p class="example-label">You paste (into RF2, So-What Deepener)</p>
-<blockquote>We had a difficult team meeting about the new rota. I said my bit and then it ended. I felt annoyed.</blockquote>
-<p class="example-label">The tutor replies</p>
-<div class="sample-output"><p>Good — there's a real feeling there to work with. "Annoyed" is the start, not the end. So what was underneath it: not being heard, a fairness issue, worry about the workload, something else? Pick the most honest one and finish this sentence in your own words: "It mattered to me because&hellip;"</p></div>
-<p class="example-note">Notice it does not tell you why you were annoyed. It points to the gap and asks you to fill it.</p>
-</section><section>
-<h2>Applying a framework without box-ticking</h2>
-<p class="example-label">You paste (into FW1, Gibbs)</p>
-<blockquote>Conclusion: I have learned I need better communication skills.</blockquote>
-<p class="example-label">The tutor replies</p>
-<div class="sample-output"><p>That conclusion would fit almost any reflection, which is a sign it is too general. Gibbs' conclusion asks what <em>you</em> now understand from <em>this</em> situation that you did not before. What specifically about your communication did this event reveal — and in what kind of moment? Try: "What I now see is that when&hellip;, I tend to&hellip;"</p></div>
-<p class="example-note">The tutor coaches a genuine, specific conclusion rather than writing one.</p>
-</section><section>
-<h2>An anonymisation check (specialist library)</h2>
-<p class="example-label">You paste (into NH4, Anonymisation and Confidentiality Check)</p>
-<blockquote>Last Tuesday on the early shift, my mentor Sarah and I looked after a 4-year-old boy with a rare metabolic condition in bed 3.</blockquote>
-<p class="example-label">The tutor replies</p>
-<div class="sample-output"><p>Several details here could identify real people: a named colleague, a specific day and shift, a child's exact age, a rare condition, and a bed number. A rare condition plus a small age range can be especially identifying. Removing only the name would not be enough. Try something like: "I worked with my practice supervisor to care for a young child with a complex long-term condition." Keep the day, shift and bed out entirely.</p></div>
-<p class="example-note">The check explains <em>why</em> each detail is a risk, so you learn to anonymise your own writing in future.</p>
-</section><section>
-<h2>When you are stuck</h2>
-<p class="example-label">You type</p>
-<blockquote>I'm stuck. I don't even know what I felt.</blockquote>
-<p class="example-label">The tutor replies</p>
-<div class="sample-output"><p>That's fine, and it's common. Let's make it smaller. Think back to the moment itself — not what you should have felt, just the body and the thought at the time. Was there a flicker of something: relief, dread, frustration, pride, blankness? You don't have to name it perfectly. Give me one rough word and we'll work outward from there.</p></div>
-<p class="example-note">"I'm stuck" always lowers the bar and offers a smaller next step. It never writes the answer for you.</p>
-</section>
-<section><div class="btn-row"><a class="button" href="../tools/">Browse the tools</a><a class="button secondary" href="../student-help/">How to use the toolkit</a></div></section>
-</article>
-</main>"""
-write("examples/index.html", page(f"Examples | {BRAND}", examples_body, base="../"))
 
 # ---------------------------------------------------------------------------
 # STUDENT HELP
@@ -116,7 +78,7 @@ student_body = f"""<main>
 <div class="btn-row"><a class="button" href="../tools/">See all libraries</a><a class="button secondary" href="../examples/">See example sessions</a></div>
 </section></article>
 </main>"""
-write("student-help/index.html", page(f"Student Help | {BRAND}", student_body, base="../"))
+write("student-help/index.html", page(f"Student Help | {BRAND}", student_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
 # GUIDES INDEX
@@ -129,7 +91,7 @@ guides_body = """<main>
 <article class="guide-card"><span class="guide-label">Approach</span><h3>The teaching approach</h3><p>How the tutor works, why it refuses to ghost-write, and the pedagogy behind the questions it asks.</p><div class="actions"><a class="button" href="teaching-approach.html">Read about the approach</a></div></article>
 </div></section></article>
 </main>"""
-write("guides/index.html", page(f"Guides | {BRAND}", guides_body, base="../"))
+write("guides/index.html", page(f"Guides | {BRAND}", guides_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
 # GUIDES: FRAMEWORKS
@@ -162,7 +124,7 @@ frameworks_body = """<main>
 <div class="btn-row"><a class="button" href="../tools/reflective-frameworks.html">Frameworks library</a><a class="button secondary" href="../tools/">All tools</a></div>
 </section></article>
 </main>"""
-write("guides/frameworks.html", page(f"Reflective frameworks | {BRAND}", frameworks_body, base="../"))
+write("guides/frameworks.html", page(f"Reflective frameworks | {BRAND}", frameworks_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
 # GUIDES: ANONYMISATION
@@ -202,7 +164,7 @@ anon_body = """<main>
 <div class="btn-row"><a class="button" href="../tools/nhs-healthcare.html">NHS anonymisation tool</a><a class="button secondary" href="../tools/medical.html">Medical anonymisation tool</a></div>
 </section></article>
 </main>"""
-write("guides/anonymisation.html", page(f"Anonymisation and confidentiality | {BRAND}", anon_body, base="../"))
+write("guides/anonymisation.html", page(f"Anonymisation and confidentiality | {BRAND}", anon_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
 # GUIDES: TEACHING APPROACH
@@ -228,7 +190,7 @@ teaching_body = """<main>
 <div class="btn-row"><a class="button" href="../tools/">Browse the tools</a><a class="button secondary" href="../student-help/">Student help</a></div>
 </section></article>
 </main>"""
-write("guides/teaching-approach.html", page(f"The teaching approach | {BRAND}", teaching_body, base="../"))
+write("guides/teaching-approach.html", page(f"The teaching approach | {BRAND}", teaching_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
 # CHANGELOG
@@ -244,11 +206,13 @@ changelog_body = f"""<main>
 <li>Thirty tools in total, plus a combined master library.</li>
 <li>Strengthened no-ghost-writing rule: the tutor never invents the writer's experience, feelings, insight or learning.</li>
 <li>Anonymisation and confidentiality checks built into the healthcare and medical libraries, with a dedicated safety guide.</li>
+<li>Worked example pages for every tool, shown as chat transcripts using a separate chat stylesheet.</li>
+<li>File-based prompt source under <code>src/</code>: one Markdown file per tool, with pack manifests compiled by the build script.</li>
 </ul>
 <p class="small-note">Downloads: <a href="../{PL}/reflective_writing_tutor_mini_libraries.zip" download>all mini libraries (zip)</a> &middot; <a href="../{PL}/reflective_writing_tutor_master_library.md" download>master library</a>.</p>
 </section></article>
 </main>"""
-write("changelog/index.html", page(f"Changelog | {BRAND}", changelog_body, base="../"))
+write("changelog/index.html", page(f"Changelog | {BRAND}", changelog_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
 # .nojekyll

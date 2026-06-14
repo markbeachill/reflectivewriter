@@ -1,0 +1,18 @@
+id: reflective-foundations
+title: "Reflective Foundations Tutor Library"
+latest_output: docs/prompt-libraries/latest/01_reflective_foundations_library.md
+archive_output: docs/prompt-libraries/v1.0/01_reflective_foundations_library_v1_0.md
+tool_metadata_mode: mini
+sections:
+  - pack-sections/reflective-foundations/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/reflective-foundations/03-launcher.md
+  - pack-sections/reflective-foundations/04-router.md
+tools:
+  - tools/description-detox.md
+  - tools/so-what-deepener.md
+  - tools/feelings-handled-well.md
+  - tools/depth-ladder.md
+  - tools/learning-into-action.md
+  - tools/reflective-voice.md

@@ -1,0 +1,18 @@
+id: reflective-frameworks
+title: "Reflective Frameworks Tutor Library"
+latest_output: docs/prompt-libraries/latest/02_reflective_frameworks_library.md
+archive_output: docs/prompt-libraries/v1.0/02_reflective_frameworks_library_v1_0.md
+tool_metadata_mode: mini
+sections:
+  - pack-sections/reflective-frameworks/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/reflective-frameworks/03-launcher.md
+  - pack-sections/reflective-frameworks/04-router.md
+tools:
+  - tools/gibbs-cycle.md
+  - tools/what-sowhat-nowwhat.md
+  - tools/kolb-cycle.md
+  - tools/brookfield-lenses.md
+  - tools/choose-a-model.md
+  - tools/anti-box-ticking.md

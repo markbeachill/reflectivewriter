@@ -1,101 +1,156 @@
-# PROMPTS.md — developer guide to the prompt files
+# PROMPTS.md — developer guide to the prompt source
 
-This explains how the downloadable prompt libraries are structured and how to change
-them. **The Markdown libraries in `docs/prompt-libraries/` are generated.** Edit the
-Python sources in `scripts/` and rebuild; do not hand-edit the generated files.
+The downloadable libraries in `docs/prompt-libraries/` are **generated**. The
+source of truth is the file-based layout under `src/prompt-library/`. Edit the
+source, then run the build; never hand-edit the generated Markdown.
 
-## Source files
+This layout mirrors the AI Personal Tutor Toolkit reference repository.
 
-| File | Contents |
+## Source layout
+
+```
+src/prompt-library/
+  header.md                         Activation instruction placed at the top of every library
+  shared/
+    01-global-rules.md              The no-ghost-writing ethic + global rules (applied by every tool)
+    02-markdown-output-rules.md     How to emit a clean Markdown document on request
+  tools/
+    <id>.md                         One self-contained file per tool (30 of them)
+  tool-metadata.json                Canonical codes, titles, families, descriptions, aliases
+  pack-sections/
+    <pack>/00-manifest.md           Literal manifest text with {{AVAILABLE_TOOLS_TABLE}}
+    <pack>/03-launcher.md           Literal launcher text with {{LAUNCHER_MENU}}
+    <pack>/04-router.md             Literal router text with {{MENU_MAPPING}}
+    master/...                      The same three sections for the master library
+  section-markers/
+    <family>-tools.md               Group dividers inserted between families in the master file
+  packs/
+    <pack>.yml                      Which sections + tools make up each library, and where it is written
+    master.yml
+  release.yml                       Version stamp
+```
+
+## How a library is assembled
+
+`scripts/build_prompt_libraries.py` reads a pack YAML and concatenates, in order:
+
+1. `header.md`
+2. each file listed under `sections:` (manifest, global-rules, markdown-rules, launcher, router)
+3. each file listed under `tools:` (the tool bodies, and section-markers for the master)
+
+While assembling, three placeholders are filled from `tool-metadata.json`:
+
+| Placeholder | Filled with |
 | --- | --- |
-| `scripts/_shared.py` | Version, the activation instruction, `GLOBAL_RULES`, `MARKDOWN_RULES`, and the `manifest()`, `launcher()` and `router()` builders shared by every library. |
-| `scripts/_tools_general.py` | The `_hdr()` header helper and the `RF` and `FW` tool lists. |
-| `scripts/_tools_specialist.py` | The `NH`, `MD` and `US` tool lists (imports `_hdr`). |
-| `scripts/build_prompt_libraries.py` | Assembles each library and the master file, writes them to `docs/prompt-libraries/latest/` and `docs/prompt-libraries/v1.0/`, and zips the mini libraries. |
+| `{{AVAILABLE_TOOLS_TABLE}}` | The manifest table (grouped by family in the master). |
+| `{{LAUNCHER_MENU}}` | The numbered launcher menu (grouped by family in the master). |
+| `{{MENU_MAPPING}}` | The router's alias-to-tool mapping. |
 
-## Anatomy of a built library
+For mini libraries, each tool's `menu_number` front-matter is renumbered to its
+position in that pack. The output is written to both `latest_output` and
+`archive_output`, and the five mini libraries are zipped.
 
-Each generated Markdown file is assembled in this order:
+## A pack file
 
-1. **Activation instruction** ("READ THIS FIRST") — tells the AI tool what it is and to
-   wait for the user to type `prompt`.
-2. **Manifest** (internal) — names the library and lists the tools.
-3. **global-rules** — the rules that always apply. This is where the **no-ghost-writing
-   ethic** lives: never invent the writer's experience, feelings, insight or learning;
-   protect confidentiality and anonymity; supportive tone; honest register.
-4. **markdown-output-rules** — keep output clean and readable.
-5. **launcher** — the **only** place the on-screen menu is defined.
-6. **router** (internal) — maps what the user types (numbers, codes, aliases) to a tool.
-7. **One section per tool**, each beginning with the header from `_hdr()`.
+```yaml
+id: nhs-healthcare
+title: "NHS and Healthcare Reflection Tutor Library"
+latest_output: docs/prompt-libraries/latest/03_nhs_healthcare_reflection_library.md
+archive_output: docs/prompt-libraries/v1.0/03_nhs_healthcare_reflection_library_v1_0.md
+tool_metadata_mode: mini          # "mini" renumbers menu_number; "master" leaves it
+sections:
+  - pack-sections/nhs-healthcare/00-manifest.md
+  - shared/01-global-rules.md
+  - shared/02-markdown-output-rules.md
+  - pack-sections/nhs-healthcare/03-launcher.md
+  - pack-sections/nhs-healthcare/04-router.md
+tools:
+  - tools/nmc-revalidation-account.md
+  - tools/placement-reflection.md
+  - ...
+```
 
-## Tool definition format
+## A tool file
 
-Every tool is a dict. Example (from `_tools_general.py`):
+Each `tools/<id>.md` is a complete prompt section: a `<!-- FILE: id.md -->`
+marker, YAML front-matter, a heading, and the tutoring script, ending with
+`<!-- END FILE -->`.
 
-```python
+```markdown
+<!-- FILE: so-what-deepener.md -->
+---
+id: so-what-deepener
+tool_code: RF2
+title: So-What Deepener
+type: tool
+menu_number: 2
+run_policy: selected_only
+interaction_type: interactive tutoring
+---
+
+# RF2 — So-What Deepener v1.0
+
+Apply `global-rules`. Run only this tool.
+
+Tool contract: interactive tutoring. ...
+<!-- END FILE -->
+```
+
+## tool-metadata.json
+
+One entry per tool drives the generated tables, menus and routing:
+
+```json
 {
-    "menu": 2, "code": "RF2", "id": "so-what-deepener",
-    "title": "So-What Deepener",
-    "use_when": "turn 'what happened' into 'what it meant and why it matters'",
-    "menu_line": "**RF2 — So-What Deepener** — move from describing the event to analysing why it mattered.",
-    "aliases": ["2", "RF2", "So-What Deepener", "So What Deepener"],
-    "interaction": "interactive tutoring",
-    "body": "...full markdown for the tool...",
+  "id": "so-what-deepener",
+  "code": "RF2",
+  "title": "So-What Deepener",
+  "family": "reflective-foundations",
+  "family_label": "Reflective Foundations tools",
+  "mini_family_label": "Reflective foundations tools",
+  "master_manifest_description": "turn 'what happened' into 'what it meant and why it matters'",
+  "mini_manifest_description": "turn 'what happened' into 'what it meant and why it matters'",
+  "launcher_description": "move from describing the event to analysing why it mattered.",
+  "aliases": ["2", "RF2", "So-What Deepener", "So What Deepener"],
+  "interaction_type": "interactive tutoring"
 }
 ```
 
-| Key | Purpose |
-| --- | --- |
-| `menu` | Menu number within its library. |
-| `code` | Short tool code (e.g. `RF2`, `NH4`). |
-| `id` | Slug used in the generated `<!-- FILE: id.md -->` marker and YAML `id`. |
-| `title` | Human title. |
-| `use_when` | One line shown to help users pick the tool. |
-| `menu_line` | The exact line printed in the launcher menu. |
-| `aliases` | Everything the router accepts to reach this tool. |
-| `interaction` | YAML `interaction_type` (usually `interactive tutoring`). |
-| `body` | The tutoring script: diagnose → explain → worked example on unrelated content → ask the writer to attempt → review. |
+The `family` must be one of the five in `FAMILY_ORDER` inside the build script.
 
-The `_hdr()` helper emits the YAML front-matter (`id`, `tool_code`, `title`, `type`,
-`menu_number`, `run_policy: selected_only`, `interaction_type`) and the `# CODE — Title`
-heading, followed by `Apply global-rules. Run only this tool.`
+## The rules every tool must follow
 
-## How each tool must behave
-
-Tool bodies must respect the global rules. In particular a tool must **never**:
-
-- write the user's reflection, or any portion of it, for them;
-- invent what happened, how the user felt, what they realised, or what they learned;
-- supply identifying detail or encourage the user to include it.
-
-A tool **should**: ask first, explain the move, show an example on *different* content,
-get the user to attempt it, then review. Support `prompt` (return to menu) and respond
-to "I'm stuck" by making the next step smaller.
+Tool bodies inherit `shared/01-global-rules.md`. In particular a tool must
+**never** write the writer's reflection, or invent what happened, how they felt,
+what they realised, or what they learned. It questions, diagnoses, teaches with a
+made-up example on different content, sets one task, and reviews the attempt.
+Anonymisation is treated as central because reflections involve real people.
 
 ## Editing workflow
 
-1. Edit the relevant tool dict or shared text in `scripts/`.
-2. Rebuild:
+1. Edit a tool file in `tools/`, a shared rule in `shared/`, or pack/section text.
+2. If you changed codes, titles, descriptions, order or aliases, update
+   `tool-metadata.json` to match.
+3. Rebuild and verify:
    ```bash
    python scripts/build_prompt_libraries.py
+   python scripts/build_prompt_libraries.py --check
    ```
-3. If you bumped the version, update `VERSION` / `LAST_UPDATED` in `scripts/_shared.py`
-   and `scripts/_site.py`, add a changelog entry in `scripts/build_site_pages.py`, and
-   create a new `docs/prompt-libraries/vX.Y/` archive (the build writes the archive copy
-   automatically using the current `VERSION`).
-4. Rebuild the site:
+4. Rebuild the site if tool names or examples changed:
    ```bash
    python scripts/build_site_main.py
    python scripts/build_site_pages.py
-   ```
-5. Run the CI check locally before pushing:
-   ```bash
-   python scripts/build_prompt_libraries.py --ci
+   python scripts/build_examples.py
    ```
 
 ## Adding a tool
 
-Append a dict to the appropriate list (`RF`, `FW`, `NH`, `MD`, `US`) with a unique
-`menu` number and `code`, a `menu_line`, sensible `aliases`, and a `body` that follows
-the teaching loop and the global rules. Rebuild. The launcher and router are generated
-from the lists, so the menu and routing update automatically.
+1. Create `tools/<new-id>.md` following the format above.
+2. Add its entry to `tool-metadata.json`.
+3. Add `- tools/<new-id>.md` to the relevant pack YAML and to `master.yml`
+   (after the right `section-markers/<family>-tools.md`).
+4. Add a worked example to `EXAMPLES` in `scripts/build_examples.py`.
+5. Rebuild. The manifest, launcher and router update automatically.
+
+See `CUSTOMISING_PROMPTS.md` for tailoring a local version without editing the
+core design.

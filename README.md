@@ -6,103 +6,108 @@ rather than writing it for you.
 
 **Live site:** https://markbeachill.github.io/reflectivewriter/
 
-It is part of the same family as the
-[AI Personal Tutor Toolkit](https://markbeachill.github.io/tutorprompts/) and follows
-the same tutor-not-ghost-writer design.
-
----
+Part of the same family as the
+[AI Personal Tutor Toolkit](https://markbeachill.github.io/tutorprompts/), and built
+the same way: a file-based prompt source compiled into shareable Markdown libraries
+and a plain-HTML GitHub Pages site.
 
 ## What it is
 
-Reflective writing is required across nursing, medicine, teaching, social work and
-higher education, but it is rarely taught — and general AI tools make it trivial to
-generate a plausible reflection that contains no actual reflection. This toolkit takes
-the opposite approach. Each library is a Markdown file you upload to an AI tool; typing
-`prompt` shows a menu of tools. Each tool diagnoses where your writing is, explains the
-move you need, shows a worked example on unrelated content, asks you to attempt it, and
-reviews what you wrote.
+Each library is a Markdown file you upload to an AI tool; typing `prompt` shows a menu
+of tools. Each tool diagnoses where your writing is, explains the move you need, shows
+a worked example on unrelated content, asks you to attempt it, and reviews what you
+wrote. **The core rule:** the tutor never invents your experience, feelings, insight or
+learning. Because reflections involve real people, anonymisation is built in.
 
-**The core rule:** the tutor never invents your experience, feelings, insight or
-learning, and never produces a finished reflection for you. Because reflections involve
-real people, anonymisation and confidentiality are built in.
+Five libraries, thirty tools, plus a combined master library:
 
-## The libraries
-
-Five libraries, thirty tools, plus a combined master library.
-
-| Library | Audience | Tools |
+| Library | Audience | Codes |
 | --- | --- | --- |
-| **Reflective Foundations** (RF) | Anyone, any subject | Core reflection skills: description, the "so what", feelings, depth, action, voice |
-| **Reflective Frameworks** (FW) | Told to use a named model | Gibbs; What? So What? Now What?; Kolb; Brookfield; Choose a Model; Anti-Box-Ticking |
-| **NHS & Healthcare** (NH) | Nurses, midwives, students (NMC) | Revalidation accounts, placement, significant events, anonymisation, the Code, discussion prep |
-| **Medical** (MD) | Doctors, students, PAs, AAs (UK) | Insight-focused entries, anonymisation & disclosure, significant events, tone, capability linkage |
-| **US & Academic** (US) | US higher education | DEAL model, service-learning, journals, learning outcomes, ePortfolio, critical incidents |
+| Reflective Foundations | Anyone, any subject | RF1–RF6 |
+| Reflective Frameworks | Told to use a named model | FW1–FW6 |
+| NHS & Healthcare | Nurses, midwives, students (NMC) | NH1–NH6 |
+| Medical | Doctors, students, PAs, AAs (UK) | MD1–MD6 |
+| US & Academic | US higher education | US1–US6 |
 
-Specialist libraries (NH, MD, US) build a professional standard in, so they ask fewer
-setup questions.
+Specialist libraries build a professional standard in, so they ask fewer setup
+questions.
 
 ## Repository layout
 
 ```
-docs/                         GitHub Pages site (published from /docs)
-  index.html                  Home
-  tools/                      Tools index + one explore page per library
-  examples/                   Example sessions
-  student-help/               How to use the toolkit
-  guides/                     Frameworks, anonymisation, teaching-approach
-  changelog/                  Version history
-  about.html
-  style.css                   Calm paper aesthetic, indigo accent
-  prompt-libraries/
-    latest/                   Current downloadable libraries (+ zip of mini libraries)
-    v1.0/                     Versioned archive copies
-scripts/                      Generators (source of truth — edit here, then rebuild)
-  _shared.py                  Activation text, global rules, manifest, launcher, router
-  _tools_general.py           RF + FW tool definitions
-  _tools_specialist.py        NH + MD + US tool definitions
-  build_prompt_libraries.py   Builds the libraries into docs/prompt-libraries/
-  _site.py                    Shared page template for the website
-  build_site_main.py          Builds home + tools pages
-  build_site_pages.py         Builds about, examples, student-help, guides, changelog
-.github/workflows/            CI that rebuilds and checks the libraries
+src/prompt-library/      SOURCE OF TRUTH for the prompt libraries (file-based)
+  header.md              Activation instruction
+  shared/                Global rules + Markdown-output rules
+  tools/<id>.md          One file per tool (30)
+  tool-metadata.json     Codes, titles, families, descriptions, aliases
+  pack-sections/         Per-library manifest / launcher / router (with placeholders)
+  section-markers/       Group dividers for the master file
+  packs/<pack>.yml       Which sections + tools make each library
+  release.yml            Version stamp
+scripts/
+  build_prompt_libraries.py   Compiles src/ into docs/prompt-libraries/ (+ --check, --ci)
+  _site.py                    Shared HTML page template
+  build_site_main.py          Home + tools pages
+  build_site_pages.py         About, student-help, guides, changelog
+  build_examples.py           Worked example pages (one per tool) using the chat CSS
+docs/                    GitHub Pages site (published from /docs)
+  index.html  tools/  examples/  student-help/  guides/  changelog/  about.html
+  style.css              Main site stylesheet (calm paper, indigo accent)
+  css/aichat*.css        Separate chat-bubble stylesheets for the example transcripts
+  prompt-libraries/latest/    Current downloadable libraries (+ zip of the mini set)
+  prompt-libraries/v1.0/      Versioned archive copies
+.github/workflows/       CI that rebuilds and verifies the libraries and site
 ```
+
+See [`PROMPTS.md`](PROMPTS.md) for the prompt-source format and
+[`CUSTOMISING_PROMPTS.md`](CUSTOMISING_PROMPTS.md) for tailoring a local version.
+
+## Page types
+
+The site uses three layout types, selected by a `<body>` class in `style.css`:
+
+- `home` — the landing page (hero + download cards).
+- `reference` — reading pages: tools, examples, student help, guides, about, changelog.
+- `menu` — an optional grid layout for menu-style pages.
+
+Example pages additionally load a chat stylesheet (`css/aichat.css`) to render real
+transcripts as chat bubbles. That CSS comes from a separate "AI chat" converter and is
+kept apart from `style.css`; it is scoped under `.ai-chat-page` so the two never clash.
 
 ## Building
 
 Requires Python 3 (standard library only).
 
 ```bash
-# Rebuild the downloadable prompt libraries
+# Compile the downloadable prompt libraries from src/
 python scripts/build_prompt_libraries.py
+
+# Verify the generated files are in sync with src/ (used by CI)
+python scripts/build_prompt_libraries.py --check
 
 # Rebuild the website
 python scripts/build_site_main.py
 python scripts/build_site_pages.py
+python scripts/build_examples.py
 ```
 
-`python scripts/build_prompt_libraries.py --ci` runs the build with consistency checks
-and is what the GitHub Action runs on every push.
+The prompt libraries are written from `src/`, so to change a tool you edit
+`src/prompt-library/tools/<id>.md` (and `tool-metadata.json` if codes or names
+change) and rebuild — never edit the generated Markdown by hand.
 
 ## Publishing (GitHub Pages)
 
-In the repository settings, set **Pages → Build and deployment → Source: Deploy from a
-branch**, branch **main**, folder **/docs**. The `.nojekyll` file in `docs/` ensures the
-plain HTML is served as-is.
-
-## A note on customising
-
-The prompt libraries are generated from `scripts/`. Edit the tool definitions there and
-rebuild rather than editing the generated Markdown by hand, so the website downloads and
-the archive copies stay in step. See [`PROMPTS.md`](PROMPTS.md) for the file format.
+Settings → Pages → Deploy from a branch → **main** → **/docs**. The `.nojekyll`
+files keep the plain HTML served as-is.
 
 ## Important limits
 
-This project is not affiliated with the NMC, GMC, any medical royal college, or any
-university. It summarises publicly available guidance to help you write your own
-reflection; it does not replace your course, placement, employer or regulator's rules,
-and it cannot guarantee anonymity.
+Not affiliated with the NMC, GMC, any medical royal college, or any university. It
+summarises publicly available guidance to help you write your own reflection; it does
+not replace your course, placement, employer or regulator's rules, and it cannot
+guarantee anonymity.
 
 ## Credits
 
-Created by [Dr Mark Beachill](https://www.linkedin.com/in/markbeachill/). Licensed under
-the MIT License — see [`LICENSE`](LICENSE).
+Created by [Dr Mark Beachill](https://www.linkedin.com/in/markbeachill/).
+Licensed under the MIT License — see [`LICENSE`](LICENSE).

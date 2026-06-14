@@ -1,0 +1,558 @@
+{
+  "tools": [
+    {
+      "id": "description-detox",
+      "code": "RF1",
+      "title": "Description Detox",
+      "family": "reflective-foundations",
+      "family_label": "Reflective Foundations tools",
+      "mini_family_label": "Reflective foundations tools",
+      "master_manifest_description": "trim writing that is all description and find where reflection should begin",
+      "mini_manifest_description": "trim writing that is all description and find where reflection should begin",
+      "launcher_description": "find where your writing is just retelling events, and where reflection should start.",
+      "aliases": [
+        "1",
+        "RF1",
+        "Description Detox"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "so-what-deepener",
+      "code": "RF2",
+      "title": "So-What Deepener",
+      "family": "reflective-foundations",
+      "family_label": "Reflective Foundations tools",
+      "mini_family_label": "Reflective foundations tools",
+      "master_manifest_description": "turn 'what happened' into 'what it meant and why it matters'",
+      "mini_manifest_description": "turn 'what happened' into 'what it meant and why it matters'",
+      "launcher_description": "move from describing the event to analysing why it mattered.",
+      "aliases": [
+        "2",
+        "RF2",
+        "So-What Deepener",
+        "So What Deepener"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "feelings-handled-well",
+      "code": "RF3",
+      "title": "Feelings, Handled Well",
+      "family": "reflective-foundations",
+      "family_label": "Reflective Foundations tools",
+      "mini_family_label": "Reflective foundations tools",
+      "master_manifest_description": "name emotions honestly and professionally without venting",
+      "mini_manifest_description": "name emotions honestly and professionally without venting",
+      "launcher_description": "write honestly about how you felt without venting or oversharing.",
+      "aliases": [
+        "3",
+        "RF3",
+        "Feelings, Handled Well",
+        "Feelings Handled Well",
+        "feelings"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "depth-ladder",
+      "code": "RF4",
+      "title": "Depth Ladder",
+      "family": "reflective-foundations",
+      "family_label": "Reflective Foundations tools",
+      "mini_family_label": "Reflective foundations tools",
+      "master_manifest_description": "see whether a reflection is surface, intermediate or critical, and find the next rung",
+      "mini_manifest_description": "see whether a reflection is surface, intermediate or critical, and find the next rung",
+      "launcher_description": "check how deep your reflection goes and find the next step up.",
+      "aliases": [
+        "4",
+        "RF4",
+        "Depth Ladder"
+      ],
+      "interaction_type": "structured review then tutoring"
+    },
+    {
+      "id": "learning-into-action",
+      "code": "RF5",
+      "title": "Learning into Action",
+      "family": "reflective-foundations",
+      "family_label": "Reflective Foundations tools",
+      "mini_family_label": "Reflective foundations tools",
+      "master_manifest_description": "turn an insight into a specific, realistic action they will actually take",
+      "mini_manifest_description": "turn an insight into a specific, realistic action they will actually take",
+      "launcher_description": "turn what you learned into a clear, realistic next action.",
+      "aliases": [
+        "5",
+        "RF5",
+        "Learning into Action",
+        "action"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "reflective-voice",
+      "code": "RF6",
+      "title": "Reflective Voice and Tense",
+      "family": "reflective-foundations",
+      "family_label": "Reflective Foundations tools",
+      "mini_family_label": "Reflective foundations tools",
+      "master_manifest_description": "get the first-person voice, tense and register right",
+      "mini_manifest_description": "get the first-person voice, tense and register right",
+      "launcher_description": "get first person, tense and an honest, non-performative voice right.",
+      "aliases": [
+        "6",
+        "RF6",
+        "Reflective Voice and Tense",
+        "voice"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "gibbs-cycle",
+      "code": "FW1",
+      "title": "Gibbs' Reflective Cycle Coach",
+      "family": "reflective-frameworks",
+      "family_label": "Reflective Frameworks tools",
+      "mini_family_label": "Reflective framework tools",
+      "master_manifest_description": "work through an experience using Gibbs' six stages",
+      "mini_manifest_description": "work through an experience using Gibbs' six stages",
+      "launcher_description": "work through an experience using Gibbs' six stages.",
+      "aliases": [
+        "1",
+        "FW1",
+        "Gibbs",
+        "Gibbs' Reflective Cycle",
+        "Gibbs Reflective Cycle"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "what-sowhat-nowwhat",
+      "code": "FW2",
+      "title": "What? So What? Now What? Coach",
+      "family": "reflective-frameworks",
+      "family_label": "Reflective Frameworks tools",
+      "mini_family_label": "Reflective framework tools",
+      "master_manifest_description": "reflect using the three-question What / So What / Now What model",
+      "mini_manifest_description": "reflect using the three-question What / So What / Now What model",
+      "launcher_description": "reflect using the simple three-question model (Borton; Driscoll; Rolfe et al.).",
+      "aliases": [
+        "2",
+        "FW2",
+        "What So What Now What",
+        "Rolfe",
+        "Driscoll",
+        "Borton"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "kolb-cycle",
+      "code": "FW3",
+      "title": "Kolb's Experiential Learning Cycle Coach",
+      "family": "reflective-frameworks",
+      "family_label": "Reflective Frameworks tools",
+      "mini_family_label": "Reflective framework tools",
+      "master_manifest_description": "reflect and plan using Kolb's four-stage experiential cycle",
+      "mini_manifest_description": "reflect and plan using Kolb's four-stage experiential cycle",
+      "launcher_description": "reflect and plan using Kolb's four stages.",
+      "aliases": [
+        "3",
+        "FW3",
+        "Kolb",
+        "Kolb's Experiential Learning Cycle"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "brookfield-lenses",
+      "code": "FW4",
+      "title": "Brookfield's Four Lenses Coach",
+      "family": "reflective-frameworks",
+      "family_label": "Reflective Frameworks tools",
+      "mini_family_label": "Reflective framework tools",
+      "master_manifest_description": "examine an experience from four different viewpoints",
+      "mini_manifest_description": "examine an experience from four different viewpoints",
+      "launcher_description": "look at an experience through four different viewpoints.",
+      "aliases": [
+        "4",
+        "FW4",
+        "Brookfield",
+        "Four Lenses"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "choose-a-model",
+      "code": "FW5",
+      "title": "Choose a Model",
+      "family": "reflective-frameworks",
+      "family_label": "Reflective Frameworks tools",
+      "mini_family_label": "Reflective framework tools",
+      "master_manifest_description": "decide which reflective model fits their task",
+      "mini_manifest_description": "decide which reflective model fits their task",
+      "launcher_description": "work out which reflective model fits your task and word count.",
+      "aliases": [
+        "5",
+        "FW5",
+        "Choose a Model",
+        "which model"
+      ],
+      "interaction_type": "advisory"
+    },
+    {
+      "id": "anti-box-ticking",
+      "code": "FW6",
+      "title": "Anti-Box-Ticking Check",
+      "family": "reflective-frameworks",
+      "family_label": "Reflective Frameworks tools",
+      "mini_family_label": "Reflective framework tools",
+      "master_manifest_description": "check they are reflecting, not just mechanically filling a model's headings",
+      "mini_manifest_description": "check they are reflecting, not just mechanically filling a model's headings",
+      "launcher_description": "make sure you are reflecting, not just filling in the model's boxes.",
+      "aliases": [
+        "6",
+        "FW6",
+        "Anti-Box-Ticking Check",
+        "box ticking"
+      ],
+      "interaction_type": "structured review then tutoring"
+    },
+    {
+      "id": "nmc-revalidation-account",
+      "code": "NH1",
+      "title": "NMC Revalidation Reflective Account",
+      "family": "nhs-healthcare",
+      "family_label": "NHS and Healthcare tools",
+      "mini_family_label": "NHS and healthcare tools",
+      "master_manifest_description": "draft one of the five reflective accounts for NMC revalidation",
+      "mini_manifest_description": "draft one of the five reflective accounts for NMC revalidation",
+      "launcher_description": "work through one of the five accounts and link it to the Code.",
+      "aliases": [
+        "1",
+        "NH1",
+        "NMC",
+        "revalidation",
+        "NMC Revalidation Reflective Account"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "placement-reflection",
+      "code": "NH2",
+      "title": "Practice Placement Reflection",
+      "family": "nhs-healthcare",
+      "family_label": "NHS and Healthcare tools",
+      "mini_family_label": "NHS and healthcare tools",
+      "master_manifest_description": "reflect on a practice placement experience as a student",
+      "mini_manifest_description": "reflect on a practice placement experience as a student",
+      "launcher_description": "reflect on a placement experience and link it to your proficiencies.",
+      "aliases": [
+        "2",
+        "NH2",
+        "placement",
+        "Practice Placement Reflection"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "significant-event",
+      "code": "NH3",
+      "title": "Significant Event Reflection",
+      "family": "nhs-healthcare",
+      "family_label": "NHS and Healthcare tools",
+      "mini_family_label": "NHS and healthcare tools",
+      "master_manifest_description": "reflect on a critical incident or significant event in practice",
+      "mini_manifest_description": "reflect on a critical incident or significant event in practice",
+      "launcher_description": "reflect carefully and constructively on a significant event or incident.",
+      "aliases": [
+        "3",
+        "NH3",
+        "significant event",
+        "critical incident",
+        "Significant Event Reflection"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "anonymisation-check",
+      "code": "NH4",
+      "title": "Anonymisation and Confidentiality Check",
+      "family": "nhs-healthcare",
+      "family_label": "NHS and Healthcare tools",
+      "mini_family_label": "NHS and healthcare tools",
+      "master_manifest_description": "check a reflection contains nothing that could identify a patient, colleague or service user",
+      "mini_manifest_description": "check a reflection contains nothing that could identify a patient, colleague or service user",
+      "launcher_description": "check your reflection cannot identify a patient, service user or colleague.",
+      "aliases": [
+        "4",
+        "NH4",
+        "anonymisation",
+        "anonymise",
+        "confidentiality",
+        "Anonymisation and Confidentiality Check"
+      ],
+      "interaction_type": "structured review"
+    },
+    {
+      "id": "link-to-code",
+      "code": "NH5",
+      "title": "Link to the Code",
+      "family": "nhs-healthcare",
+      "family_label": "NHS and Healthcare tools",
+      "mini_family_label": "NHS and healthcare tools",
+      "master_manifest_description": "map a reflection to the themes of the NMC Code",
+      "mini_manifest_description": "map a reflection to the themes of the NMC Code",
+      "launcher_description": "map your reflection to the four themes of the NMC Code.",
+      "aliases": [
+        "5",
+        "NH5",
+        "the Code",
+        "Link to the Code"
+      ],
+      "interaction_type": "advisory tutoring"
+    },
+    {
+      "id": "reflective-discussion-prep",
+      "code": "NH6",
+      "title": "Reflective Discussion Prep",
+      "family": "nhs-healthcare",
+      "family_label": "NHS and Healthcare tools",
+      "mini_family_label": "NHS and healthcare tools",
+      "master_manifest_description": "prepare for the reflective discussion with another registrant",
+      "mini_manifest_description": "prepare for the reflective discussion with another registrant",
+      "launcher_description": "get ready for the reflective discussion with another registrant.",
+      "aliases": [
+        "6",
+        "NH6",
+        "reflective discussion",
+        "Reflective Discussion Prep"
+      ],
+      "interaction_type": "advisory tutoring"
+    },
+    {
+      "id": "reflective-practitioner-entry",
+      "code": "MD1",
+      "title": "Reflective Practitioner Entry",
+      "family": "medical",
+      "family_label": "Medical reflection tools",
+      "mini_family_label": "Medical reflection tools",
+      "master_manifest_description": "draft a portfolio, appraisal or training reflection as a doctor or medical student",
+      "mini_manifest_description": "draft a portfolio, appraisal or training reflection as a doctor or medical student",
+      "launcher_description": "draft a portfolio or appraisal reflection focused on insight and learning.",
+      "aliases": [
+        "1",
+        "MD1",
+        "portfolio",
+        "appraisal",
+        "Reflective Practitioner Entry"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "insight-builder",
+      "code": "MD2",
+      "title": "Insight Builder",
+      "family": "medical",
+      "family_label": "Medical reflection tools",
+      "mini_family_label": "Medical reflection tools",
+      "master_manifest_description": "move a reflection from description to demonstrable insight",
+      "mini_manifest_description": "move a reflection from description to demonstrable insight",
+      "launcher_description": "turn an account of an event into demonstrable insight and learning.",
+      "aliases": [
+        "2",
+        "MD2",
+        "insight",
+        "Insight Builder"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "anonymisation-disclosure",
+      "code": "MD3",
+      "title": "Anonymisation and Disclosure Awareness",
+      "family": "medical",
+      "family_label": "Medical reflection tools",
+      "mini_family_label": "Medical reflection tools",
+      "master_manifest_description": "check a reflection is anonymised and understand how reflective notes can be used",
+      "mini_manifest_description": "check a reflection is anonymised and understand how reflective notes can be used",
+      "launcher_description": "check anonymity and understand how reflective notes may be used.",
+      "aliases": [
+        "3",
+        "MD3",
+        "anonymisation",
+        "disclosure",
+        "Anonymisation and Disclosure Awareness"
+      ],
+      "interaction_type": "structured review"
+    },
+    {
+      "id": "significant-event-analysis",
+      "code": "MD4",
+      "title": "Significant Event and Feedback Reflection",
+      "family": "medical",
+      "family_label": "Medical reflection tools",
+      "mini_family_label": "Medical reflection tools",
+      "master_manifest_description": "reflect on a significant event, complaint or compliment",
+      "mini_manifest_description": "reflect on a significant event, complaint or compliment",
+      "launcher_description": "reflect constructively on an event, complaint or compliment.",
+      "aliases": [
+        "4",
+        "MD4",
+        "significant event",
+        "complaint",
+        "Significant Event and Feedback Reflection"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "tone-safety-check",
+      "code": "MD5",
+      "title": "Tone and Safety Check",
+      "family": "medical",
+      "family_label": "Medical reflection tools",
+      "mini_family_label": "Medical reflection tools",
+      "master_manifest_description": "check the tone is constructive, not blaming or heat-of-the-moment",
+      "mini_manifest_description": "check the tone is constructive, not blaming or heat-of-the-moment",
+      "launcher_description": "check the tone is constructive, not blaming or written in the heat of the moment.",
+      "aliases": [
+        "5",
+        "MD5",
+        "tone",
+        "Tone and Safety Check"
+      ],
+      "interaction_type": "structured review then tutoring"
+    },
+    {
+      "id": "capability-linkage",
+      "code": "MD6",
+      "title": "Capability and Curriculum Linkage",
+      "family": "medical",
+      "family_label": "Medical reflection tools",
+      "mini_family_label": "Medical reflection tools",
+      "master_manifest_description": "link a reflection to a curriculum capability or competency",
+      "mini_manifest_description": "link a reflection to a curriculum capability or competency",
+      "launcher_description": "link your reflection to a curriculum capability in your own words.",
+      "aliases": [
+        "6",
+        "MD6",
+        "capability",
+        "curriculum",
+        "Capability and Curriculum Linkage"
+      ],
+      "interaction_type": "advisory tutoring"
+    },
+    {
+      "id": "deal-model",
+      "code": "US1",
+      "title": "DEAL Model Coach",
+      "family": "us-academic",
+      "family_label": "US and Academic tools",
+      "mini_family_label": "US and academic tools",
+      "master_manifest_description": "reflect using Describe, Examine, Articulate Learning",
+      "mini_manifest_description": "reflect using Describe, Examine, Articulate Learning",
+      "launcher_description": "reflect using Describe, Examine, and Articulate Learning (Ash & Clayton).",
+      "aliases": [
+        "1",
+        "US1",
+        "DEAL",
+        "DEAL Model"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "service-learning",
+      "code": "US2",
+      "title": "Service-Learning Reflection",
+      "family": "us-academic",
+      "family_label": "US and Academic tools",
+      "mini_family_label": "US and academic tools",
+      "master_manifest_description": "reflect on a community-engaged or service-learning experience",
+      "mini_manifest_description": "reflect on a community-engaged or service-learning experience",
+      "launcher_description": "reflect on a community-engaged or service-learning experience.",
+      "aliases": [
+        "2",
+        "US2",
+        "service learning",
+        "civic",
+        "Service-Learning Reflection"
+      ],
+      "interaction_type": "guided framework tutoring"
+    },
+    {
+      "id": "reflective-journal",
+      "code": "US3",
+      "title": "Reflective Journal Coach",
+      "family": "us-academic",
+      "family_label": "US and Academic tools",
+      "mini_family_label": "US and academic tools",
+      "master_manifest_description": "build a habit of regular journal entries with depth over time",
+      "mini_manifest_description": "build a habit of regular journal entries with depth over time",
+      "launcher_description": "build regular journal entries that deepen over time.",
+      "aliases": [
+        "3",
+        "US3",
+        "journal",
+        "Reflective Journal"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "link-to-outcomes",
+      "code": "US4",
+      "title": "Link to Learning Outcomes",
+      "family": "us-academic",
+      "family_label": "US and Academic tools",
+      "mini_family_label": "US and academic tools",
+      "master_manifest_description": "tie a reflection to course learning objectives or competencies",
+      "mini_manifest_description": "tie a reflection to course learning objectives or competencies",
+      "launcher_description": "connect a reflection to your course learning objectives.",
+      "aliases": [
+        "4",
+        "US4",
+        "learning outcomes",
+        "objectives",
+        "Link to Learning Outcomes"
+      ],
+      "interaction_type": "advisory tutoring"
+    },
+    {
+      "id": "eportfolio-statement",
+      "code": "US5",
+      "title": "ePortfolio Reflective Statement",
+      "family": "us-academic",
+      "family_label": "US and Academic tools",
+      "mini_family_label": "US and academic tools",
+      "master_manifest_description": "write a reflective statement that frames a piece of work in a portfolio",
+      "mini_manifest_description": "write a reflective statement that frames a piece of work in a portfolio",
+      "launcher_description": "frame a piece of work with a reflective statement.",
+      "aliases": [
+        "5",
+        "US5",
+        "eportfolio",
+        "portfolio statement",
+        "ePortfolio Reflective Statement"
+      ],
+      "interaction_type": "interactive tutoring"
+    },
+    {
+      "id": "aha-moment",
+      "code": "US6",
+      "title": "Critical Incident Reflection",
+      "family": "us-academic",
+      "family_label": "US and Academic tools",
+      "mini_family_label": "US and academic tools",
+      "master_manifest_description": "reflect on a turning point or 'aha' moment in their learning",
+      "mini_manifest_description": "reflect on a turning point or 'aha' moment in their learning",
+      "launcher_description": "reflect on a turning point or 'aha' moment in your learning.",
+      "aliases": [
+        "6",
+        "US6",
+        "critical incident",
+        "aha moment",
+        "Critical Incident Reflection"
+      ],
+      "interaction_type": "guided framework tutoring"
+    }
+  ]
+}

@@ -28,7 +28,7 @@ tools_index_body = f"""<main><article class="reading"><header class="page-intro"
 <p><strong><a href="us-academic.html">US &amp; Academic</a></strong> — the DEAL model, service-learning, reflective journals, learning-outcome linkage, ePortfolio statements, and critical-incident reflection.</p>
 </section>
 <section><h2>Everything in one file</h2><p>The master library contains all thirty tools. It is larger, so use a mini library on a free AI plan.</p><div class="btn-row"><a class="button" download="" href="../{PL}/reflective_writing_tutor_master_library.md">Download master library</a><a class="button secondary" download="" href="../{PL}/reflective_writing_tutor_mini_libraries.zip">Download all mini libraries (zip)</a></div></section></article></main>"""
-write("tools/index.html", page(f"Tools | {BRAND}", tools_index_body, css="style.css", base="../"))
+write("tools/index.html", page(f"Tools | {BRAND}", tools_index_body, css="style.css", base="../", body_class="reference"))
 
 
 # Helper for a tool-library explore page
@@ -41,7 +41,7 @@ def tool_page(slug, kicker, h1, lead, file_name, rows, example):
 <section><h2>Tools included</h2>
 <table><thead><tr><th aria-label="Tool code"></th><th>Tool</th><th>Use it when...</th><th>What you get</th></tr></thead><tbody>{rows_html}</tbody></table></section>
 <section><h2>Mini example</h2>{example}<p class="small">This is a short illustration. Real exchanges are interactive: the tutor asks, you answer, and it responds to what you actually wrote.</p></section></article></main>"""
-    write(f"tools/{slug}.html", page(f"{h1} | {BRAND}", body, css="style.css", base="../"))
+    write(f"tools/{slug}.html", page(f"{h1} | {BRAND}", body, css="style.css", base="../", body_class="reference"))
 
 
 tool_page(
