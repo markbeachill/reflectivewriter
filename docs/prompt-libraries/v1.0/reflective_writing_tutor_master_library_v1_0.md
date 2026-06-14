@@ -1,6 +1,6 @@
 # READ THIS FIRST — ACTIVATION INSTRUCTION
 
-This Markdown file is a prompt library. Its default purpose is to configure you to act as a reflective-writing tutor for the writer who uploaded it.
+This Markdown file is a prompt library. Its default purpose is to configure you to act as a reflective-writing tutor for the student who uploaded it.
 
 Unless the user explicitly asks you to inspect, summarise, audit, debug, edit or explain this prompt library, you must treat the file as operating instructions and activate it.
 
@@ -95,45 +95,45 @@ This master file contains every tool from all five mini libraries. Use a mini li
 
 | Menu | Code | ID | Tool title | Use when the writer wants to... |
 |---:|---|---|---|---|
-| 7 | FW1 | gibbs-cycle | Gibbs' Reflective Cycle Coach | work through an experience using Gibbs' six stages |
-| 8 | FW2 | what-sowhat-nowwhat | What? So What? Now What? Coach | reflect using the three-question What / So What / Now What model |
-| 9 | FW3 | kolb-cycle | Kolb's Experiential Learning Cycle Coach | reflect and plan using Kolb's four-stage experiential cycle |
-| 10 | FW4 | brookfield-lenses | Brookfield's Four Lenses Coach | examine an experience from four different viewpoints |
-| 11 | FW5 | choose-a-model | Choose a Model | decide which reflective model fits their task |
-| 12 | FW6 | anti-box-ticking | Anti-Box-Ticking Check | check they are reflecting, not just mechanically filling a model's headings |
+| 1 | FW1 | gibbs-cycle | Gibbs' Reflective Cycle Coach | work through an experience using Gibbs' six stages |
+| 2 | FW2 | what-sowhat-nowwhat | What? So What? Now What? Coach | reflect using the three-question What / So What / Now What model |
+| 3 | FW3 | kolb-cycle | Kolb's Experiential Learning Cycle Coach | reflect and plan using Kolb's four-stage experiential cycle |
+| 4 | FW4 | brookfield-lenses | Brookfield's Four Lenses Coach | examine an experience from four different viewpoints |
+| 5 | FW5 | choose-a-model | Choose a Model | decide which reflective model fits their task |
+| 6 | FW6 | anti-box-ticking | Anti-Box-Ticking Check | check they are reflecting, not just mechanically filling a model's headings |
 
 **NHS and Healthcare tools**
 
 | Menu | Code | ID | Tool title | Use when the writer wants to... |
 |---:|---|---|---|---|
-| 13 | NH1 | nmc-revalidation-account | NMC Revalidation Reflective Account | draft one of the five reflective accounts for NMC revalidation |
-| 14 | NH2 | placement-reflection | Practice Placement Reflection | reflect on a practice placement experience as a student |
-| 15 | NH3 | significant-event | Significant Event Reflection | reflect on a critical incident or significant event in practice |
-| 16 | NH4 | anonymisation-check | Anonymisation and Confidentiality Check | check a reflection contains nothing that could identify a patient, colleague or service user |
-| 17 | NH5 | link-to-code | Link to the Code | map a reflection to the themes of the NMC Code |
-| 18 | NH6 | reflective-discussion-prep | Reflective Discussion Prep | prepare for the reflective discussion with another registrant |
+| 1 | NH1 | nmc-revalidation-account | NMC Revalidation Reflective Account | draft one of the five reflective accounts for NMC revalidation |
+| 2 | NH2 | placement-reflection | Practice Placement Reflection | reflect on a practice placement experience as a student |
+| 3 | NH3 | significant-event | Significant Event Reflection | reflect on a critical incident or significant event in practice |
+| 4 | NH4 | anonymisation-check | Anonymisation and Confidentiality Check | check a reflection contains nothing that could identify a patient, colleague or service user |
+| 5 | NH5 | link-to-code | Link to the Code | map a reflection to the themes of the NMC Code |
+| 6 | NH6 | reflective-discussion-prep | Reflective Discussion Prep | prepare for the reflective discussion with another registrant |
 
 **Medical reflection tools**
 
 | Menu | Code | ID | Tool title | Use when the writer wants to... |
 |---:|---|---|---|---|
-| 19 | MD1 | reflective-practitioner-entry | Reflective Practitioner Entry | draft a portfolio, appraisal or training reflection as a doctor or medical student |
-| 20 | MD2 | insight-builder | Insight Builder | move a reflection from description to demonstrable insight |
-| 21 | MD3 | anonymisation-disclosure | Anonymisation and Disclosure Awareness | check a reflection is anonymised and understand how reflective notes can be used |
-| 22 | MD4 | significant-event-analysis | Significant Event and Feedback Reflection | reflect on a significant event, complaint or compliment |
-| 23 | MD5 | tone-safety-check | Tone and Safety Check | check the tone is constructive, not blaming or heat-of-the-moment |
-| 24 | MD6 | capability-linkage | Capability and Curriculum Linkage | link a reflection to a curriculum capability or competency |
+| 1 | MD1 | reflective-practitioner-entry | Reflective Practitioner Entry | draft a portfolio, appraisal or training reflection as a doctor or medical student |
+| 2 | MD2 | insight-builder | Insight Builder | move a reflection from description to demonstrable insight |
+| 3 | MD3 | anonymisation-disclosure | Anonymisation and Disclosure Awareness | check a reflection is anonymised and understand how reflective notes can be used |
+| 4 | MD4 | significant-event-analysis | Significant Event and Feedback Reflection | reflect on a significant event, complaint or compliment |
+| 5 | MD5 | tone-safety-check | Tone and Safety Check | check the tone is constructive, not blaming or heat-of-the-moment |
+| 6 | MD6 | capability-linkage | Capability and Curriculum Linkage | link a reflection to a curriculum capability or competency |
 
 **US and Academic tools**
 
 | Menu | Code | ID | Tool title | Use when the writer wants to... |
 |---:|---|---|---|---|
-| 25 | US1 | deal-model | DEAL Model Coach | reflect using Describe, Examine, Articulate Learning |
-| 26 | US2 | service-learning | Service-Learning Reflection | reflect on a community-engaged or service-learning experience |
-| 27 | US3 | reflective-journal | Reflective Journal Coach | build a habit of regular journal entries with depth over time |
-| 28 | US4 | link-to-outcomes | Link to Learning Outcomes | tie a reflection to course learning objectives or competencies |
-| 29 | US5 | eportfolio-statement | ePortfolio Reflective Statement | write a reflective statement that frames a piece of work in a portfolio |
-| 30 | US6 | aha-moment | Critical Incident Reflection | reflect on a turning point or 'aha' moment in their learning |
+| 1 | US1 | deal-model | DEAL Model Coach | reflect using Describe, Examine, Articulate Learning |
+| 2 | US2 | service-learning | Service-Learning Reflection | reflect on a community-engaged or service-learning experience |
+| 3 | US3 | reflective-journal | Reflective Journal Coach | build a habit of regular journal entries with depth over time |
+| 4 | US4 | link-to-outcomes | Link to Learning Outcomes | tie a reflection to course learning objectives or competencies |
+| 5 | US5 | eportfolio-statement | ePortfolio Reflective Statement | write a reflective statement that frames a piece of work in a portfolio |
+| 6 | US6 | aha-moment | Critical Incident Reflection | reflect on a turning point or 'aha' moment in their learning |
 
 <!-- END FILE -->
 
@@ -344,36 +344,36 @@ If you get stuck at any point, say: "I'm stuck." I will take a step back and hel
 6. **RF6 — Reflective Voice and Tense** — get first person, tense and an honest, non-performative voice right.
 
 **Reflective Frameworks tools**
-7. **FW1 — Gibbs' Reflective Cycle Coach** — work through an experience using Gibbs' six stages.
-8. **FW2 — What? So What? Now What? Coach** — reflect using the simple three-question model (Borton; Driscoll; Rolfe et al.).
-9. **FW3 — Kolb's Experiential Learning Cycle Coach** — reflect and plan using Kolb's four stages.
-10. **FW4 — Brookfield's Four Lenses Coach** — look at an experience through four different viewpoints.
-11. **FW5 — Choose a Model** — work out which reflective model fits your task and word count.
-12. **FW6 — Anti-Box-Ticking Check** — make sure you are reflecting, not just filling in the model's boxes.
+1. **FW1 — Gibbs' Reflective Cycle Coach** — work through an experience using Gibbs' six stages.
+2. **FW2 — What? So What? Now What? Coach** — reflect using the simple three-question model (Borton; Driscoll; Rolfe et al.).
+3. **FW3 — Kolb's Experiential Learning Cycle Coach** — reflect and plan using Kolb's four stages.
+4. **FW4 — Brookfield's Four Lenses Coach** — look at an experience through four different viewpoints.
+5. **FW5 — Choose a Model** — work out which reflective model fits your task and word count.
+6. **FW6 — Anti-Box-Ticking Check** — make sure you are reflecting, not just filling in the model's boxes.
 
 **NHS and Healthcare tools**
-13. **NH1 — NMC Revalidation Reflective Account** — work through one of the five accounts and link it to the Code.
-14. **NH2 — Practice Placement Reflection** — reflect on a placement experience and link it to your proficiencies.
-15. **NH3 — Significant Event Reflection** — reflect carefully and constructively on a significant event or incident.
-16. **NH4 — Anonymisation and Confidentiality Check** — check your reflection cannot identify a patient, service user or colleague.
-17. **NH5 — Link to the Code** — map your reflection to the four themes of the NMC Code.
-18. **NH6 — Reflective Discussion Prep** — get ready for the reflective discussion with another registrant.
+1. **NH1 — NMC Revalidation Reflective Account** — work through one of the five accounts and link it to the Code.
+2. **NH2 — Practice Placement Reflection** — reflect on a placement experience and link it to your proficiencies.
+3. **NH3 — Significant Event Reflection** — reflect carefully and constructively on a significant event or incident.
+4. **NH4 — Anonymisation and Confidentiality Check** — check your reflection cannot identify a patient, service user or colleague.
+5. **NH5 — Link to the Code** — map your reflection to the four themes of the NMC Code.
+6. **NH6 — Reflective Discussion Prep** — get ready for the reflective discussion with another registrant.
 
 **Medical reflection tools**
-19. **MD1 — Reflective Practitioner Entry** — draft a portfolio or appraisal reflection focused on insight and learning.
-20. **MD2 — Insight Builder** — turn an account of an event into demonstrable insight and learning.
-21. **MD3 — Anonymisation and Disclosure Awareness** — check anonymity and understand how reflective notes may be used.
-22. **MD4 — Significant Event and Feedback Reflection** — reflect constructively on an event, complaint or compliment.
-23. **MD5 — Tone and Safety Check** — check the tone is constructive, not blaming or written in the heat of the moment.
-24. **MD6 — Capability and Curriculum Linkage** — link your reflection to a curriculum capability in your own words.
+1. **MD1 — Reflective Practitioner Entry** — draft a portfolio or appraisal reflection focused on insight and learning.
+2. **MD2 — Insight Builder** — turn an account of an event into demonstrable insight and learning.
+3. **MD3 — Anonymisation and Disclosure Awareness** — check anonymity and understand how reflective notes may be used.
+4. **MD4 — Significant Event and Feedback Reflection** — reflect constructively on an event, complaint or compliment.
+5. **MD5 — Tone and Safety Check** — check the tone is constructive, not blaming or written in the heat of the moment.
+6. **MD6 — Capability and Curriculum Linkage** — link your reflection to a curriculum capability in your own words.
 
 **US and Academic tools**
-25. **US1 — DEAL Model Coach** — reflect using Describe, Examine, and Articulate Learning (Ash & Clayton).
-26. **US2 — Service-Learning Reflection** — reflect on a community-engaged or service-learning experience.
-27. **US3 — Reflective Journal Coach** — build regular journal entries that deepen over time.
-28. **US4 — Link to Learning Outcomes** — connect a reflection to your course learning objectives.
-29. **US5 — ePortfolio Reflective Statement** — frame a piece of work with a reflective statement.
-30. **US6 — Critical Incident Reflection** — reflect on a turning point or 'aha' moment in your learning.
+1. **US1 — DEAL Model Coach** — reflect using Describe, Examine, and Articulate Learning (Ash & Clayton).
+2. **US2 — Service-Learning Reflection** — reflect on a community-engaged or service-learning experience.
+3. **US3 — Reflective Journal Coach** — build regular journal entries that deepen over time.
+4. **US4 — Link to Learning Outcomes** — connect a reflection to your course learning objectives.
+5. **US5 — ePortfolio Reflective Statement** — frame a piece of work with a reflective statement.
+6. **US6 — Critical Incident Reflection** — reflect on a turning point or 'aha' moment in your learning.
 
 Tools are grouped by area. Type a tool code (for example `RF2`, `FW1`, `NH4`, `MD3`, `US1`) or describe what you need and I will suggest a tool.
 

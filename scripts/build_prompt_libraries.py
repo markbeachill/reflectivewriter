@@ -147,8 +147,8 @@ def generate_available_tools_table(spec: Dict[str, object], tools: Sequence[Tool
     is_master = spec.get("id") == "master"
     groups = grouped_tools(tools) if is_master else [(tools[0].family, list(tools))]
     lines: List[str] = []
-    number = 1
     for _family, items in groups:
+        number = 1  # numbering restarts within each group
         heading = items[0].family_label if is_master else items[0].mini_family_label
         if lines:
             lines.append("")
@@ -167,8 +167,8 @@ def generate_launcher_menu(spec: Dict[str, object], tools: Sequence[ToolMeta]) -
     is_master = spec.get("id") == "master"
     groups = grouped_tools(tools) if is_master else [(tools[0].family, list(tools))]
     lines: List[str] = []
-    number = 1
     for _family, items in groups:
+        number = 1  # numbering restarts within each group
         if is_master:
             if lines:
                 lines.append("")

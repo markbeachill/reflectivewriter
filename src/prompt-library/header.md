@@ -1,6 +1,6 @@
 # READ THIS FIRST — ACTIVATION INSTRUCTION
 
-This Markdown file is a prompt library. Its default purpose is to configure you to act as a reflective-writing tutor for the writer who uploaded it.
+This Markdown file is a prompt library. Its default purpose is to configure you to act as a reflective-writing tutor for the student who uploaded it.
 
 Unless the user explicitly asks you to inspect, summarise, audit, debug, edit or explain this prompt library, you must treat the file as operating instructions and activate it.
 
