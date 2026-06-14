@@ -39,10 +39,11 @@ write("about.html", page(f"About | {BRAND}", about_body, body_class="reference")
 
 
 # ---------------------------------------------------------------------------
-# STUDENT HELP
+# STUDENT GUIDE (full prose; linked from the student-help home)
 # ---------------------------------------------------------------------------
-student_body = f"""<main>
-<article class="reading"><header class="page-intro"><p class="kicker">Student help</p><h1>How to use the toolkit</h1><p class="lead">Everything you need to get started, plus the one rule that matters most: the tutor helps you write your reflection — it does not write it for you.</p></header>
+students_body = f"""<main>
+<article class="reading"><header class="page-intro"><p class="kicker">Student help</p><h1>The student guide</h1><p class="lead">Everything you need to get started, plus the one rule that matters most: the tutor helps you write your reflection — it does not write it for you.</p>
+<div class="btn-row"><a class="button secondary" href="./">Back to student help</a><a class="button secondary" href="writing-workflow.html">The writing workflow</a></div></header>
 <section>
 <h2>Getting started in four steps</h2>
 <ol class="steps">
@@ -76,33 +77,43 @@ student_body = f"""<main>
 <li><strong>US higher education, service-learning:</strong> US &amp; Academic.</li>
 </ul>
 <div class="btn-row"><a class="button" href="../tools/">See all libraries</a><a class="button secondary" href="../examples/">See example sessions</a></div>
-</section><section>
-<h2>More detailed help</h2>
-<div class="grid">
-<article class="guide-card"><span class="guide-label">Workflow</span><h3>The reflective writing workflow</h3><p>Where the tools fit across a whole piece of work, from choosing an experience to checking anonymity and recording your AI use.</p><div class="actions"><a class="button" href="writing-workflow.html">Read the workflow guide</a></div></article>
-<article class="guide-card"><span class="guide-label">Setup</span><h3>Choosing and setting up an AI</h3><p>How to pick and set up an AI tool before you start, so the tutor behaves properly and your private material stays safe.</p><div class="actions"><a class="button" href="student-ai-setup.html">Read the setup guide</a></div></article>
-</div>
 </section></article>
 </main>"""
-write("student-help/index.html", page(f"Student Help | {BRAND}", student_body, base="../", body_class="reference"))
+write("student-help/students.html", page(f"Student guide | {{BRAND}}", students_body, base="../", body_class="reference"))
 
 # ---------------------------------------------------------------------------
-# GUIDES INDEX
+# STUDENT HELP HOME (two-column menu)
+# ---------------------------------------------------------------------------
+student_body = f"""<main>
+<section class="hero"><div class="container"><p class="kicker">Student help</p><h1>Student help</h1><p class="lead">How to use the toolkit to write your own reflection — getting started, the workflow, setup, and the one rule that matters most.</p></div></section>
+<div class="container"><section class="panel"><div class="grid two">
+<article class="card guide-card"><span class="guide-label">Start here</span><h3>The student guide</h3><p>What this is and how to get started in four steps, the no-ghost-writing rule, what to do if you get stuck, and which library to choose.</p><div class="actions"><a class="button" href="students.html">Read the student guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">Workflow</span><h3>The reflective writing workflow</h3><p>Where the tools fit across a whole piece of work, from choosing an experience to checking anonymity and recording your AI use.</p><div class="actions"><a class="button" href="writing-workflow.html">Read the workflow guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">Setup</span><h3>Choosing and setting up an AI</h3><p>How to pick and set up an AI tool before you start, so the tutor behaves properly and your private material stays safe.</p><div class="actions"><a class="button" href="student-ai-setup.html">Read the setup guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">The main rule</span><h3>Not a first-draft generator</h3><p>Why you make your own attempt first, and why the tutor will never invent your experience, feelings, insight or learning.</p><div class="actions"><a class="button secondary" href="students.html">See the main rule</a></div></article>
+<article class="card guide-card"><span class="guide-label">Safety</span><h3>Protect real people</h3><p>Reflections involve real people. What counts as identifying, and why removing a name is rarely enough.</p><div class="actions"><a class="button secondary" href="../guides/anonymisation.html">Read the anonymisation guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">Try it</span><h3>Browse tools and examples</h3><p>See all five libraries and thirty tools, with an illustrative worked exchange for every one.</p><div class="actions"><a class="button secondary" href="../tools/">Browse tools</a></div></article>
+</div></section></div>
+</main>"""
+write("student-help/index.html", page(f"Student Help | {{BRAND}}", student_body, base="../", body_class="menu"))
+
+# ---------------------------------------------------------------------------
+# GUIDES HOME (two-column menu)
 # ---------------------------------------------------------------------------
 guides_body = """<main>
-<article class="reading"><header class="page-intro"><p class="kicker">Guides</p><h1>Guides and references</h1><p class="lead">Background reading to help you reflect well and use the toolkit safely — plus guidance, testing and resources for tutors and educators.</p></header>
-<section><div class="grid">
-<article class="guide-card"><span class="guide-label">Reference</span><h3>Reflective frameworks</h3><p>Plain summaries of the models the toolkit uses: Gibbs, What? So What? Now What?, Kolb, Brookfield's lenses and the DEAL model — and how to choose.</p><div class="actions"><a class="button" href="frameworks.html">Read the frameworks guide</a></div></article>
-<article class="guide-card"><span class="guide-label">Safety</span><h3>Anonymisation and confidentiality</h3><p>Why removing a name is rarely enough, what counts as identifying, and how to write about real people responsibly in a reflection.</p><div class="actions"><a class="button" href="anonymisation.html">Read the anonymisation guide</a></div></article>
-<article class="guide-card"><span class="guide-label">Approach</span><h3>The teaching approach</h3><p>How the tutor works, why it refuses to ghost-write, and the pedagogy behind the questions it asks.</p><div class="actions"><a class="button" href="teaching-approach.html">Read about the approach</a></div></article>
-<article class="guide-card"><span class="guide-label">For tutors</span><h3>Guide for tutors and teachers</h3><p>How to introduce the toolkit safely, set clear rules, protect the people students write about, and use AI feedback as part of learning.</p><div class="actions"><a class="button" href="tutors.html">Read the tutor guide</a></div></article>
-<article class="guide-card"><span class="guide-label">For tutors</span><h3>The deployment check</h3><p>A ten-minute test you run on your own setup to confirm a tool behaves like a tutor and refuses to ghost-write, before using it with students.</p><div class="actions"><a class="button" href="deployment-check.html">Open the deployment check</a></div></article>
-<article class="guide-card"><span class="guide-label">For educators</span><h3>Why educators should consider this</h3><p>The case for using a structured prompt library to guide independent student AI use in reflective writing, rather than banning it or leaving students to improvise.</p><div class="actions"><a class="button" href="why-educators.html">Read the educator case</a></div></article>
-<article class="guide-card"><span class="guide-label">Resources</span><h3>Source material library</h3><p>Copy-ready practice passages for trying the tools, demonstrating them, or running the deployment check.</p><div class="actions"><a class="button" href="../source-material/">Open source material</a></div></article>
-<article class="guide-card"><span class="guide-label">Resources</span><h3>Other resources</h3><p>A short reference list of reflective-practice sources and related AI-tutoring resources for further reading.</p><div class="actions"><a class="button" href="resources.html">Open resources</a></div></article>
-</div></section></article>
+<section class="hero"><div class="container"><p class="kicker">Guides</p><h1>Guides</h1><p class="lead">Background reading to reflect well and use the toolkit safely — plus guidance, testing and resources for tutors and educators.</p></div></section>
+<div class="container"><section class="panel"><div class="grid two">
+<article class="card guide-card"><span class="guide-label">Reference</span><h3>Reflective frameworks</h3><p>Plain summaries of the models the toolkit uses: Gibbs, What? So What? Now What?, Kolb, Brookfield's lenses and the DEAL model — and how to choose.</p><div class="actions"><a class="button" href="frameworks.html">Read the frameworks guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">Safety</span><h3>Anonymisation and confidentiality</h3><p>Why removing a name is rarely enough, what counts as identifying, and how to write about real people responsibly in a reflection.</p><div class="actions"><a class="button" href="anonymisation.html">Read the anonymisation guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">Approach</span><h3>The teaching approach</h3><p>How the tutor works, why it refuses to ghost-write, and the pedagogy behind the questions it asks.</p><div class="actions"><a class="button" href="teaching-approach.html">Read about the approach</a></div></article>
+<article class="card guide-card"><span class="guide-label">For tutors</span><h3>Guide for tutors and teachers</h3><p>How to introduce the toolkit safely, set clear rules, protect the people students write about, and use AI feedback as part of learning.</p><div class="actions"><a class="button" href="tutors.html">Read the tutor guide</a></div></article>
+<article class="card guide-card"><span class="guide-label">For tutors</span><h3>The deployment check</h3><p>A ten-minute test you run on your own setup to confirm a tool behaves like a tutor and refuses to ghost-write, before using it with students.</p><div class="actions"><a class="button" href="deployment-check.html">Open the deployment check</a></div></article>
+<article class="card guide-card"><span class="guide-label">For educators</span><h3>Why educators should consider this</h3><p>The case for using a structured prompt library to guide independent student AI use, rather than banning it or leaving students to improvise.</p><div class="actions"><a class="button" href="why-educators.html">Read the educator case</a></div></article>
+<article class="card guide-card"><span class="guide-label">Resources</span><h3>Source material library</h3><p>Copy-ready practice passages for trying the tools, demonstrating them, or running the deployment check.</p><div class="actions"><a class="button" href="../source-material/">Open source material</a></div></article>
+<article class="card guide-card"><span class="guide-label">Resources</span><h3>Other resources</h3><p>A short reference list of reflective-practice sources and related AI-tutoring resources for further reading.</p><div class="actions"><a class="button" href="resources.html">Open resources</a></div></article>
+</div></section></div>
 </main>"""
-write("guides/index.html", page(f"Guides | {BRAND}", guides_body, base="../", body_class="reference"))
+write("guides/index.html", page(f"Guides | {BRAND}", guides_body, base="../", body_class="menu"))
 
 # ---------------------------------------------------------------------------
 # GUIDES: FRAMEWORKS

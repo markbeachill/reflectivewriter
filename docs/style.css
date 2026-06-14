@@ -539,3 +539,30 @@ body.home .notice {
   font-weight: 600;
   color: var(--accent);
 }
+
+/* Two-column menu home pages (Student Help, Guides): larger headline,
+   tighter buttons, equal-height cards with actions pinned to the bottom. */
+body.menu .hero { padding: 40px 0 18px; }
+body.menu .hero h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.15rem);
+  line-height: 1.05;
+  letter-spacing: -0.032em;
+  font-weight: 760;
+  margin: 0 0 10px;
+}
+body.menu .hero .lead { font-size: 1.08rem; max-width: 70ch; }
+body.menu .card,
+body.menu .guide-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+}
+body.menu .card h3,
+body.menu .guide-card h3 { font-size: 1.08rem; }
+body.menu .card .actions,
+body.menu .guide-card .actions { margin-top: auto; padding-top: 4px; }
+body.menu .button {
+  padding: 5px 11px;
+  font-size: 0.875rem;
+  font-weight: 640;
+}
