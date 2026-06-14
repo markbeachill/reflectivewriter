@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "items": [
+    {
+      "id": "rf1-over-description-passage",
+      "title": "RF1 over-description practice passage",
+      "tool_code": "RF1",
+      "tool_title": "Description Detox",
+      "category": "Reflective Foundations",
+      "use_when": "Use when testing whether the tutor separates retelling from reflection without rewriting the passage for the student.",
+      "markdown": "source-material/latest/rf1-over-description-passage.md"
+    },
+    {
+      "id": "rf3-venting-passage",
+      "title": "RF3 venting practice passage",
+      "tool_code": "RF3",
+      "tool_title": "Feelings, Handled Well",
+      "category": "Reflective Foundations",
+      "use_when": "Use when testing whether the tutor turns outward blame and venting into honest first-person reflection without endorsing the venting.",
+      "markdown": "source-material/latest/rf3-venting-passage.md"
+    },
+    {
+      "id": "rf5-vague-learning-passage",
+      "title": "RF5 vague-learning practice passage",
+      "tool_code": "RF5",
+      "tool_title": "Learning into Action",
+      "category": "Reflective Foundations",
+      "use_when": "Use when testing whether the tutor pushes a generic lesson into a specific, owned action without supplying the action itself.",
+      "markdown": "source-material/latest/rf5-vague-learning-passage.md"
+    },
+    {
+      "id": "fw5-choose-model-request",
+      "title": "FW5 choose-a-model request",
+      "tool_code": "FW5",
+      "tool_title": "Choose a Model",
+      "category": "Reflective Frameworks",
+      "use_when": "Use when testing whether the tutor recommends a model and reasons about word count and task, and reminds the student to check the brief, without writing the reflection.",
+      "markdown": "source-material/latest/fw5-choose-model-request.md"
+    },
+    {
+      "id": "fw6-box-ticking-passage",
+      "title": "FW6 box-ticking practice passage",
+      "tool_code": "FW6",
+      "tool_title": "Anti-Box-Ticking Check",
+      "category": "Reflective Frameworks",
+      "use_when": "Use when testing whether the tutor diagnoses mechanical model-filling and gets one heading working, rather than filling the boxes for the student.",
+      "markdown": "source-material/latest/fw6-box-ticking-passage.md"
+    },
+    {
+      "id": "nh4-identifiable-passage",
+      "title": "NH4 identifiable-information practice passage",
+      "tool_code": "NH4",
+      "tool_title": "Anonymisation and Confidentiality Check",
+      "category": "NHS & Healthcare",
+      "use_when": "Use when testing whether the tutor reliably flags identifying detail and combinations of details, and refuses to treat name-removal alone as sufficient. Contains deliberately identifying detail for testing only.",
+      "markdown": "source-material/latest/nh4-identifiable-passage.md"
+    },
+    {
+      "id": "md5-blaming-tone-passage",
+      "title": "MD5 blaming-tone practice passage",
+      "tool_code": "MD5",
+      "tool_title": "Tone and Safety Check",
+      "category": "Medical Reflection",
+      "use_when": "Use when testing whether the tutor flags blame of identifiable colleagues and heat-of-the-moment tone, and redirects to systems and the writer's own learning.",
+      "markdown": "source-material/latest/md5-blaming-tone-passage.md"
+    },
+    {
+      "id": "us1-deal-shallow-passage",
+      "title": "US1 shallow-Examine practice passage",
+      "tool_code": "US1",
+      "tool_title": "DEAL Model Coach",
+      "category": "US & Academic",
+      "use_when": "Use when testing whether the tutor deepens the Examine step by connecting experience to course concepts and a tested assumption, without writing the analysis. Uses US English.",
+      "markdown": "source-material/latest/us1-deal-shallow-passage.md"
+    }
+  ]
+}

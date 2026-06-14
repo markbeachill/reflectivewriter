@@ -35,6 +35,8 @@ questions.
 ## Repository layout
 
 ```
+src/source-material/     SOURCE OF TRUTH for the practice-passage library
+  items/<id>.md          One practice passage per file (front-matter + text)
 src/prompt-library/      SOURCE OF TRUTH for the prompt libraries (file-based)
   header.md              Activation instruction
   shared/                Global rules + Markdown-output rules
@@ -50,8 +52,10 @@ scripts/
   build_site_main.py          Home + tools pages
   build_site_pages.py         About, student-help, guides, changelog
   build_examples.py           Worked example pages (one per tool) using the chat CSS
+  build_site_guides.py        Tutor guide, deployment check, educator + resource + workflow pages
+  build_source_material_library.py  Copy-ready practice passages (from src/source-material/)
 docs/                    GitHub Pages site (published from /docs)
-  index.html  tools/  examples/  student-help/  guides/  changelog/  about.html
+  index.html  tools/  examples/  student-help/  guides/  source-material/  changelog/  about.html
   style.css              Main site stylesheet (calm paper, indigo accent)
   css/aichat*.css        Separate chat-bubble stylesheets for the example transcripts
   prompt-libraries/latest/    Current downloadable libraries (+ zip of the mini set)
@@ -88,8 +92,18 @@ python scripts/build_prompt_libraries.py --check
 # Rebuild the website
 python scripts/build_site_main.py
 python scripts/build_site_pages.py
+python scripts/build_site_guides.py
 python scripts/build_examples.py
+
+# Build the copy-ready practice-passage library
+python scripts/build_source_material_library.py
+python scripts/build_source_material_library.py --check
 ```
+
+For tutors, the site includes a **deployment check** (`guides/deployment-check.html`)
+— a ten-minute test that confirms a tool behaves like a tutor and refuses to
+ghost-write on a given platform — and a **source-material library** of copy-ready
+practice passages used by that check.
 
 The prompt libraries are written from `src/`, so to change a tool you edit
 `src/prompt-library/tools/<id>.md` (and `tool-metadata.json` if codes or names

@@ -522,3 +522,20 @@ body.home .notice {
   h2 { font-size: 1.06rem; }
   .checklist { columns: 1; }
 }
+
+/* Source-material practice passages */
+.source-block {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 22rem;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+.reading details {
+  margin: 0.5rem 0 0.75rem;
+}
+.reading details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
+}
