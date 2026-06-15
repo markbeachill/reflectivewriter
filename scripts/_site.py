@@ -20,6 +20,7 @@ DESCRIPTION = (
 def page(title, body, *, css="style.css", body_class="", base=""):
     nav_items = [
         ("Home", f"{base}index.html"),
+        ("Try it", f"{base}try-it/"),
         ("Tools", f"{base}tools/"),
         ("Examples", f"{base}examples/"),
         ("Student Help", f"{base}student-help/"),

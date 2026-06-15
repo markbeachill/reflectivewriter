@@ -55,7 +55,7 @@ scripts/
   build_site_guides.py        Tutor guide, deployment check, educator + resource + workflow pages
   build_source_material_library.py  Copy-ready practice passages (from src/source-material/)
 docs/                    GitHub Pages site (published from /docs)
-  index.html  tools/  examples/  student-help/  guides/  source-material/  changelog/  about.html
+  index.html  try-it/  tools/  examples/  student-help/  guides/  source-material/  changelog/  about.html
   style.css              Main site stylesheet (calm paper, indigo accent)
   css/aichat*.css        Separate chat-bubble stylesheets for the example transcripts
   prompt-libraries/latest/    Current downloadable libraries (+ zip of the mini set)

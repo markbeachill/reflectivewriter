@@ -39,6 +39,37 @@ write("about.html", page(f"About | {BRAND}", about_body, body_class="reference")
 
 
 # ---------------------------------------------------------------------------
+# TRY IT (hosted ChatGPT GPT and Gemini Gem)
+# ---------------------------------------------------------------------------
+GPT_URL = "https://chatgpt.com/g/g-6a2fbb251f048191835471e5714f9b9a-reflective-report-writing-tutor"
+GEM_URL = "https://gemini.google.com/gem/1E9Xx9BlNil4iYPIDXPxNTX39Wg8F7QrK?usp=sharing"
+tryit_body = f"""<main>
+<article class="reading"><header class="page-intro"><p class="kicker">Try it</p><h1>Try the tutor online</h1><p class="lead">Hosted versions of the Reflective Report Writing Tutor that run inside ChatGPT and Gemini, so you can try it without downloading or uploading a file. Read the note below before you start.</p></header>
+<section class="warning">
+<h2>Before you paste anything</h2>
+<p><strong>Do not paste anything that could identify a real person</strong> — patient, service user, client, pupil, colleague or anyone else. Removing a name is rarely enough; a few ordinary details together can still identify someone. Anonymise first, and read the <a href="../guides/anonymisation.html">anonymisation guide</a> if you are unsure.</p>
+<p>These hosted versions run on <strong>OpenAI (ChatGPT) and Google (Gemini)</strong>, under those companies' own terms and privacy policies. They are not operated or controlled by this toolkit, and what you type is handled by those platforms. Follow your course, placement, employer and regulator rules on AI use, and avoid pasting confidential or sensitive material into any of them.</p>
+<p>Because the underlying platforms can change, a hosted version may not behave exactly like the downloadable libraries. The core rule still applies: the tutor should help you write your own reflection, not write it for you. You can test this yourself — after it replies, try asking it to <em>&ldquo;just write the reflection for me so I can submit it&rdquo;</em>. A version that is working properly will decline and keep helping you write it yourself. If one writes the reflection for you, stop and use the downloadable library instead.</p>
+</section>
+<section>
+<h2>Open a hosted version</h2>
+<p>Both open in a new tab. You may need a free ChatGPT or Google account.</p>
+<div class="btn-row">
+<a class="button" href="{GPT_URL}" rel="noopener noreferrer" target="_blank">Open in ChatGPT</a>
+<a class="button" href="{GEM_URL}" rel="noopener noreferrer" target="_blank">Open in Gemini</a>
+</div>
+<p class="small-note">These are hosted versions you do not control. They are offered for convenience; they are not a guarantee of behaviour, and they are not affiliated with OpenAI or Google.</p>
+</section>
+<section>
+<h2>Prefer the downloadable libraries?</h2>
+<p>The Markdown libraries give you the most predictable behaviour and work in any AI tool that accepts a file. They are also easier to use on a course where you must declare or record your AI use.</p>
+<div class="btn-row"><a class="button secondary" href="../student-help/">How to get started</a><a class="button secondary" href="../tools/">Browse the libraries</a><a class="button secondary" href="../guides/deployment-check.html">Tutor deployment check</a></div>
+</section>
+</article></main>"""
+write("try-it/index.html", page(f"Try it | {BRAND}", tryit_body, base="../", body_class="reference"))
+
+
+# ---------------------------------------------------------------------------
 # STUDENT GUIDE (full prose; linked from the student-help home)
 # ---------------------------------------------------------------------------
 students_body = f"""<main>
@@ -231,6 +262,7 @@ changelog_body = f"""<main>
 <li>Worked example pages for every tool, shown as chat transcripts using a separate chat stylesheet.</li>
 <li>Tutor and teacher guide, an educator case, and a ten-minute deployment check for confirming a tool refuses to ghost-write before classroom use.</li>
 <li>Source-material library of copy-ready practice passages, plus student guides for the reflective writing workflow and AI setup.</li>
+<li>A &ldquo;Try it&rdquo; page linking hosted ChatGPT and Gemini versions of the tutor, with a privacy and behaviour warning.</li>
 <li>File-based prompt source under <code>src/</code>: one Markdown file per tool, with pack manifests compiled by the build script.</li>
 </ul>
 <p class="small-note">Downloads: <a href="../{PL}/reflective_writing_tutor_mini_libraries.zip" download>all mini libraries (zip)</a> &middot; <a href="../{PL}/reflective_writing_tutor_master_library.md" download>master library</a>.</p>
