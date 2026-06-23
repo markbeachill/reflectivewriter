@@ -7,6 +7,7 @@ type: tool
 menu_number: 6
 run_policy: selected_only
 interaction_type: structured review then tutoring
+tool_mode: tiered_review
 ---
 
 # FW6 — Anti-Box-Ticking Check v1.0

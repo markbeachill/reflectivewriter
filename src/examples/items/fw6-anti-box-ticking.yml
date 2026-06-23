@@ -1,0 +1,22 @@
+id: fw6-anti-box-ticking
+code: FW6
+tool_id: anti-box-ticking
+title: FW6 — Anti-Box-Ticking Check worked example
+status: public
+safety_level: fictional
+context: How FW6 catches mechanical model-filling.
+learning_point: How FW6 catches mechanical model-filling.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>FW6 — Anti-Box-Ticking Check</h2><p>Paste a reflection where you've filled in a model's headings but it feels mechanical.</p>
+- role: student
+  html: '<p>Description: it happened. Feelings: I felt fine. Evaluation: it was okay. Analysis: it went okay because I did my best.</p>'
+- role: tutor
+  html: '<p>You''ve spotted it yourself — the headings are present but each one is a placeholder. “Analysis: it went okay because I did my best” restates the evaluation rather than explaining anything.</p><p>The model isn''t the problem; the boxes just haven''t been used to think yet. <strong>Try this:</strong> pick the single heading where you have the most to say honestly, and write three real sentences under it. We''ll get one box genuinely working before worrying about the rest.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

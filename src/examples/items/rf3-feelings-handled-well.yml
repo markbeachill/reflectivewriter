@@ -1,0 +1,22 @@
+id: rf3-feelings-handled-well
+code: RF3
+tool_id: feelings-handled-well
+title: RF3 — Feelings, Handled Well worked example
+status: public
+safety_level: fictional
+context: How RF3 turns venting into usable reflection.
+learning_point: How RF3 turns venting into usable reflection.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>RF3 — Feelings, Handled Well</h2><p>Paste the part where you write about how you felt.</p>
+- role: student
+  html: <p>Honestly the whole thing was a disaster and the other student didn't pull their weight at all, which was so frustrating and typical.</p>
+- role: tutor
+  html: <p>The feeling is clear and it's fine to name frustration. Two things to adjust so this works as reflection rather than venting.</p><p>First, it currently aims outward at the other person (“didn't pull their weight&hellip; typical”). Reflection works better when it stays with your own experience. Second, “disaster” names a verdict, not a feeling.</p><p><strong>Try this:</strong> rewrite one sentence that names what <em>you</em> felt at a specific moment, and what that feeling tells you. Keep the other person anonymous and avoid character judgements. Paste it and I'll review.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

@@ -1,0 +1,22 @@
+id: nh1-nmc-revalidation-account
+code: NH1
+tool_id: nmc-revalidation-account
+title: NH1 — NMC Revalidation Reflective Account worked example
+status: public
+safety_level: fictional
+context: How NH1 shapes an NMC revalidation account.
+learning_point: How NH1 shapes an NMC revalidation account.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>NH1 — NMC Revalidation Reflective Account</h2><p>We'll work through one of your five accounts, mirroring the NMC form, and link it to the Code. Describe the CPD, feedback or event in anonymised terms.</p>
+- role: student
+  html: <p>I attended training on recognising sepsis early and it changed how I escalate concerns.</p>
+- role: tutor
+  html: <p>That's a strong basis for an account — a clear piece of CPD with a practice change attached, which is exactly what the form wants.</p><p>The NMC account asks what you learned and <em>how your practice changed</em>. “Changed how I escalate” is promising but general. <strong>Try this:</strong> write two sentences — one naming something specific you now do differently when you suspect sepsis, and one on what difference that makes for patients. Keep everything anonymised. Then we'll link it to the relevant theme of the Code (likely <em>Preserve safety</em>).</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

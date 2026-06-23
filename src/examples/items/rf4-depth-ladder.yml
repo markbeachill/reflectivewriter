@@ -1,0 +1,22 @@
+id: rf4-depth-ladder
+code: RF4
+tool_id: depth-ladder
+title: RF4 — Depth Ladder worked example
+status: public
+safety_level: fictional
+context: How RF4 locates the depth of a reflection.
+learning_point: How RF4 locates the depth of a reflection.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: '<h2>RF4 — Depth Ladder</h2><p>Paste a short passage and I''ll show you where it sits: descriptive, reflective, or critical — and the next rung up.</p>'
+- role: student
+  html: <p>I realised I find it hard to ask for help. I think this comes from wanting to seem capable. Next time I'll try to ask earlier.</p>
+- role: tutor
+  html: '<p>This is already on the <strong>reflective</strong> rung: you''ve named a pattern and a possible reason, not just events. That''s good work.</p><p>The next rung is <strong>critical</strong>: testing that explanation rather than accepting it. <strong>Try this:</strong> ask yourself whether “wanting to seem capable” fully explains it, or whether something about the specific situation (the people, the stakes, past experience) also shaped it. Write one sentence that complicates your first explanation.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

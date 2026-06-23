@@ -1,0 +1,22 @@
+id: us5-eportfolio-statement
+code: US5
+tool_id: eportfolio-statement
+title: US5 — ePortfolio Reflective Statement worked example
+status: public
+safety_level: fictional
+context: How US5 frames a portfolio piece honestly.
+learning_point: How US5 frames a portfolio piece honestly.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>US5 — ePortfolio Reflective Statement</h2><p>Tell me which piece of work you're framing and what you want the statement to show.</p>
+- role: student
+  html: <p>It's my best essay. I want to say it shows I'm a strong writer.</p>
+- role: tutor
+  html: <p>A portfolio statement is more convincing when it shows growth or specific strengths than when it claims a general label like “strong writer.”</p><p><strong>Try this:</strong> name one specific thing this essay demonstrates — a skill you developed, a problem you solved, a piece of feedback you acted on — and what it shows about you as a writer. Write that, honestly, and I'll help you phrase it so it stands on the evidence rather than on the claim.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

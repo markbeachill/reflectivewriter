@@ -7,6 +7,7 @@ type: tool
 menu_number: 5
 run_policy: selected_only
 interaction_type: structured review then tutoring
+tool_mode: tiered_review
 ---
 
 # MD5 — Tone and Safety Check v1.0

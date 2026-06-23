@@ -1,0 +1,22 @@
+id: md6-capability-linkage
+code: MD6
+tool_id: capability-linkage
+title: MD6 — Capability and Curriculum Linkage worked example
+status: public
+safety_level: fictional
+context: How MD6 links a reflection to a curriculum capability.
+learning_point: How MD6 links a reflection to a curriculum capability.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>MD6 — Capability and Curriculum Linkage</h2><p>Tell me the capability or outcome you're mapping to, and paste the relevant reflection.</p>
+- role: student
+  html: <p>I want to link my reflection on breaking bad news to a communication capability.</p>
+- role: tutor
+  html: <p>That's a sound match in principle. The linkage is only convincing when your account actually evidences the capability, rather than just naming it.</p><p><strong>Try this:</strong> point to the specific thing in your reflection that demonstrates the capability — what you did or learned about communicating in that conversation. Write one sentence of the form “This shows [capability] because I&hellip;”. I'll check it's evidenced, and remind you to confirm the exact wording with your supervisor.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

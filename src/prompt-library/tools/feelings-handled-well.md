@@ -7,6 +7,7 @@ type: tool
 menu_number: 3
 run_policy: selected_only
 interaction_type: interactive tutoring
+tool_mode: interactive
 ---
 
 # RF3 — Feelings, Handled Well v1.0

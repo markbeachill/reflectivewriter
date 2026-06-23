@@ -1,0 +1,22 @@
+id: nh2-placement-reflection
+code: NH2
+tool_id: placement-reflection
+title: NH2 — Practice Placement Reflection worked example
+status: public
+safety_level: fictional
+context: How NH2 focuses a placement reflection on development.
+learning_point: How NH2 focuses a placement reflection on development.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>NH2 — Practice Placement Reflection</h2><p>Tell me about the placement experience (anonymised) you'd like to reflect on.</p>
+- role: student
+  html: <p>I shadowed a wound dressing and then did one myself with my supervisor watching.</p>
+- role: tutor
+  html: <p>Good choice — a moment where you moved from watching to doing is rich for a placement reflection, which should centre on <em>your development</em> rather than the procedure.</p><p><strong>Try this:</strong> write about the shift from shadowing to doing it yourself. What felt different when it was your hands? What did you find you could already do, and what did you realise you still need to practise? Anonymise the patient throughout. I'll help you link it to your proficiencies afterwards.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

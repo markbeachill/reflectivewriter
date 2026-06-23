@@ -7,6 +7,7 @@ type: tool
 menu_number: 5
 run_policy: selected_only
 interaction_type: advisory
+tool_mode: routing_helper
 ---
 
 # FW5 — Choose a Model v1.0

@@ -1,0 +1,22 @@
+id: fw5-choose-a-model
+code: FW5
+tool_id: choose-a-model
+title: FW5 — Choose a Model worked example
+status: public
+safety_level: fictional
+context: How FW5 recommends a framework for your task.
+learning_point: How FW5 recommends a framework for your task.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>FW5 — Choose a Model</h2><p>Tell me about the reflection you need to write and I'll recommend a model and say why.</p>
+- role: student
+  html: <p>It's a 300-word reflection for a nursing module on a single shift. No model is specified.</p>
+- role: tutor
+  html: '<p>For 300 words on a single event, <strong>What? So What? Now What?</strong> usually fits best: three clear moves, no stage left underdeveloped, and it suits short healthcare reflections.</p><p><strong>Gibbs</strong> is the main alternative if feelings are central, but at 300 words its six stages can leave each one thin. My suggestion: draft with What/So What/Now What, and borrow Gibbs'' “Feelings” prompt if emotion is important. Want me to set you up with FW2 next? First, though — does your brief truly not name a model? Always check, because many do.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

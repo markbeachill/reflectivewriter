@@ -1,0 +1,22 @@
+id: rf5-learning-into-action
+code: RF5
+tool_id: learning-into-action
+title: RF5 — Learning into Action worked example
+status: public
+safety_level: fictional
+context: How RF5 turns a lesson into a real action.
+learning_point: How RF5 turns a lesson into a real action.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>RF5 — Learning into Action</h2><p>Paste the part where your reflection says what you learned.</p>
+- role: student
+  html: <p>In conclusion, I have learned that communication is really important and I will improve my communication skills in future.</p>
+- role: tutor
+  html: '<p>That conclusion would fit almost any reflection, which is the sign it''s too general to act on. “Improve my communication” isn''t yet something you could actually do on Monday.</p><p><strong>Try this:</strong> name the specific situation where your communication fell short, then one concrete thing you''d do differently next time it arises — something you own and could actually do. For example, a when-then: “when X happens, I will&hellip;” Write yours and I''ll check it''s specific enough.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

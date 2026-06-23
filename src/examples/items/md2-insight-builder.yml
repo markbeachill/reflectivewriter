@@ -1,0 +1,22 @@
+id: md2-insight-builder
+code: MD2
+tool_id: insight-builder
+title: MD2 — Insight Builder worked example
+status: public
+safety_level: fictional
+context: How MD2 pushes past a generic lesson.
+learning_point: How MD2 pushes past a generic lesson.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>MD2 — Insight Builder</h2><p>Paste the part of your entry that's meant to show insight.</p>
+- role: student
+  html: <p>I missed the deteriorating obs on a patient because I was busy. Lesson learned, I'll be more careful.</p>
+- role: tutor
+  html: <p>“I'll be more careful” is a resolution, not yet insight — and assessors notice the difference.</p><p>What did this show you about how you prioritise and escalate when you're stretched? And what specifically would you do when the workload spikes again — a check at set points, a handover habit, asking for help earlier? <strong>Try this:</strong> write the insight as something you now understand about your own practice, then one action that follows from it.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

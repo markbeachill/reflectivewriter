@@ -1,0 +1,22 @@
+id: us4-link-to-outcomes
+code: US4
+tool_id: link-to-outcomes
+title: US4 — Link to Learning Outcomes worked example
+status: public
+safety_level: fictional
+context: How US4 makes an outcome link specific.
+learning_point: How US4 makes an outcome link specific.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>US4 — Link to Learning Outcomes</h2><p>Paste the outcome from your rubric and the relevant reflection.</p>
+- role: student
+  html: '<p>Outcome: “demonstrate critical thinking.” My reflection: I thought hard about the project and considered different ideas.</p>'
+- role: tutor
+  html: <p>“Thought hard” and “considered different ideas” assert the outcome rather than demonstrating it — a grader can't see the critical thinking yet.</p><p><strong>Try this:</strong> point to the moment where you actually weighed one idea against another and changed or sharpened your view. Write “I demonstrated critical thinking when I&hellip;” and finish it with that specific instance. I'll check it shows the outcome rather than naming it, and that it's pitched at the right level.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

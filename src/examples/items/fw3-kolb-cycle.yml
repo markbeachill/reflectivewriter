@@ -1,0 +1,22 @@
+id: fw3-kolb-cycle
+code: FW3
+tool_id: kolb-cycle
+title: FW3 — Kolb's Experiential Learning Cycle Coach worked example
+status: public
+safety_level: fictional
+context: How FW3 links experience to a general principle.
+learning_point: How FW3 links experience to a general principle.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>FW3 — Kolb's Experiential Learning Cycle Coach</h2><p>Tell me the concrete experience you're starting from.</p>
+- role: student
+  html: <p>I tried a new way of structuring my notes during a lecture and it worked much better. I'm at the Abstract Conceptualisation stage.</p>
+- role: tutor
+  html: <p>Nice — you've got a clear Concrete Experience and you've reflected on it. <strong>Abstract Conceptualisation</strong> is where you turn this single success into a general principle you could reuse.</p><p>The trap is staying specific (“this note method worked in this lecture”). <strong>Try this:</strong> finish the sentence “What this suggests more generally is that I learn better when&hellip;” — aiming for something that would also apply beyond note-taking. Then we'll plan how to test it (Active Experimentation).</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

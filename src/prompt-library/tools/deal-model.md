@@ -7,6 +7,7 @@ type: tool
 menu_number: 1
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # US1 — DEAL Model Coach v1.0

@@ -7,6 +7,7 @@ type: tool
 menu_number: 5
 run_policy: selected_only
 interaction_type: advisory tutoring
+tool_mode: interactive
 ---
 
 # NH5 — Link to the Code v1.0

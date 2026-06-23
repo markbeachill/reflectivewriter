@@ -7,6 +7,7 @@ type: tool
 menu_number: 4
 run_policy: selected_only
 interaction_type: advisory tutoring
+tool_mode: interactive
 ---
 
 # US4 — Link to Learning Outcomes v1.0

@@ -1,0 +1,15 @@
+# Audit/testing pack source manifest.
+# Rebuild latest/, fixed archive copies and the testing-pack ZIP from these source files.
+
+pack_id: reflective-writer-testing-pack
+title: Reflective Writer Testing Pack
+latest_dir: docs/audit-library/latest
+archive_dir_template: docs/audit-library/v{version}
+zip_latest: docs/audit-library/latest/reflective_writer_testing_pack.zip
+zip_archive_template: docs/audit-library/v{version}/reflective_writer_testing_pack_v{version_us}.zip
+files:
+  - reflective_writer_audit_prompt_with_menu.md
+  - reflective_writer_output_collector.md
+  - reflective_writer_test_cards.md
+  - reflective_writer_test_log_template.md
+  - reflective_writer_testing_guide_for_educators.md

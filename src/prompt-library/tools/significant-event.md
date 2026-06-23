@@ -7,6 +7,7 @@ type: tool
 menu_number: 3
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # NH3 — Significant Event Reflection v1.0

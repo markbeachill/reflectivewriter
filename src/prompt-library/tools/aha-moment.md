@@ -7,6 +7,7 @@ type: tool
 menu_number: 6
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # US6 — Critical Incident Reflection v1.0

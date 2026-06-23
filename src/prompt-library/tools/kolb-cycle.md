@@ -7,6 +7,7 @@ type: tool
 menu_number: 3
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # FW3 — Kolb's Experiential Learning Cycle Coach v1.0

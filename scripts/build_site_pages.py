@@ -39,6 +39,37 @@ write("about.html", page(f"About | {BRAND}", about_body, body_class="reference")
 
 
 # ---------------------------------------------------------------------------
+# TESTING / AUDIT PACK
+# ---------------------------------------------------------------------------
+testing_body = f"""<main>
+<article class="reading"><header class="page-intro"><p class="kicker">Testing</p><h1>Testing the Reflective Writer</h1><p class="lead">A lightweight audit pack for tutors and maintainers who want to check that a library behaves like a reflective-writing tutor rather than a ghost-writer.</p></header>
+<section class="notice"><span class="tag">Core check</span><p>The tests focus on the toolkit's distinctive risks: ghost-writing, invented feelings or learning, identifiable reflective material, blame-heavy tone, EAL support, framework box-ticking and local-rule uncertainty.</p></section>
+<section>
+<h2>Download the testing pack</h2>
+<p>The ZIP contains the audit prompt, output collector, test cards, log template and educator guide.</p>
+<div class="btn-row"><a class="button" href="audit-library/latest/reflective_writer_testing_pack.zip">Download testing pack</a><a class="button secondary" href="audit-library/latest/reflective_writer_test_cards.md">Open test cards</a><a class="button secondary" href="audit-library/latest/reflective_writer_testing_guide_for_educators.md">Open testing guide</a></div>
+</section>
+<section>
+<h2>What's included</h2>
+<ul>
+<li><strong>Audit prompt with menu</strong> — applies a consistent PASS / issue / critical-issue rubric.</li>
+<li><strong>Output collector</strong> — creates a self-contained test record after a completed test session.</li>
+<li><strong>Test cards</strong> — small cards for the major reflective-writing failure modes.</li>
+<li><strong>Test log template</strong> — records human judgements and release decisions.</li>
+<li><strong>Educator guide</strong> — explains the workflow for non-technical users.</li>
+</ul>
+</section>
+<section>
+<h2>Suggested minimum deployment check</h2>
+<p>Before recommending a library to students, run RW1 ghost-writing refusal, RW3 anonymisation, RW8 local-rule uncertainty and ROUTE1 master routing. Add RW6 where EAL support matters, and RW5 for healthcare, placement or professional-practice settings.</p>
+</section>
+<section class="warning"><h2>Do not test with real private material</h2><p>Use fictional, composite or placeholder material only. Do not paste real student reflections, patient details, service-user information, placement notes or staff names into a public AI tool for testing.</p></section>
+</article>
+</main>"""
+write("testing.html", page(f"Testing | {BRAND}", testing_body, body_class="reference"))
+
+
+# ---------------------------------------------------------------------------
 # TRY IT (hosted ChatGPT GPT and Gemini Gem)
 # ---------------------------------------------------------------------------
 GPT_URL = "https://chatgpt.com/g/g-6a2fbb251f048191835471e5714f9b9a-reflective-report-writing-tutor"
@@ -139,8 +170,10 @@ guides_body = """<main>
 <article class="card guide-card"><span class="guide-label">Approach</span><h3>The teaching approach</h3><p>How the tutor works, why it refuses to ghost-write, and the pedagogy behind the questions it asks.</p><div class="actions"><a class="button" href="teaching-approach.html">Read about the approach</a></div></article>
 <article class="card guide-card"><span class="guide-label">For tutors</span><h3>Guide for tutors and teachers</h3><p>How to introduce the toolkit safely, set clear rules, protect the people students write about, and use AI feedback as part of learning.</p><div class="actions"><a class="button" href="tutors.html">Read the tutor guide</a></div></article>
 <article class="card guide-card"><span class="guide-label">For tutors</span><h3>The deployment check</h3><p>A ten-minute test you run on your own setup to confirm a tool behaves like a tutor and refuses to ghost-write, before using it with students.</p><div class="actions"><a class="button" href="deployment-check.html">Open the deployment check</a></div></article>
+<article class="card guide-card"><span class="guide-label">For tutors</span><h3>Creating safe worked examples</h3><p>How to create, anonymise, check and store teaching examples without exposing private reflective material or modelling ghost-writing.</p><div class="actions"><a class="button" href="creating-examples.html">Read the examples guide</a></div></article>
 <article class="card guide-card"><span class="guide-label">For educators</span><h3>Why educators should consider this</h3><p>The case for using a structured prompt library to guide independent student AI use, rather than banning it or leaving students to improvise.</p><div class="actions"><a class="button" href="why-educators.html">Read the educator case</a></div></article>
 <article class="card guide-card"><span class="guide-label">Resources</span><h3>Source material library</h3><p>Copy-ready practice passages for trying the tools, demonstrating them, or running the deployment check.</p><div class="actions"><a class="button" href="../source-material/">Open source material</a></div></article>
+<article class="card guide-card"><span class="guide-label">Testing</span><h3>Testing and audit pack</h3><p>Lightweight test cards and audit prompts for checking ghost-writing refusal, privacy, EAL support, framework use and routing.</p><div class="actions"><a class="button" href="../testing.html">Open testing page</a></div></article>
 <article class="card guide-card"><span class="guide-label">Resources</span><h3>Other resources</h3><p>A short reference list of reflective-practice sources and related AI-tutoring resources for further reading.</p><div class="actions"><a class="button" href="resources.html">Open resources</a></div></article>
 </div></section></div>
 </main>"""

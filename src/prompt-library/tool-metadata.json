@@ -15,7 +15,8 @@
         "RF1",
         "Description Detox"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "so-what-deepener",
@@ -33,7 +34,8 @@
         "So-What Deepener",
         "So What Deepener"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "feelings-handled-well",
@@ -52,7 +54,8 @@
         "Feelings Handled Well",
         "feelings"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "depth-ladder",
@@ -69,7 +72,8 @@
         "RF4",
         "Depth Ladder"
       ],
-      "interaction_type": "structured review then tutoring"
+      "interaction_type": "structured review then tutoring",
+      "tool_mode": "tiered_review"
     },
     {
       "id": "learning-into-action",
@@ -87,7 +91,8 @@
         "Learning into Action",
         "action"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "reflective-voice",
@@ -105,7 +110,8 @@
         "Reflective Voice and Tense",
         "voice"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "gibbs-cycle",
@@ -124,7 +130,8 @@
         "Gibbs' Reflective Cycle",
         "Gibbs Reflective Cycle"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "what-sowhat-nowwhat",
@@ -144,7 +151,8 @@
         "Driscoll",
         "Borton"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "kolb-cycle",
@@ -162,7 +170,8 @@
         "Kolb",
         "Kolb's Experiential Learning Cycle"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "brookfield-lenses",
@@ -180,7 +189,8 @@
         "Brookfield",
         "Four Lenses"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "choose-a-model",
@@ -198,7 +208,8 @@
         "Choose a Model",
         "which model"
       ],
-      "interaction_type": "advisory"
+      "interaction_type": "advisory",
+      "tool_mode": "routing_helper"
     },
     {
       "id": "anti-box-ticking",
@@ -216,7 +227,8 @@
         "Anti-Box-Ticking Check",
         "box ticking"
       ],
-      "interaction_type": "structured review then tutoring"
+      "interaction_type": "structured review then tutoring",
+      "tool_mode": "tiered_review"
     },
     {
       "id": "nmc-revalidation-account",
@@ -235,7 +247,8 @@
         "revalidation",
         "NMC Revalidation Reflective Account"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "placement-reflection",
@@ -253,7 +266,8 @@
         "placement",
         "Practice Placement Reflection"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "significant-event",
@@ -272,7 +286,8 @@
         "critical incident",
         "Significant Event Reflection"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "anonymisation-check",
@@ -292,7 +307,8 @@
         "confidentiality",
         "Anonymisation and Confidentiality Check"
       ],
-      "interaction_type": "structured review"
+      "interaction_type": "structured review",
+      "tool_mode": "full_review"
     },
     {
       "id": "link-to-code",
@@ -310,7 +326,8 @@
         "the Code",
         "Link to the Code"
       ],
-      "interaction_type": "advisory tutoring"
+      "interaction_type": "advisory tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "reflective-discussion-prep",
@@ -328,7 +345,8 @@
         "reflective discussion",
         "Reflective Discussion Prep"
       ],
-      "interaction_type": "advisory tutoring"
+      "interaction_type": "advisory tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "reflective-practitioner-entry",
@@ -347,7 +365,8 @@
         "appraisal",
         "Reflective Practitioner Entry"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "insight-builder",
@@ -365,7 +384,8 @@
         "insight",
         "Insight Builder"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "anonymisation-disclosure",
@@ -384,7 +404,8 @@
         "disclosure",
         "Anonymisation and Disclosure Awareness"
       ],
-      "interaction_type": "structured review"
+      "interaction_type": "structured review",
+      "tool_mode": "full_review"
     },
     {
       "id": "significant-event-analysis",
@@ -403,7 +424,8 @@
         "complaint",
         "Significant Event and Feedback Reflection"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "tone-safety-check",
@@ -421,7 +443,8 @@
         "tone",
         "Tone and Safety Check"
       ],
-      "interaction_type": "structured review then tutoring"
+      "interaction_type": "structured review then tutoring",
+      "tool_mode": "tiered_review"
     },
     {
       "id": "capability-linkage",
@@ -440,7 +463,8 @@
         "curriculum",
         "Capability and Curriculum Linkage"
       ],
-      "interaction_type": "advisory tutoring"
+      "interaction_type": "advisory tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "deal-model",
@@ -458,7 +482,8 @@
         "DEAL",
         "DEAL Model"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "service-learning",
@@ -477,7 +502,8 @@
         "civic",
         "Service-Learning Reflection"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "reflective-journal",
@@ -495,7 +521,8 @@
         "journal",
         "Reflective Journal"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "link-to-outcomes",
@@ -514,7 +541,8 @@
         "objectives",
         "Link to Learning Outcomes"
       ],
-      "interaction_type": "advisory tutoring"
+      "interaction_type": "advisory tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "eportfolio-statement",
@@ -533,7 +561,8 @@
         "portfolio statement",
         "ePortfolio Reflective Statement"
       ],
-      "interaction_type": "interactive tutoring"
+      "interaction_type": "interactive tutoring",
+      "tool_mode": "interactive"
     },
     {
       "id": "aha-moment",
@@ -552,7 +581,8 @@
         "aha moment",
         "Critical Incident Reflection"
       ],
-      "interaction_type": "guided framework tutoring"
+      "interaction_type": "guided framework tutoring",
+      "tool_mode": "interactive"
     }
   ]
 }

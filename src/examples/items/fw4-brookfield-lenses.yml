@@ -1,0 +1,22 @@
+id: fw4-brookfield-lenses
+code: FW4
+tool_id: brookfield-lenses
+title: FW4 — Brookfield's Four Lenses Coach worked example
+status: public
+safety_level: fictional
+context: How FW4 surfaces an assumption through another lens.
+learning_point: How FW4 surfaces an assumption through another lens.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>FW4 — Brookfield's Four Lenses Coach</h2><p>We'll look at one experience through four viewpoints. Which lens would you like to start with?</p>
+- role: student
+  html: <p>The students' lens. I taught a session and I think it went well.</p>
+- role: tutor
+  html: <p>The <strong>learners' lens</strong> is a good challenge here, because “I think it went well” is the autobiographical view — your own. This lens asks how it looked from <em>their</em> side, which can differ sharply.</p><p><strong>Try this:</strong> name one piece of actual evidence about how the learners experienced it — a question they asked, their faces, something they did afterwards, feedback. Then say whether it confirms or complicates your “it went well”. I won't supply their view; the point is to ground it in what you actually observed.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

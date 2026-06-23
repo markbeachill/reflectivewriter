@@ -1,0 +1,22 @@
+id: rf2-so-what-deepener
+code: RF2
+tool_id: so-what-deepener
+title: RF2 — So-What Deepener worked example
+status: public
+safety_level: fictional
+context: How RF2 moves writing from event to meaning.
+learning_point: How RF2 moves writing from event to meaning.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>RF2 — So-What Deepener</h2><p>Paste a sentence or short passage where you can describe what happened but feel it hasn't gone anywhere yet.</p>
+- role: student
+  html: <p>We had a difficult team meeting about the new rota. I said my bit and then it ended. I felt annoyed.</p>
+- role: tutor
+  html: '<p>Good — there''s a real feeling here to work with. “Annoyed” is the start, not the end.</p><p>So what was underneath it: not being heard, a fairness issue, worry about the workload, something else? I''m not going to guess which, because the honest answer is yours. <strong>Finish this sentence in your own words:</strong> “It mattered to me because&hellip;” Then we''ll turn that into the analysis the passage is missing.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

@@ -1,0 +1,22 @@
+id: us6-aha-moment
+code: US6
+tool_id: aha-moment
+title: US6 — Critical Incident Reflection worked example
+status: public
+safety_level: fictional
+context: How US6 reflects on a turning point.
+learning_point: How US6 reflects on a turning point.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>US6 — Critical Incident Reflection</h2><p>Tell me about the moment or turning point you want to reflect on (anonymised where it involves others).</p>
+- role: student
+  html: <p>There was a moment in a group project where I realized I'd been wrong about the whole approach.</p>
+- role: tutor
+  html: <p>That's a real critical incident — a moment that shifted your thinking. The value is in unpacking the shift, not just reporting it.</p><p><strong>Try this:</strong> write what you believed <em>before</em> the moment, what specifically triggered the realization, and what you understood <em>after</em>. Three short sentences. Keep the others in the group anonymous. Once it's down, we'll look at what the change tells you about how you work and decide.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

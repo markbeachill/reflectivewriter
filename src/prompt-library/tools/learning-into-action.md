@@ -7,6 +7,7 @@ type: tool
 menu_number: 5
 run_policy: selected_only
 interaction_type: interactive tutoring
+tool_mode: interactive
 ---
 
 # RF5 — Learning into Action v1.0

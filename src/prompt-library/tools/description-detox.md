@@ -7,6 +7,7 @@ type: tool
 menu_number: 1
 run_policy: selected_only
 interaction_type: interactive tutoring
+tool_mode: interactive
 ---
 
 # RF1 — Description Detox v1.0

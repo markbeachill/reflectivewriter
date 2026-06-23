@@ -6,6 +6,7 @@ tool_metadata_mode: mini
 sections:
   - pack-sections/reflective-frameworks/00-manifest.md
   - shared/01-global-rules.md
+  - shared/05-help-system.md
   - shared/02-markdown-output-rules.md
   - pack-sections/reflective-frameworks/03-launcher.md
   - pack-sections/reflective-frameworks/04-router.md

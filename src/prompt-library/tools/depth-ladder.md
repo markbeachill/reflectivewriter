@@ -7,6 +7,7 @@ type: tool
 menu_number: 4
 run_policy: selected_only
 interaction_type: structured review then tutoring
+tool_mode: tiered_review
 ---
 
 # RF4 — Depth Ladder v1.0

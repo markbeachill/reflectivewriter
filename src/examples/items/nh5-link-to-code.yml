@@ -1,0 +1,22 @@
+id: nh5-link-to-code
+code: NH5
+tool_id: link-to-code
+title: NH5 — Link to the Code worked example
+status: public
+safety_level: fictional
+context: How NH5 links a reflection to the NMC Code.
+learning_point: How NH5 links a reflection to the NMC Code.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>NH5 — Link to the Code</h2><p>Paste your reflection and tell me if you already have a theme in mind. The four themes are Prioritise people, Practise effectively, Preserve safety, and Promote professionalism and trust.</p>
+- role: student
+  html: <p>My reflection is about taking time to explain a procedure to a frightened patient until they understood and consented.</p>
+- role: tutor
+  html: <p>This connects most naturally to <strong>Prioritise people</strong> — acting in partnership, respecting the person's right to be involved in decisions about their care — and arguably <strong>Practise effectively</strong> through clear communication.</p><p>The link only counts if it's genuine and in your words, not a label bolted on. <strong>Try this:</strong> write one sentence that states, from your own account, how what you did reflects “prioritising people”. I'll check it reads as a real connection rather than a tick-box.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

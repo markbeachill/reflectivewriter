@@ -1,0 +1,22 @@
+id: md3-anonymisation-disclosure
+code: MD3
+tool_id: anonymisation-disclosure
+title: MD3 — Anonymisation and Disclosure Awareness worked example
+status: public
+safety_level: fictional
+context: How MD3 checks anonymity and gives calm context.
+learning_point: How MD3 checks anonymity and gives calm context.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>MD3 — Anonymisation and Disclosure Awareness</h2><p>Paste your reflective note and I'll check anonymity, then give accurate context on how such notes are handled.</p>
+- role: student
+  html: <p>Should I leave out the date and the fact it was a cardiac arrest? Also can my reflection be used against me?</p>
+- role: tutor
+  html: '<p>On anonymisation: yes, keep the exact date out, and avoid combinations that could identify the patient or colleagues — removing the name alone is rarely enough. A specific event plus a place and date can identify someone.</p><p>On your second question: reflective notes should focus on learning, and UK guidance encourages writing them. They can in principle be requested by a court, but a regulator doesn''t ask for them to investigate a doctor. The practical protection is to write reflectively and anonymously, focusing on insight rather than a detailed factual record. Paste your note and I''ll flag anything identifying.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

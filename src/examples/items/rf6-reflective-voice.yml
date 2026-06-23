@@ -1,0 +1,22 @@
+id: rf6-reflective-voice
+code: RF6
+tool_id: reflective-voice
+title: RF6 — Reflective Voice and Tense worked example
+status: public
+safety_level: fictional
+context: How RF6 fixes voice and tense.
+learning_point: How RF6 fixes voice and tense.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>RF6 — Reflective Voice and Tense</h2><p>Paste a passage and I'll check the voice, person and tense.</p>
+- role: student
+  html: <p>One enters the ward and one observes that the patient is anxious. It is then realised that reassurance should be provided.</p>
+- role: tutor
+  html: <p>The meaning is fine, but the voice is doing the opposite of what reflection needs. “One enters&hellip; it is then realised” removes <em>you</em> from your own account, and reflection is supposed to be first-person.</p><p><strong>Try this:</strong> rewrite those sentences in the first person and past tense — “I went onto the ward and noticed&hellip;” — keeping it honest rather than formal. Paste your version and I'll look at the tense consistency next.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

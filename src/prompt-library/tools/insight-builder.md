@@ -7,6 +7,7 @@ type: tool
 menu_number: 2
 run_policy: selected_only
 interaction_type: interactive tutoring
+tool_mode: interactive
 ---
 
 # MD2 — Insight Builder v1.0

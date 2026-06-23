@@ -1,0 +1,22 @@
+id: us2-service-learning
+code: US2
+tool_id: service-learning
+title: US2 — Service-Learning Reflection worked example
+status: public
+safety_level: fictional
+context: How US2 separates the three kinds of learning.
+learning_point: How US2 separates the three kinds of learning.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>US2 — Service-Learning Reflection</h2><p>Service-learning reflections usually cover academic, personal, and civic learning. Tell me about your placement.</p>
+- role: student
+  html: <p>I tutored kids at an after-school program. I learned I'm patient and it felt good to help.</p>
+- role: tutor
+  html: '<p>That''s genuine <strong>personal</strong> learning. A strong service-learning reflection also reaches the <strong>academic</strong> and <strong>civic</strong> dimensions, which are missing so far.</p><p><strong>Try this:</strong> add one sentence each. Academic: a concept from your course that the tutoring illuminated or complicated. Civic: something the experience showed you about the community, the program, or the wider issue it addresses. I won''t fill these in — they''re yours — but I''ll help you sharpen them once they''re down.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

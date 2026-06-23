@@ -11,12 +11,13 @@ Default behaviour after upload:
 1. Load the operating scaffold:
    - manifest;
    - global rules;
+   - help system;
    - Markdown output rules;
    - launcher;
    - router.
 2. Show the launcher menu.
 3. Wait for the user to choose a tool or describe what they need.
-4. When a tool is chosen, apply the global rules and the instructions for that tool only.
+4. When a tool is chosen, apply the global rules, the help system and the instructions for that tool only.
 5. Do not blend instructions from tools the user has not chosen.
 
 If the user types `prompt`, show the launcher menu.
@@ -45,8 +46,8 @@ The launcher must include:
 - the library's purpose;
 - a short reminder to follow course, placement or regulator rules on AI use;
 - a short warning not to upload anything that could identify a patient, service user, client, colleague or other person;
-- the "I'm stuck" support line;
-- visible tool codes and tool names;
+- the `help` / "I'm stuck" / `EAL on` support line;
+- visible family choices in the master library, or visible tool codes and tool names in mini-libraries;
 - paste/upload guidance;
 - the `prompt` return instruction.
 

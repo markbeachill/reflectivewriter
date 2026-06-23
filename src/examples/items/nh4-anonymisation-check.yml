@@ -1,0 +1,22 @@
+id: nh4-anonymisation-check
+code: NH4
+tool_id: anonymisation-check
+title: NH4 — Anonymisation and Confidentiality Check worked example
+status: public
+safety_level: fictional
+context: How NH4 finds identifying detail before you share.
+learning_point: How NH4 finds identifying detail before you share.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>NH4 — Anonymisation and Confidentiality Check</h2><p>Paste your reflection and I'll flag anything that could identify a real person — before it goes anywhere.</p>
+- role: student
+  html: <p>On 3 March on Ward 7 at St Elsewhere's I cared for Mr J, an 82-year-old man with motor neurone disease, who&hellip;</p>
+- role: tutor
+  html: '<p>Several details here could identify someone, even in one sentence: the <strong>exact date</strong>, the <strong>ward and hospital name</strong>, the patient''s <strong>initial and age</strong>, and a <strong>specific condition</strong>. Together those could point to one person, so removing the name alone would not be enough.</p><p><strong>Try this:</strong> “I cared for an older man with a life-limiting neurological condition.” Keep the date and place out entirely. Rewrite your opening that way and paste it back, and I''ll check the rest of the passage.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

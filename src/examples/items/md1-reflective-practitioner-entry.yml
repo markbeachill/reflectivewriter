@@ -1,0 +1,22 @@
+id: md1-reflective-practitioner-entry
+code: MD1
+tool_id: reflective-practitioner-entry
+title: MD1 — Reflective Practitioner Entry worked example
+status: public
+safety_level: fictional
+context: How MD1 leads with insight, not narrative.
+learning_point: How MD1 leads with insight, not narrative.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>MD1 — Reflective Practitioner Entry</h2><p>For a portfolio, appraisal or training reflection. Describe the event or learning point in anonymised terms.</p>
+- role: student
+  html: <p>I want to reflect on a clinic where I ran very late and several patients were unhappy.</p>
+- role: tutor
+  html: <p>Useful material. UK reflective-practice guidance is clear that the entry should foreground <em>insight and learning</em>, not a minute-by-minute narrative, and should be anonymised.</p><p><strong>Try this:</strong> skip the blow-by-blow and write straight to the insight — what running late and the patients' response showed you about how you prioritise, communicate delays, or manage clinic flow. One or two honest sentences. We'll add a focused action after that.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

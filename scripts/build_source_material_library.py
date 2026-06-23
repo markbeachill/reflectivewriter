@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 
-from _site import page, BRAND
+from _site import page, BRAND, VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC_DIR = ROOT / "src" / "source-material" / "items"
@@ -114,15 +114,12 @@ def render_index(items: List[Item]) -> str:
     return htmlpage
 
 
-def build(check: bool) -> int:
-    items = load_items()
-    # generated files: latest/*.md, index.html, data json
-    expected = {}
-    for it in items:
-        expected[LATEST_DIR / f"{it.id}.md"] = it.body
-    expected[INDEX_HTML] = render_index(items)
-    index_data = {
-        "version": "1.0",
+def source_material_index_data(items: List[Item] | None = None) -> dict:
+    """Return the deterministic JSON payload for docs/data/source_material_index.json."""
+    if items is None:
+        items = load_items()
+    return {
+        "version": VERSION,
         "items": [
             {"id": it.id, "title": it.title, "tool_code": it.tool_code,
              "tool_title": it.tool_title, "category": it.category,
@@ -130,7 +127,25 @@ def build(check: bool) -> int:
             for it in items
         ],
     }
-    expected[DATA_JSON] = json.dumps(index_data, indent=2, ensure_ascii=False) + "\n"
+
+
+def source_material_index_text(items: List[Item] | None = None) -> str:
+    return json.dumps(source_material_index_data(items), indent=2, ensure_ascii=False) + "\n"
+
+
+def expected_outputs() -> dict[Path, str]:
+    items = load_items()
+    expected: dict[Path, str] = {}
+    for it in items:
+        expected[LATEST_DIR / f"{it.id}.md"] = it.body
+    expected[INDEX_HTML] = render_index(items)
+    expected[DATA_JSON] = source_material_index_text(items)
+    return expected
+
+
+def build(check: bool) -> int:
+    items = load_items()
+    expected = expected_outputs()
 
     if check:
         stale = []

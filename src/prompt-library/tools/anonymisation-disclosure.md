@@ -7,6 +7,7 @@ type: tool
 menu_number: 3
 run_policy: selected_only
 interaction_type: structured review
+tool_mode: full_review
 ---
 
 # MD3 — Anonymisation and Disclosure Awareness v1.0

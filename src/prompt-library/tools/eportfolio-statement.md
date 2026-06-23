@@ -7,6 +7,7 @@ type: tool
 menu_number: 5
 run_policy: selected_only
 interaction_type: interactive tutoring
+tool_mode: interactive
 ---
 
 # US5 — ePortfolio Reflective Statement v1.0

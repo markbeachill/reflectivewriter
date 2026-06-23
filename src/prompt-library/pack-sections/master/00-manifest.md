@@ -21,7 +21,7 @@ This section is for internal reference only. Do not output this section to the u
 **Public download:** `prompt-libraries/latest/reflective_writing_tutor_master_library.md`
 **Fixed archive:** `prompt-libraries/v1.0/reflective_writing_tutor_master_library_v1_0.md`
 
-This master file contains every tool from all five mini libraries. Use a mini library instead if you are on a free AI plan or want to focus on one area. Activate only `03-launcher` at the start; for every tool use, apply `01-global-rules` and `04-router`.
+This master file contains every tool from all five mini libraries. Its default route is family-first: show `03-launcher`, ask the writer to choose A-E, then show the matching family menu from `04-router`. Use a mini library instead if you are on a free AI plan or want to focus on one area. For every tool use, apply `01-global-rules`, `05-help-system` and `04-router`.
 
 ## Available tools
 

@@ -53,6 +53,14 @@ FAMILY_ORDER = [
     "us-academic",
 ]
 
+MASTER_LIBRARY_CHOICES = [
+    ("A", "reflective-foundations", "Reflective Foundations — use when you need core reflective-writing help."),
+    ("B", "reflective-frameworks", "Reflective Frameworks — use when you have been told to use a named model."),
+    ("C", "nhs-healthcare", "NHS & Healthcare — use for nursing, midwifery, healthcare and NMC-style reflection."),
+    ("D", "medical", "Medical — use for UK medical, PA/AA or portfolio-style reflection."),
+    ("E", "us-academic", "US & Academic — use for service-learning, journals, eportfolio or academic reflection."),
+]
+
 MINI_PACKS = [
     "reflective-foundations",
     "reflective-frameworks",
@@ -61,6 +69,8 @@ MINI_PACKS = [
     "us-academic",
 ]
 MINI_ZIP = ROOT / "docs" / "prompt-libraries" / "latest" / "reflective_writing_tutor_mini_libraries.zip"
+
+ALLOWED_TOOL_MODES = {"routing_helper", "interactive", "full_review", "tiered_review"}
 
 
 # --- metadata --------------------------------------------------------------
@@ -75,6 +85,7 @@ class ToolMeta:
     master_manifest_description: str
     mini_manifest_description: str
     launcher_description: str
+    tool_mode: str
     aliases: List[str] = field(default_factory=list)
 
 
@@ -82,8 +93,15 @@ def load_tool_metadata() -> Dict[str, ToolMeta]:
     data = json.loads(TOOL_METADATA.read_text(encoding="utf-8"))
     out: Dict[str, ToolMeta] = {}
     for entry in data["tools"]:
-        out[entry["id"]] = ToolMeta(
-            id=entry["id"],
+        tool_id = entry["id"]
+        if tool_id in out:
+            raise ValueError(f"Duplicate tool id in metadata: {tool_id}")
+        tool_mode = entry.get("tool_mode")
+        if tool_mode not in ALLOWED_TOOL_MODES:
+            allowed = ", ".join(sorted(ALLOWED_TOOL_MODES))
+            raise ValueError(f"Tool {tool_id} has invalid or missing tool_mode {tool_mode!r}; allowed: {allowed}")
+        out[tool_id] = ToolMeta(
+            id=tool_id,
             code=entry["code"],
             title=entry["title"],
             family=entry["family"],
@@ -92,6 +110,7 @@ def load_tool_metadata() -> Dict[str, ToolMeta]:
             master_manifest_description=entry["master_manifest_description"],
             mini_manifest_description=entry["mini_manifest_description"],
             launcher_description=entry["launcher_description"],
+            tool_mode=tool_mode,
             aliases=entry.get("aliases", []),
         )
     return out
@@ -133,6 +152,41 @@ def read_source(rel_path: str) -> str:
     return (SRC / rel_path).read_text(encoding="utf-8")
 
 
+def read_front_matter(path: Path) -> Dict[str, str]:
+    """Read the simple YAML front matter used in tool markdown files."""
+    text = path.read_text(encoding="utf-8")
+    match = re.search(r"^---\n(.*?)\n---", text, flags=re.MULTILINE | re.DOTALL)
+    if not match:
+        raise ValueError(f"No YAML front matter found in {path.relative_to(ROOT)}")
+    data: Dict[str, str] = {}
+    for raw in match.group(1).splitlines():
+        if not raw.strip() or raw.lstrip().startswith("#") or ":" not in raw:
+            continue
+        key, _, value = raw.partition(":")
+        data[key.strip()] = _unquote(value.strip())
+    return data
+
+
+def validate_tool_files(metadata: Dict[str, ToolMeta]) -> None:
+    """Ensure each source tool declares the canonical tool_mode from metadata."""
+    errors: List[str] = []
+    for tool in metadata.values():
+        path = SRC / "tools" / f"{tool.id}.md"
+        if not path.exists():
+            errors.append(f"{tool.id}: missing source file {path.relative_to(ROOT)}")
+            continue
+        front_matter = read_front_matter(path)
+        file_mode = front_matter.get("tool_mode")
+        if file_mode != tool.tool_mode:
+            errors.append(
+                f"{tool.id}: tool file has tool_mode {file_mode!r}, metadata has {tool.tool_mode!r}"
+            )
+        if file_mode not in ALLOWED_TOOL_MODES:
+            errors.append(f"{tool.id}: invalid tool file tool_mode {file_mode!r}")
+    if errors:
+        raise ValueError("Tool metadata validation failed:\n  " + "\n  ".join(errors))
+
+
 # --- placeholder generation -------------------------------------------------
 def grouped_tools(tools: Sequence[ToolMeta]) -> List[tuple[str, List[ToolMeta]]]:
     groups: List[tuple[str, List[ToolMeta]]] = []
@@ -163,19 +217,57 @@ def generate_available_tools_table(spec: Dict[str, object], tools: Sequence[Tool
     return "\n".join(lines)
 
 
-def generate_launcher_menu(spec: Dict[str, object], tools: Sequence[ToolMeta]) -> str:
-    is_master = spec.get("id") == "master"
-    groups = grouped_tools(tools) if is_master else [(tools[0].family, list(tools))]
+def _tool_menu_lines(tools: Sequence[ToolMeta], *, grouped: bool = False) -> List[str]:
+    """Return visible menu lines for mini-library, family or full-tool menus."""
     lines: List[str] = []
-    for _family, items in groups:
-        number = 1  # numbering restarts within each group
-        if is_master:
+    if grouped:
+        number = 1
+        for _family, items in grouped_tools(tools):
             if lines:
                 lines.append("")
             lines.append(f"**{items[0].family_label}**")
-        for t in items:
-            lines.append(f"{number}. **{t.code} — {t.title}** — {t.launcher_description}")
-            number += 1
+            for t in items:
+                lines.append(f"{number}. **{t.code} — {t.title}** — {t.launcher_description}")
+                number += 1
+        return lines
+    for number, t in enumerate(tools, start=1):
+        lines.append(f"{number}. **{t.code} — {t.title}** — {t.launcher_description}")
+    return lines
+
+
+def generate_launcher_menu(spec: Dict[str, object], tools: Sequence[ToolMeta]) -> str:
+    is_master = spec.get("id") == "master"
+    if is_master:
+        return "\n".join(
+            f"{letter}. **{label}**"
+            for letter, _family, label in MASTER_LIBRARY_CHOICES
+        )
+    return "\n".join(_tool_menu_lines(tools))
+
+
+def generate_master_family_menus(tools: Sequence[ToolMeta]) -> str:
+    lines: List[str] = []
+    by_family = {family: [t for t in tools if t.family == family] for family in FAMILY_ORDER}
+    for letter, family, label in MASTER_LIBRARY_CHOICES:
+        items = by_family.get(family, [])
+        if not items:
+            continue
+        if lines:
+            lines.append("")
+        family_name = label.split(" — ", 1)[0]
+        lines.append(f"### {letter} — {family_name}")
+        lines.extend(_tool_menu_lines(items))
+    return "\n".join(lines)
+
+
+def generate_master_full_tool_menu(tools: Sequence[ToolMeta]) -> str:
+    return "\n".join(_tool_menu_lines(tools, grouped=True))
+
+
+def generate_number_routing_table(tools: Sequence[ToolMeta]) -> str:
+    lines = ["| Writer choice | Code | Tool ID |", "|---:|---|---|"]
+    for number, t in enumerate(tools, start=1):
+        lines.append(f"| {number} | `{t.code}` | `{t.id}` |")
     return "\n".join(lines)
 
 
@@ -196,6 +288,9 @@ def render_generated_sections(text: str, spec: Dict[str, object], tools: Sequenc
     replacements = {
         "{{AVAILABLE_TOOLS_TABLE}}": generate_available_tools_table(spec, tools),
         "{{LAUNCHER_MENU}}": generate_launcher_menu(spec, tools),
+        "{{MASTER_FAMILY_MENUS}}": generate_master_family_menus(tools) if spec.get("id") == "master" else "",
+        "{{MASTER_FULL_TOOL_MENU}}": generate_master_full_tool_menu(tools) if spec.get("id") == "master" else "",
+        "{{NUMBER_ROUTING_TABLE}}": generate_number_routing_table(tools),
         "{{MENU_MAPPING}}": generate_menu_mapping(spec, tools),
     }
     for marker, generated in replacements.items():
@@ -293,6 +388,7 @@ def iter_packs() -> List[Path]:
 
 def run(check_only: bool) -> int:
     metadata = load_tool_metadata()
+    validate_tool_files(metadata)
     changed: List[str] = []
     latest_dir = ROOT / "docs" / "prompt-libraries" / "latest"
 

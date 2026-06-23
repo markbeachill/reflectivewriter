@@ -1,0 +1,22 @@
+id: us1-deal-model
+code: US1
+tool_id: deal-model
+title: US1 — DEAL Model Coach worked example
+status: public
+safety_level: fictional
+context: How US1 deepens the Examine step of DEAL.
+learning_point: How US1 deepens the Examine step of DEAL.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>US1 — DEAL Model Coach</h2><p>We'll work through Describe, Examine, and Articulate Learning. Tell me which step you're on and paste your draft. (US English by default.)</p>
+- role: student
+  html: '<p>Examine step. I wrote: at the food bank I learned that poverty is bad and we should help people.</p>'
+- role: tutor
+  html: <p>That's a general statement you could have written before you ever went — which is the signal that the <strong>Examine</strong> step hasn't done its work yet. Examine asks you to connect this specific experience to course material and to test an assumption you brought with you.</p><p><strong>Try this:</strong> name one concrete thing you actually observed that surprised you or challenged an assumption, and one course concept that helps explain it. Answer with that observation and concept, and we'll build the Examine step from there.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

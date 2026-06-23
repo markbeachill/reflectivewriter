@@ -7,6 +7,7 @@ type: tool
 menu_number: 4
 run_policy: selected_only
 interaction_type: structured review
+tool_mode: full_review
 ---
 
 # NH4 — Anonymisation and Confidentiality Check v1.0

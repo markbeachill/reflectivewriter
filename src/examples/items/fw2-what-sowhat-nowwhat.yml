@@ -1,0 +1,22 @@
+id: fw2-what-sowhat-nowwhat
+code: FW2
+tool_id: what-sowhat-nowwhat
+title: FW2 — What? So What? Now What? Coach worked example
+status: public
+safety_level: fictional
+context: How FW2 keeps a short reflection balanced.
+learning_point: How FW2 keeps a short reflection balanced.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>FW2 — What? So What? Now What? Coach</h2><p>Good for short or fast-paced reflections. Tell me your situation in anonymised terms.</p>
+- role: student
+  html: '<p>What: a service user raised their voice at me at the desk. So what: it was stressful. Now what: I''ll be more careful.</p>'
+- role: tutor
+  html: '<p>You''ve got all three parts, which is the hard bit. But “So what” and “Now what” are each only one step deep.</p><p><strong>So what</strong> should reach meaning, not just restate the feeling. Stressful in what way — did it touch your confidence, your sense of safety, your role? <strong>Now what</strong> should be concrete: “more careful” isn''t yet an action. <strong>Try this:</strong> write one fuller “So what” sentence, and one “Now what” that names a specific thing you''d do. I''ll review both.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

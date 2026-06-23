@@ -37,6 +37,8 @@ questions.
 ```
 src/source-material/     SOURCE OF TRUTH for the practice-passage library
   items/<id>.md          One practice passage per file (front-matter + text)
+src/examples/            SOURCE OF TRUTH for worked example pages
+src/audit-library/       SOURCE OF TRUTH for the audit/testing pack
 src/prompt-library/      SOURCE OF TRUTH for the prompt libraries (file-based)
   header.md              Activation instruction
   shared/                Global rules + Markdown-output rules
@@ -47,6 +49,7 @@ src/prompt-library/      SOURCE OF TRUTH for the prompt libraries (file-based)
   packs/<pack>.yml       Which sections + tools make each library
   release.yml            Version stamp
 scripts/
+  build_all.py                All-in-one rebuild/check/CI runner
   build_prompt_libraries.py   Compiles src/ into docs/prompt-libraries/ (+ --check, --ci)
   _site.py                    Shared HTML page template
   build_site_main.py          Home + tools pages
@@ -54,17 +57,25 @@ scripts/
   build_examples.py           Worked example pages (one per tool) using the chat CSS
   build_site_guides.py        Tutor guide, deployment check, educator + resource + workflow pages
   build_source_material_library.py  Copy-ready practice passages (from src/source-material/)
+  build_site_data.py      Generated JSON data for release, tools, packs and source material
+  build_audit_pack.py     Builds the Reflective Writer audit/testing pack
 docs/                    GitHub Pages site (published from /docs)
-  index.html  try-it/  tools/  examples/  student-help/  guides/  source-material/  changelog/  about.html
+  index.html  try-it/  tools/  examples/  student-help/  guides/  source-material/  testing.html  changelog/  about.html
   style.css              Main site stylesheet (calm paper, indigo accent)
   css/aichat*.css        Separate chat-bubble stylesheets for the example transcripts
   prompt-libraries/latest/    Current downloadable libraries (+ zip of the mini set)
   prompt-libraries/v1.0/      Versioned archive copies
+  audit-library/latest/       Current audit/testing pack and ZIP
+  audit-library/v1.0/         Versioned audit/testing archive copies
+  data/                       Generated JSON for release, tools, packs and source material
 .github/workflows/       CI that rebuilds and verifies the libraries and site
 ```
 
-See [`PROMPTS.md`](PROMPTS.md) for the prompt-source format and
-[`CUSTOMISING_PROMPTS.md`](CUSTOMISING_PROMPTS.md) for tailoring a local version.
+See [`PROMPTS.md`](PROMPTS.md) for the prompt-source format,
+[`CUSTOMISING_PROMPTS.md`](CUSTOMISING_PROMPTS.md) for tailoring a local version, and
+[`BUILD_AND_GENERATOR_GUIDE.md`](BUILD_AND_GENERATOR_GUIDE.md) plus
+[`UPDATE-CHECKLISTS.md`](UPDATE-CHECKLISTS.md) for maintainer workflows. Current
+maintainer notes live in [`project-docs/`](project-docs/).
 
 ## Page types
 
@@ -80,30 +91,28 @@ kept apart from `style.css`; it is scoped under `.ai-chat-page` so the two never
 
 ## Building
 
-Requires Python 3 (standard library only).
+Requires Python 3 (standard library only). The detailed maintainer build guide is
+[`BUILD_AND_GENERATOR_GUIDE.md`](BUILD_AND_GENERATOR_GUIDE.md); the short version is below.
 
 ```bash
-# Compile the downloadable prompt libraries from src/
-python scripts/build_prompt_libraries.py
+# Rebuild all generated outputs
+python scripts/build_all.py
 
-# Verify the generated files are in sync with src/ (used by CI)
-python scripts/build_prompt_libraries.py --check
+# Run all available generated-output checks and Python compile checks
+python scripts/build_all.py --check
 
-# Rebuild the website
-python scripts/build_site_main.py
-python scripts/build_site_pages.py
-python scripts/build_site_guides.py
-python scripts/build_examples.py
-
-# Build the copy-ready practice-passage library
-python scripts/build_source_material_library.py
-python scripts/build_source_material_library.py --check
+# CI-style: rebuild, check, validate and compile
+python scripts/build_all.py --ci
 ```
+
+The individual generator scripts are still available for targeted work; see
+[`BUILD_AND_GENERATOR_GUIDE.md`](BUILD_AND_GENERATOR_GUIDE.md) for the full map.
 
 For tutors, the site includes a **deployment check** (`guides/deployment-check.html`)
 — a ten-minute test that confirms a tool behaves like a tutor and refuses to
-ghost-write on a given platform — and a **source-material library** of copy-ready
-practice passages used by that check.
+ghost-write on a given platform — plus a **testing/audit pack** (`testing.html`)
+for release checks and a **source-material library** of copy-ready practice
+passages used by those checks.
 
 The prompt libraries are written from `src/`, so to change a tool you edit
 `src/prompt-library/tools/<id>.md` (and `tool-metadata.json` if codes or names

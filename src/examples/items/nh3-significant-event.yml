@@ -1,0 +1,22 @@
+id: nh3-significant-event
+code: NH3
+tool_id: significant-event
+title: NH3 — Significant Event Reflection worked example
+status: public
+safety_level: fictional
+context: How NH3 keeps a significant event constructive.
+learning_point: How NH3 keeps a significant event constructive.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>NH3 — Significant Event Reflection</h2><p>Describe the event in anonymised terms. We'll keep this constructive and learning-focused.</p>
+- role: student
+  html: <p>A medication was nearly given to the wrong patient but it was caught in time.</p>
+- role: tutor
+  html: '<p>A near miss is a valuable thing to reflect on, and the fact it was caught matters. Before we go further: make sure nothing here identifies the patient, staff, ward or date.</p><p>The aim is learning, not blame — yours or anyone''s. <strong>Try this:</strong> describe the point at which the error was caught, and what allowed it to be caught. Then we''ll look at what the event shows about the checks in place and your own part in them, written as learning rather than fault.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

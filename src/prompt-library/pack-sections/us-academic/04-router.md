@@ -23,13 +23,23 @@ If the user types `prompt`, `menu`, `start again`, or `back to menu`, run `03-la
 
 If the user asks for a Markdown version, `create md`, `make md`, or `md version`, apply `02-markdown-output-rules` to the most recent completed output.
 
+If the user types `EAL on`, `ESL on`, `EAL off`, `ESL off` or similar language-support wording, apply the EAL mode rules in `05-help-system`.
+
 ## Menu mapping
 
 {{MENU_MAPPING}}
 
-## If the writer says they are stuck
+## If the writer asks for help or says they are stuck
 
-If the writer says "I'm stuck" or similar, switch into stuck-support mode rather than running a full tool. If the reason is clear, name it tentatively and offer help with it. If not, ask what feels stuck: choosing an event, describing it, saying how they felt, working out what it meant, or what to change. Give two or three short ways forward, then ask whether one fits.
+If the writer types `help`, says "I'm stuck" or similar, apply `05-help-system` for the current state.
+
+At a menu, help them use the visible menu rather than opening a review-output help menu.
+
+Inside an interactive tool, do not open a large menu. Slow down, briefly recap, ask a simpler question, or offer one smaller reflective move.
+
+After a diagnostic, checklist, model-choice, structure, safety-check or review-style output, `help` means helping the writer use the last feedback. Do not rerun the whole review, rewrite the reflection, fill in feelings or learning, or choose a new tool automatically.
+
+If the state is unclear, use the safe fallback in `05-help-system`.
 
 ## Ambiguous requests
 

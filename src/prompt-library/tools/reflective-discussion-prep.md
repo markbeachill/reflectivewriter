@@ -7,6 +7,7 @@ type: tool
 menu_number: 6
 run_policy: selected_only
 interaction_type: advisory tutoring
+tool_mode: interactive
 ---
 
 # NH6 — Reflective Discussion Prep v1.0

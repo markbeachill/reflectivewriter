@@ -1,0 +1,22 @@
+id: fw1-gibbs-cycle
+code: FW1
+tool_id: gibbs-cycle
+title: FW1 — Gibbs' Reflective Cycle Coach worked example
+status: public
+safety_level: fictional
+context: How FW1 coaches the analysis stage of Gibbs.
+learning_point: How FW1 coaches the analysis stage of Gibbs.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>FW1 — Gibbs' Reflective Cycle Coach</h2><p>Tell me the experience you want to reflect on (anonymised), and which stage you're on. I'll guide you through the six stages without writing them for you.</p>
+- role: student
+  html: '<p>I''m on the Analysis stage. I wrote: the presentation went badly because I was nervous.</p>'
+- role: tutor
+  html: '<p>That sentence is still really <em>evaluation</em> — it judges how it went. Gibbs'' <strong>Analysis</strong> asks <em>why</em>, and it''s where the reflection earns its keep.</p><p>Why were you nervous, specifically: under-prepared, an unfamiliar format, a high-stakes audience, something else? And why did the nerves affect the delivery the way they did? <strong>Pick the most honest reason</strong> and write one sentence starting “I think this happened because&hellip;”. I''ll help you push it further from there.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

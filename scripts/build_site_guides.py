@@ -6,6 +6,7 @@ Pages generated:
   guides/deployment-check.html    Basic deployment check (tutor testing)
   guides/why-educators.html       Why educators should consider this toolkit
   guides/resources.html           Other AI tutoring resources
+  guides/creating-examples.html   Example creation workflow for tutors
   student-help/writing-workflow.html  Where the toolkit fits in your workflow
   student-help/student-ai-setup.html  Choosing and setting up an AI
 
@@ -272,14 +273,80 @@ def build_ai_setup():
     write("student-help/student-ai-setup.html", page(f"Choosing and setting up an AI | {BRAND}", body, base="../", body_class="reference"))
 
 
+# ---------------------------------------------------------------------------
+# CREATING EXAMPLES
+# ---------------------------------------------------------------------------
+def build_creating_examples():
+    body = """<main>
+<article class="reading"><header class="page-intro"><p class="kicker">For tutors &middot; examples</p><h1>Creating safe worked examples</h1><p class="lead">How to turn a reflective-writing tutoring exchange into a public or local teaching example without exposing private material or showing the AI writing the reflection for the student.</p>
+<div class="btn-row"><a class="button secondary" href="./">Back to guides</a><a class="button secondary" href="../examples/">View worked examples</a><a class="button secondary" href="deployment-check.html">Deployment check</a></div></header>
+<section class="warning"><h2>The core rule</h2><p>A Reflective Writer example must show the AI teaching a reflective move — diagnosing, questioning, explaining, or setting a next task. It must not show the AI producing a finished reflection, inventing the writer&rsquo;s experience, supplying feelings the writer has not named, or deciding what the writer learned.</p></section>
+<section>
+<h2>Use fictional or composite material by default</h2>
+<p>The safest examples are fictional or composite. They can still feel realistic: use common reflective-writing problems such as over-description, vague learning, box-ticking a model, blame-heavy tone, or missing action planning. Avoid copying a real student&rsquo;s wording unless you have explicit permission and a clear local reason to do so.</p>
+<p>Healthcare, placement and workplace examples need extra care. Remove not only names, but also dates, locations, rare events, job titles, team details and combinations of facts that could identify a person to someone who knows the setting.</p>
+</section>
+<section>
+<h2>The five-step workflow</h2>
+<ol class="steps">
+<li><strong>Choose the teaching point.</strong> Decide what the example should demonstrate: spotting description, deepening the &ldquo;so what&rdquo;, checking anonymity, resisting ghost-writing, or another specific move.</li>
+<li><strong>Create or collect the exchange.</strong> Use invented or composite student text where possible. If starting from a real session, strip it back to the teaching pattern rather than preserving the student&rsquo;s personal story.</li>
+<li><strong>Anonymise manually.</strong> Remove direct identifiers and jigsaw identifiers. Do not rely on the AI to decide that an example is safe to publish.</li>
+<li><strong>Check the authorship boundary.</strong> The AI&rsquo;s reply should ask the student to write the next sentence or decision in their own words. It should not provide a polished paragraph for submission.</li>
+<li><strong>Store the source record and rebuild.</strong> Add or update the YAML file in <code>src/examples/items/</code>, then run <code>python scripts/build_examples.py</code>.</li>
+</ol>
+</section>
+<section>
+<h2>What every public example source must include</h2>
+<p>Each public example is generated from a YAML source record. The source stores the tool code, the teaching context, a transcript, a privacy note and explicit checks. Public examples must pass all checks before being rendered.</p>
+<pre><code>id: rf1-description-detox
+code: RF1
+tool_id: description-detox
+status: public
+safety_level: fictional
+context: How RF1 separates retelling from reflection.
+learning_point: How RF1 separates retelling from reflection.
+privacy_note: Fictional or composite teaching example; no real person is identifiable.
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true</code></pre>
+<p>See <code>src/examples/example-schema.md</code> in the repository for the full schema.</p>
+</section>
+<section>
+<h2>Public, local and internal examples</h2>
+<p><strong>Public examples</strong> are suitable for the website and should normally be fictional or composite. <strong>Local examples</strong> may refer to a course task, but should still avoid identifiable people and should not contain a student&rsquo;s private reflection unless local consent and policy requirements are met. <strong>Internal examples</strong> can be used for maintainer testing, but they should still avoid unnecessary personal or sensitive data.</p>
+</section>
+<section class="notice"><span class="tag">Do not publish</span><p>Do not publish an example if it contains a real patient, client, service user, colleague, placement provider, institution or student who could be recognised; if the AI writes the reflective paragraph for the student; or if the example depends on feelings or learning that the student did not actually supply.</p></section>
+<section>
+<h2>Using a completed session as source material</h2>
+<p>A completed tutoring session can be useful evidence of how a tool behaves, but treat it as raw material, not as a publishable example. Ask what the session demonstrates, rewrite private or sensitive content into fictional form, and keep only the pattern of tutoring. If you ask an AI to summarise a session into a possible example, check the summary manually: the AI may omit privacy risks, overstate compliance, or smooth over moments where it did too much writing.</p>
+</section>
+<section>
+<h2>Final review questions</h2>
+<ul>
+<li>Could anyone identify a real person or place from direct or combined detail?</li>
+<li>Does the AI preserve the writer&rsquo;s authorship of experience, feeling, insight and learning?</li>
+<li>Is the teaching point clear from the example?</li>
+<li>Would this model good AI use to a student?</li>
+<li>Have the YAML checks been completed honestly?</li>
+</ul>
+</section>
+</article></main>"""
+    write("guides/creating-examples.html", page(f"Creating safe worked examples | {BRAND}", body, base="../", body_class="reference"))
+
+
 def main():
     build_deployment_check()
     build_tutors()
     build_why_educators()
     build_resources()
+    build_creating_examples()
     build_workflow()
     build_ai_setup()
-    print("built 6 additional guide/student-help pages")
+    print("built 7 additional guide/student-help pages")
 
 
 if __name__ == "__main__":

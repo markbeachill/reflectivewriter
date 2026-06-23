@@ -1,0 +1,22 @@
+id: md5-tone-safety-check
+code: MD5
+tool_id: tone-safety-check
+title: MD5 — Tone and Safety Check worked example
+status: public
+safety_level: fictional
+context: How MD5 catches blame and venting in tone.
+learning_point: How MD5 catches blame and venting in tone.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>MD5 — Tone and Safety Check</h2><p>Paste your draft entry and I'll flag any tone that could read as blame or heat-of-the-moment venting.</p>
+- role: student
+  html: <p>The whole thing was the nursing staff's fault for not bleeping me sooner, and the system is a joke.</p>
+- role: tutor
+  html: <p>Two flags. First, <strong>blame of named or identifiable colleagues</strong> (“the nursing staff's fault”) — reflective writing isn't the place to attribute fault to others, and it can read poorly later. Second, <strong>heat-of-the-moment framing</strong> (“a joke”) that adds feeling but no learning.</p><p><strong>Try this:</strong> rewrite to focus on the system or process and on your own part in it — for example, what would have helped the concern reach you sooner, and what you'd do differently. Paste the rewrite and I'll re-check the tone.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

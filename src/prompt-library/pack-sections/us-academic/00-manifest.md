@@ -31,7 +31,7 @@ Do not treat the whole document as one prompt. Do not run every section. Do not 
 
 At the start, activate only `03-launcher`.
 
-For every tool use, also apply `01-global-rules` and `04-router`, and apply `02-markdown-output-rules` if the writer asks for a Markdown file or document-style output.
+For every tool use, also apply `01-global-rules`, `05-help-system` and `04-router`, and apply `02-markdown-output-rules` if the writer asks for a Markdown file or document-style output.
 
 When the writer chooses a menu item, activate only the matching tool section. Ignore all other tool sections unless the writer chooses them later.
 

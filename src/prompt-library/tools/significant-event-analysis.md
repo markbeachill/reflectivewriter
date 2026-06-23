@@ -7,6 +7,7 @@ type: tool
 menu_number: 4
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # MD4 — Significant Event and Feedback Reflection v1.0

@@ -1,0 +1,22 @@
+id: nh6-reflective-discussion-prep
+code: NH6
+tool_id: reflective-discussion-prep
+title: NH6 — Reflective Discussion Prep worked example
+status: public
+safety_level: fictional
+context: How NH6 prepares you for the reflective discussion.
+learning_point: How NH6 prepares you for the reflective discussion.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>NH6 — Reflective Discussion Prep</h2><p>The reflective discussion is a conversation with another registrant about your accounts. Tell me which account you'd like to practise talking through.</p>
+- role: student
+  html: <p>The sepsis training one. I'm worried I'll just read it out.</p>
+- role: tutor
+  html: <p>That worry is common and easy to work on. The discussion isn't a reading test; it's you talking about what you learned.</p><p><strong>Try this:</strong> without looking at your written account, say out loud (or type) in two or three sentences what changed in your practice and why it mattered. Paste roughly what you'd say. I'll then ask you the kind of follow-up a colleague might — “can you give an example?” — so it feels like a conversation, not a recital.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

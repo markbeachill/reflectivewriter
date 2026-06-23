@@ -1,0 +1,22 @@
+id: us3-reflective-journal
+code: US3
+tool_id: reflective-journal
+title: US3 — Reflective Journal Coach worked example
+status: public
+safety_level: fictional
+context: How US3 deepens a journal entry and spots patterns.
+learning_point: How US3 deepens a journal entry and spots patterns.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>US3 — Reflective Journal Coach</h2><p>Paste a recent entry. I can also help you notice patterns across entries over time.</p>
+- role: student
+  html: <p>Today was busy. Lots going on in the project. Felt tired but okay. More tomorrow.</p>
+- role: tutor
+  html: '<p>That''s a log more than a reflection — it records the day but doesn''t yet think about it. Journals get their value when one small thing is examined.</p><p><strong>Try this:</strong> pick a single moment from “lots going on” and write three sentences: what happened, what you made of it, and what you''ll carry into tomorrow. Over a few entries I can then help you spot recurring themes — but only from what you actually write.</p>'
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true

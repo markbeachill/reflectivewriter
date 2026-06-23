@@ -7,6 +7,7 @@ type: tool
 menu_number: 4
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # FW4 — Brookfield's Four Lenses Coach v1.0

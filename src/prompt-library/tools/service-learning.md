@@ -7,6 +7,7 @@ type: tool
 menu_number: 2
 run_policy: selected_only
 interaction_type: guided framework tutoring
+tool_mode: interactive
 ---
 
 # US2 — Service-Learning Reflection v1.0

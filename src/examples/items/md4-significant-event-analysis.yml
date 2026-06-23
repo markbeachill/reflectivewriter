@@ -1,0 +1,22 @@
+id: md4-significant-event-analysis
+code: MD4
+tool_id: significant-event-analysis
+title: MD4 — Significant Event and Feedback Reflection worked example
+status: public
+safety_level: fictional
+context: How MD4 reflects on feedback or a complaint.
+learning_point: How MD4 reflects on feedback or a complaint.
+privacy_note: Fictional or composite teaching example; no real person, placement, patient, service user, colleague or institution is identifiable.
+transcript:
+- role: tutor
+  html: <h2>MD4 — Significant Event and Feedback Reflection</h2><p>Describe the event, complaint or compliment in anonymised terms.</p>
+- role: student
+  html: <p>I received a complaint that I seemed dismissive. I don't think I was, but it stuck with me.</p>
+- role: tutor
+  html: <p>That it stuck with you is exactly why it's worth reflecting on, and you can do that honestly without either accepting or rejecting the complaint wholesale.</p><p><strong>Try this:</strong> set aside whether the label “dismissive” is fair, and write about what the patient might have experienced that led them to feel that way — pace, eye contact, time pressure, wording. Then one thing you could do to reduce that risk. Keep it learning-focused and free of any detail that identifies the complainant.</p>
+checks:
+  authorship_boundary: true
+  no_identifying_detail: true
+  unrelated_made_up_example_only: true
+  no_finished_reflection: true
+  privacy_reviewed: true
