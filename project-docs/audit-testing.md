@@ -12,7 +12,7 @@ Generated outputs live under:
 
 ```text
 docs/audit-library/latest/
-docs/audit-library/v1.0/
+docs/audit-library/v<version>/
 docs/testing.html
 ```
 

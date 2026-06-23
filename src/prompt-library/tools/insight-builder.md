@@ -10,7 +10,7 @@ interaction_type: interactive tutoring
 tool_mode: interactive
 ---
 
-# MD2 — Insight Builder v1.0
+# MD2 — Insight Builder v1.1
 
 Apply `global-rules`. Run only this tool.
 

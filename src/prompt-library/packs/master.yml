@@ -1,7 +1,7 @@
 id: master
 title: "Reflective Report Writing Tutor — Master Library"
 latest_output: docs/prompt-libraries/latest/reflective_writing_tutor_master_library.md
-archive_output: docs/prompt-libraries/v1.0/reflective_writing_tutor_master_library_v1_0.md
+archive_output: docs/prompt-libraries/v1.1/reflective_writing_tutor_master_library_v1_1.md
 tool_metadata_mode: master
 sections:
   - pack-sections/master/00-manifest.md

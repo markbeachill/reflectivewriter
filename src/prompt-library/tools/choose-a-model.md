@@ -10,7 +10,7 @@ interaction_type: advisory
 tool_mode: routing_helper
 ---
 
-# FW5 — Choose a Model v1.0
+# FW5 — Choose a Model v1.1
 
 Apply `global-rules`. Run only this tool.
 

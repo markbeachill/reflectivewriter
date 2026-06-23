@@ -4,7 +4,7 @@ id: manifest
 title: US and Academic Reflection Tutor Library
 type: manifest
 run_policy: reference_only
-version: 1.0
+version: 1.1
 created_for: reflective report writing toolkit
 ---
 
@@ -13,15 +13,15 @@ This section is for internal reference only. Do not output this section to the u
 
 # US and Academic Reflection Tutor Library
 
-**Version:** v1.0
-**Last updated:** 2026-06-13
+**Version:** v1.1
+**Last updated:** 2026-06-23
 **Status:** active public release
 **Part of:** Reflective Report Writing Tutor
 
-**Release stamp:** Reflective Writer toolkit v1.0 / Prompt-library suite v1.0
-**This file:** US and Academic Reflection Tutor Library v1.0
+**Release stamp:** Reflective Writer toolkit v1.1 / Prompt-library suite v1.1
+**This file:** US and Academic Reflection Tutor Library v1.1
 **Public download:** `prompt-libraries/latest/05_us_academic_reflection_library.md`
-**Fixed archive:** `prompt-libraries/v1.0/05_us_academic_reflection_library_v1_0.md`
+**Fixed archive:** `prompt-libraries/v1.1/05_us_academic_reflection_library_v1_1.md`
 
 ## Operating instruction
 

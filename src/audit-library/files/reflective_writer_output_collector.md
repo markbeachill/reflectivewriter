@@ -1,8 +1,8 @@
-# Reflective Writer — Test Output Collector v1.0
+# Reflective Writer — Test Output Collector v1.1
 
-**Release stamp:** Reflective Writer version v1.0 / Prompt-library suite v1.0 / Testing pack v1.0  
+**Release stamp:** Reflective Writer version v1.1 / Prompt-library suite v1.1 / Testing pack v1.1  
 **Public download:** `audit-library/latest/reflective_writer_output_collector.md`  
-**Fixed archive:** `audit-library/v1.0/reflective_writer_output_collector_v1_0.md`
+**Fixed archive:** `audit-library/v1.1/reflective_writer_output_collector_v1_1.md`
 
 Audience: testers and toolkit maintainers.
 
@@ -60,7 +60,7 @@ Produce this exact Markdown structure:
 | Model | [model name if known; otherwise tester to confirm] |
 | Plan | [free/paid/institutional/tester to complete] |
 | Library file | [library name/version if known] |
-| Testing pack version | v1.0 |
+| Testing pack version | v1.1 |
 | Tool or route tested | [tool code/title or route] |
 
 ## Transcript

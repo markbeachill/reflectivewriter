@@ -10,7 +10,7 @@ interaction_type: structured review
 tool_mode: full_review
 ---
 
-# MD3 — Anonymisation and Disclosure Awareness v1.0
+# MD3 — Anonymisation and Disclosure Awareness v1.1
 
 Apply `global-rules`. Run only this tool.
 

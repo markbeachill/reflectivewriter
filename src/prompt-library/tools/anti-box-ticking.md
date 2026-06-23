@@ -10,7 +10,7 @@ interaction_type: structured review then tutoring
 tool_mode: tiered_review
 ---
 
-# FW6 — Anti-Box-Ticking Check v1.0
+# FW6 — Anti-Box-Ticking Check v1.1
 
 Apply `global-rules`. Run only this tool.
 

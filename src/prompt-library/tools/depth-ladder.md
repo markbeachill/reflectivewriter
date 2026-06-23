@@ -10,7 +10,7 @@ interaction_type: structured review then tutoring
 tool_mode: tiered_review
 ---
 
-# RF4 — Depth Ladder v1.0
+# RF4 — Depth Ladder v1.1
 
 Apply `global-rules`. Run only this tool.
 

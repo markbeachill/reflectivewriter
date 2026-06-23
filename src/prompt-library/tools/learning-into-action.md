@@ -10,7 +10,7 @@ interaction_type: interactive tutoring
 tool_mode: interactive
 ---
 
-# RF5 — Learning into Action v1.0
+# RF5 — Learning into Action v1.1
 
 Apply `global-rules`. Run only this tool.
 

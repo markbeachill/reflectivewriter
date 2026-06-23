@@ -1,7 +1,7 @@
 id: us-academic
 title: "US and Academic Reflection Tutor Library"
 latest_output: docs/prompt-libraries/latest/05_us_academic_reflection_library.md
-archive_output: docs/prompt-libraries/v1.0/05_us_academic_reflection_library_v1_0.md
+archive_output: docs/prompt-libraries/v1.1/05_us_academic_reflection_library_v1_1.md
 tool_metadata_mode: mini
 sections:
   - pack-sections/us-academic/00-manifest.md

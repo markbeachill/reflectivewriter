@@ -1,7 +1,7 @@
 id: reflective-foundations
 title: "Reflective Foundations Tutor Library"
 latest_output: docs/prompt-libraries/latest/01_reflective_foundations_library.md
-archive_output: docs/prompt-libraries/v1.0/01_reflective_foundations_library_v1_0.md
+archive_output: docs/prompt-libraries/v1.1/01_reflective_foundations_library_v1_1.md
 tool_metadata_mode: mini
 sections:
   - pack-sections/reflective-foundations/00-manifest.md

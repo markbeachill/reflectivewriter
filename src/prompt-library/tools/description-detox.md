@@ -10,7 +10,7 @@ interaction_type: interactive tutoring
 tool_mode: interactive
 ---
 
-# RF1 — Description Detox v1.0
+# RF1 — Description Detox v1.1
 
 Apply `global-rules`. Run only this tool.
 

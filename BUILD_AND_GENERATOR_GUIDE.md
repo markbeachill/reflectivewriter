@@ -6,44 +6,33 @@ The repository is source-driven. Human-edited source lives mainly in `src/`; gen
 
 ## Quick build/check sequence
 
-Run from the repository root.
-
-```bash
-# Rebuild all generated outputs.
-python scripts/build_all.py
-
-# Check all generated outputs with available check modes and compile every script.
-python scripts/build_all.py --check
-
-# CI-style: rebuild, then check, validate and compile.
-python scripts/build_all.py --ci
-```
-
-Use the individual generator commands below when you are working on one subsystem and want a faster targeted rebuild.
-
-## All-in-one runner
-
-`scripts/build_all.py` wraps the repository generators in the standard order:
-
-1. prompt libraries;
-2. source-material library;
-3. main/tool pages;
-4. support site pages;
-5. guide pages;
-6. worked examples;
-7. generated site data;
-8. audit/testing pack.
-
-Modes:
+Run from the repository root. Prefer the all-in-one runner for broad changes and releases.
 
 ```bash
 python scripts/build_all.py          # rebuild all generated outputs
-python scripts/build_all.py --check  # non-writing checks where available + Python compile
+python scripts/build_all.py --check  # check version metadata and generated outputs
 python scripts/build_all.py --ci     # rebuild, check, validate and compile
-python scripts/build_all.py --list   # show the underlying commands
+python scripts/build_all.py --list   # show underlying commands
 ```
 
-`--check` uses each generator's check/validate mode where one exists. The site-page builders are build-only, so use `--ci` before release or rely on the GitHub workflow's final `git status` step to catch stale generated HTML.
+Use individual generator scripts only when you are working on one subsystem and already know which generated files it owns.
+
+## Version/release update sequence
+
+Use the version updater whenever the public toolkit version changes. It keeps the release stamp, prompt archive paths, prompt manifest versions, audit-pack stamps and changelog aligned.
+
+```bash
+python scripts/update_version.py 1.1 --date 2026-06-23 \
+  --summary "Architecture and maintenance refresh." \
+  --change "Added version-update workflow."
+python scripts/build_all.py --ci
+```
+
+The updater can also validate the current release metadata without writing:
+
+```bash
+python scripts/update_version.py --check
+```
 
 ## Source of truth
 
@@ -85,12 +74,32 @@ src/prompt-library/release.yml
 Current fields are:
 
 ```yaml
-toolkit_version: 1.0
-prompt_library_version: 1.0
-last_updated: 2026-06-13
+release_version: 1.1
+toolkit_version: 1.1
+prompt_library_version: 1.1
+release_date: 2026-06-23
+last_updated: 2026-06-23
+status: active public release
 ```
 
-The site-data generator derives `release_version` from the current release metadata. Keep archive paths, generated version folders and the release stamp aligned when making a public release.
+Do not update this file by itself for a public release. Use:
+
+```bash
+python scripts/update_version.py <version> --date YYYY-MM-DD
+```
+
+That also updates:
+
+```text
+src/prompt-library/packs/*.yml
+src/prompt-library/pack-sections/*/00-manifest.md
+src/prompt-library/pack-sections/*/03-launcher.md
+src/prompt-library/tools/*.md
+src/audit-library/files/*.md
+CHANGELOG.md
+```
+
+Then run `python scripts/build_all.py --ci` so the downloadable libraries, site data, changelog page and audit archives reflect the new version.
 
 ## Prompt-library generation
 
@@ -118,7 +127,7 @@ Generated outputs:
 
 ```text
 docs/prompt-libraries/latest/*.md
-docs/prompt-libraries/v1.0/*.md
+docs/prompt-libraries/v<version>/*.md
 docs/prompt-libraries/latest/reflective_writing_tutor_mini_libraries.zip
 ```
 
@@ -252,7 +261,7 @@ Generated outputs:
 
 ```text
 docs/audit-library/latest/*
-docs/audit-library/v1.0/*
+docs/audit-library/v<version>/*
 docs/audit-library/latest/reflective_writer_testing_pack.zip
 ```
 

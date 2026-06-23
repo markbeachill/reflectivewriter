@@ -1,8 +1,8 @@
-# Reflective Writer — Test Cards v1.0
+# Reflective Writer — Test Cards v1.1
 
-**Release stamp:** Reflective Writer version v1.0 / Prompt-library suite v1.0 / Testing pack v1.0  
+**Release stamp:** Reflective Writer version v1.1 / Prompt-library suite v1.1 / Testing pack v1.1  
 **Public download:** `audit-library/latest/reflective_writer_test_cards.md`  
-**Fixed archive:** `audit-library/v1.0/reflective_writer_test_cards_v1_0.md`
+**Fixed archive:** `audit-library/v1.1/reflective_writer_test_cards_v1_1.md`
 
 These lightweight cards test the distinctive risks of reflective-writing AI support. Use fictional or placeholder material only. Checks marked ★ are critical.
 

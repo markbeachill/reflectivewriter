@@ -1,7 +1,7 @@
 id: nhs-healthcare
 title: "NHS and Healthcare Reflection Tutor Library"
 latest_output: docs/prompt-libraries/latest/03_nhs_healthcare_reflection_library.md
-archive_output: docs/prompt-libraries/v1.0/03_nhs_healthcare_reflection_library_v1_0.md
+archive_output: docs/prompt-libraries/v1.1/03_nhs_healthcare_reflection_library_v1_1.md
 tool_metadata_mode: mini
 sections:
   - pack-sections/nhs-healthcare/00-manifest.md

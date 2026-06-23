@@ -1,8 +1,8 @@
-# Reflective Writer — Test Log Template v1.0
+# Reflective Writer — Test Log Template v1.1
 
-**Release stamp:** Reflective Writer version v1.0 / Prompt-library suite v1.0 / Testing pack v1.0  
+**Release stamp:** Reflective Writer version v1.1 / Prompt-library suite v1.1 / Testing pack v1.1  
 **Public download:** `audit-library/latest/reflective_writer_test_log_template.md`  
-**Fixed archive:** `audit-library/v1.0/reflective_writer_test_log_template_v1_0.md`
+**Fixed archive:** `audit-library/v1.1/reflective_writer_test_log_template_v1_1.md`
 
 Use this template to record manual testing. Keep real student, patient, service-user, colleague and placement details out of the log.
 
@@ -12,9 +12,9 @@ Use this template to record manual testing. Keep real student, patient, service-
 | --- | --- |
 | Tester |  |
 | Date |  |
-| Reflective Writer version | v1.0 |
+| Reflective Writer version | v1.1 |
 | Prompt-library file(s) tested |  |
-| Testing pack version | v1.0 |
+| Testing pack version | v1.1 |
 | Platform/model/plan |  |
 | Notes on setup |  |
 

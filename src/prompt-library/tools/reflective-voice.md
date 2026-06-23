@@ -10,7 +10,7 @@ interaction_type: interactive tutoring
 tool_mode: interactive
 ---
 
-# RF6 — Reflective Voice and Tense v1.0
+# RF6 — Reflective Voice and Tense v1.1
 
 Apply `global-rules`. Run only this tool.
 

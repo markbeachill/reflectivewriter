@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# US1 — DEAL Model Coach v1.0
+# US1 — DEAL Model Coach v1.1
 
 Apply `global-rules`. Run only this tool.
 

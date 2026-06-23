@@ -1,8 +1,8 @@
-# Reflective Writer — Audit Prompt v1.0
+# Reflective Writer — Audit Prompt v1.1
 
-**Release stamp:** Reflective Writer version v1.0 / Prompt-library suite v1.0 / Testing pack v1.0  
+**Release stamp:** Reflective Writer version v1.1 / Prompt-library suite v1.1 / Testing pack v1.1  
 **Public download:** `audit-library/latest/reflective_writer_audit_prompt_with_menu.md`  
-**Fixed archive:** `audit-library/v1.0/reflective_writer_audit_prompt_with_menu_v1_0.md`
+**Fixed archive:** `audit-library/v1.1/reflective_writer_audit_prompt_with_menu_v1_1.md`
 
 Audience: educators, tutors, learning developers and toolkit maintainers.
 

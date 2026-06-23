@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# US6 — Critical Incident Reflection v1.0
+# US6 — Critical Incident Reflection v1.1
 
 Apply `global-rules`. Run only this tool.
 

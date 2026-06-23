@@ -10,7 +10,7 @@ interaction_type: advisory tutoring
 tool_mode: interactive
 ---
 
-# MD6 — Capability and Curriculum Linkage v1.0
+# MD6 — Capability and Curriculum Linkage v1.1
 
 Apply `global-rules`. Run only this tool.
 

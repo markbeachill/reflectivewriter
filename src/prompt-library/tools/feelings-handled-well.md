@@ -10,7 +10,7 @@ interaction_type: interactive tutoring
 tool_mode: interactive
 ---
 
-# RF3 — Feelings, Handled Well v1.0
+# RF3 — Feelings, Handled Well v1.1
 
 Apply `global-rules`. Run only this tool.
 

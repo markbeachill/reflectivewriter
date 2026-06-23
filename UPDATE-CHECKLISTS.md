@@ -2,16 +2,6 @@
 
 Use this file when changing Reflective Writer tools, examples, source material, audit/testing files, site pages or release metadata.
 
-For broad changes or release preparation, prefer the all-in-one runner:
-
-```bash
-python scripts/build_all.py
-python scripts/build_all.py --check
-python scripts/build_all.py --ci
-```
-
-Targeted commands remain useful for small subsystem edits.
-
 When using an AI assistant, ask it to report:
 
 ```text
@@ -73,13 +63,25 @@ python scripts/build_site_data.py --validate
 7. Rebuild:
 
 ```bash
-python scripts/build_all.py
+python scripts/build_prompt_libraries.py
+python scripts/build_examples.py
+python scripts/build_source_material_library.py
+python scripts/build_site_data.py
+python scripts/build_site_main.py
+python scripts/build_site_pages.py
+python scripts/build_site_guides.py
+python scripts/build_audit_pack.py
 ```
 
 8. Run checks:
 
 ```bash
-python scripts/build_all.py --check
+python scripts/build_prompt_libraries.py --check
+python scripts/build_examples.py --check
+python scripts/build_source_material_library.py --check
+python scripts/build_site_data.py --check
+python scripts/build_site_data.py --validate
+python scripts/build_audit_pack.py --ci
 ```
 
 ## C. Updating shared behaviour rules
@@ -204,22 +206,39 @@ python scripts/build_source_material_library.py
 
 ## H. Release/update checklist
 
-Before tagging or publishing a release:
+Before tagging or publishing a public release:
 
-1. Update `src/prompt-library/release.yml`.
-2. Confirm archive paths in `src/prompt-library/packs/*.yml` and `src/audit-library/audit-pack.yml` match the release version.
-3. Rebuild everything:
+1. Use the release updater; do not edit version strings one by one.
 
 ```bash
-python scripts/build_all.py
+python scripts/update_version.py <version> --date YYYY-MM-DD
 ```
 
-4. Check everything:
+Optional release-note fields:
+
+```bash
+python scripts/update_version.py <version> --date YYYY-MM-DD \
+  --summary "Short release summary." \
+  --change "First changelog bullet." \
+  --change "Second changelog bullet."
+```
+
+2. Confirm the updater reports `Version metadata consistency: OK`.
+3. Rebuild and check everything:
 
 ```bash
 python scripts/build_all.py --ci
 ```
 
-5. Confirm no generated output is stale.
-6. Download and inspect the current prompt-library ZIP and audit/testing ZIP.
-7. Confirm the live site still links to downloads, examples, source material and testing.
+4. Inspect:
+
+```text
+docs/changelog/index.html
+docs/data/release.json
+docs/prompt-libraries/latest/*.md
+docs/prompt-libraries/v<version>/*.md
+docs/audit-library/latest/*
+docs/audit-library/v<version>/*
+```
+
+5. Commit the changed source and generated files together.

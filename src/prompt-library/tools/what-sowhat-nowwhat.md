@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# FW2 — What? So What? Now What? Coach v1.0
+# FW2 — What? So What? Now What? Coach v1.1
 
 Apply `global-rules`. Run only this tool.
 

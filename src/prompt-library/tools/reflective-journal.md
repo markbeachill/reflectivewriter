@@ -10,7 +10,7 @@ interaction_type: interactive tutoring
 tool_mode: interactive
 ---
 
-# US3 — Reflective Journal Coach v1.0
+# US3 — Reflective Journal Coach v1.1
 
 Apply `global-rules`. Run only this tool.
 

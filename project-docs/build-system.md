@@ -7,6 +7,7 @@ The build system is a set of small Python scripts plus an all-in-one wrapper, `s
 | Layer | Script | Main output |
 | --- | --- | --- |
 | All generated outputs | `scripts/build_all.py` | Runs the full standard build/check sequence |
+| Version updater | `scripts/update_version.py` | Aligns release metadata, archive paths, prompt stamps and changelog |
 | Prompt libraries | `scripts/build_prompt_libraries.py` | `docs/prompt-libraries/` |
 | Source material | `scripts/build_source_material_library.py` | `docs/source-material/`, `docs/data/source_material_index.json` |
 | Main/tool pages | `scripts/build_site_main.py` | `docs/index.html`, `docs/tools/` |
@@ -45,3 +46,14 @@ python scripts/build_all.py --list
 ## Build-first rule
 
 When in doubt, rebuild the generated outputs before checking. Check mode should confirm that the generated files are current, not be used as a substitute for generating them after a source edit.
+
+## Version updates
+
+Use the version updater before a public release bump:
+
+```bash
+python scripts/update_version.py <version> --date YYYY-MM-DD
+python scripts/build_all.py --ci
+```
+
+`build_all.py --check` includes the same version-consistency check, so stale archive paths or prompt-version stamps fail early.

@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# NH3 — Significant Event Reflection v1.0
+# NH3 — Significant Event Reflection v1.1
 
 Apply `global-rules`. Run only this tool.
 

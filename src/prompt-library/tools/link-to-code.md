@@ -10,7 +10,7 @@ interaction_type: advisory tutoring
 tool_mode: interactive
 ---
 
-# NH5 — Link to the Code v1.0
+# NH5 — Link to the Code v1.1
 
 Apply `global-rules`. Run only this tool.
 

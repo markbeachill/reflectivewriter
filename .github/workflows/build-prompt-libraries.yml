@@ -10,6 +10,7 @@ on:
       - "CONTRIBUTING.md"
       - "SOURCE_MATERIAL_INDEX_EXPLAINER.md"
       - "project-docs/**"
+      - "CHANGELOG.md"
       - ".github/workflows/build-prompt-libraries.yml"
   pull_request:
     paths:
@@ -20,6 +21,7 @@ on:
       - "CONTRIBUTING.md"
       - "SOURCE_MATERIAL_INDEX_EXPLAINER.md"
       - "project-docs/**"
+      - "CHANGELOG.md"
       - ".github/workflows/build-prompt-libraries.yml"
   workflow_dispatch:
 

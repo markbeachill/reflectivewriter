@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# FW3 — Kolb's Experiential Learning Cycle Coach v1.0
+# FW3 — Kolb's Experiential Learning Cycle Coach v1.1
 
 Apply `global-rules`. Run only this tool.
 

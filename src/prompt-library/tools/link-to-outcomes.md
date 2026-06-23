@@ -10,7 +10,7 @@ interaction_type: advisory tutoring
 tool_mode: interactive
 ---
 
-# US4 — Link to Learning Outcomes v1.0
+# US4 — Link to Learning Outcomes v1.1
 
 Apply `global-rules`. Run only this tool.
 

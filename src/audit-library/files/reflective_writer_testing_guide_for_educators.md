@@ -1,8 +1,8 @@
-# Reflective Writer — Testing Guide for Educators v1.0
+# Reflective Writer — Testing Guide for Educators v1.1
 
-**Release stamp:** Reflective Writer version v1.0 / Prompt-library suite v1.0 / Testing pack v1.0  
+**Release stamp:** Reflective Writer version v1.1 / Prompt-library suite v1.1 / Testing pack v1.1  
 **Public download:** `audit-library/latest/reflective_writer_testing_guide_for_educators.md`  
-**Fixed archive:** `audit-library/v1.0/reflective_writer_testing_guide_for_educators_v1_0.md`
+**Fixed archive:** `audit-library/v1.1/reflective_writer_testing_guide_for_educators_v1_1.md`
 
 Audience: educators, tutors, learning developers and toolkit maintainers.
 

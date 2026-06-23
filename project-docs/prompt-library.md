@@ -10,7 +10,7 @@ The generated prompt libraries live under:
 
 ```text
 docs/prompt-libraries/latest/
-docs/prompt-libraries/v1.0/
+docs/prompt-libraries/v<version>/
 ```
 
 ## Important source files
@@ -31,7 +31,7 @@ release.yml               Version and last-updated metadata.
 ```bash
 python scripts/build_prompt_libraries.py
 python scripts/build_prompt_libraries.py --check
-python scripts/build_prompt_libraries.py --ci
+python scripts/build_all.py --ci
 ```
 
 ## Tool metadata

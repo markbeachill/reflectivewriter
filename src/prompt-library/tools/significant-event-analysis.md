@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# MD4 — Significant Event and Feedback Reflection v1.0
+# MD4 — Significant Event and Feedback Reflection v1.1
 
 Apply `global-rules`. Run only this tool.
 

@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# FW1 — Gibbs' Reflective Cycle Coach v1.0
+# FW1 — Gibbs' Reflective Cycle Coach v1.1
 
 Apply `global-rules`. Run only this tool.
 

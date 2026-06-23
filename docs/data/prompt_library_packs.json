@@ -1,11 +1,11 @@
 {
   "generated_by": "reflective-writer-site-data-v1.0",
-  "release_version": "1.0",
-  "toolkit_version": "1.0",
-  "prompt_library_version": "1.0",
-  "release_date": "2026-06-13",
-  "last_updated": "2026-06-13",
-  "status": "",
+  "release_version": "1.1",
+  "toolkit_version": "1.1",
+  "prompt_library_version": "1.1",
+  "release_date": "2026-06-23",
+  "last_updated": "2026-06-23",
+  "status": "active public release",
   "source": "src/prompt-library/release.yml",
   "pack_count": 6,
   "master_pack_count": 1,
@@ -17,7 +17,7 @@
       "kind": "mini-library",
       "source": "src/prompt-library/packs/reflective-foundations.yml",
       "latest_output": "docs/prompt-libraries/latest/01_reflective_foundations_library.md",
-      "archive_output": "docs/prompt-libraries/v1.0/01_reflective_foundations_library_v1_0.md",
+      "archive_output": "docs/prompt-libraries/v1.1/01_reflective_foundations_library_v1_1.md",
       "tool_metadata_mode": "mini",
       "tool_count": 6,
       "tool_codes": [
@@ -43,7 +43,7 @@
       "kind": "mini-library",
       "source": "src/prompt-library/packs/reflective-frameworks.yml",
       "latest_output": "docs/prompt-libraries/latest/02_reflective_frameworks_library.md",
-      "archive_output": "docs/prompt-libraries/v1.0/02_reflective_frameworks_library_v1_0.md",
+      "archive_output": "docs/prompt-libraries/v1.1/02_reflective_frameworks_library_v1_1.md",
       "tool_metadata_mode": "mini",
       "tool_count": 6,
       "tool_codes": [
@@ -69,7 +69,7 @@
       "kind": "mini-library",
       "source": "src/prompt-library/packs/nhs-healthcare.yml",
       "latest_output": "docs/prompt-libraries/latest/03_nhs_healthcare_reflection_library.md",
-      "archive_output": "docs/prompt-libraries/v1.0/03_nhs_healthcare_reflection_library_v1_0.md",
+      "archive_output": "docs/prompt-libraries/v1.1/03_nhs_healthcare_reflection_library_v1_1.md",
       "tool_metadata_mode": "mini",
       "tool_count": 6,
       "tool_codes": [
@@ -95,7 +95,7 @@
       "kind": "mini-library",
       "source": "src/prompt-library/packs/medical.yml",
       "latest_output": "docs/prompt-libraries/latest/04_medical_reflection_library.md",
-      "archive_output": "docs/prompt-libraries/v1.0/04_medical_reflection_library_v1_0.md",
+      "archive_output": "docs/prompt-libraries/v1.1/04_medical_reflection_library_v1_1.md",
       "tool_metadata_mode": "mini",
       "tool_count": 6,
       "tool_codes": [
@@ -121,7 +121,7 @@
       "kind": "mini-library",
       "source": "src/prompt-library/packs/us-academic.yml",
       "latest_output": "docs/prompt-libraries/latest/05_us_academic_reflection_library.md",
-      "archive_output": "docs/prompt-libraries/v1.0/05_us_academic_reflection_library_v1_0.md",
+      "archive_output": "docs/prompt-libraries/v1.1/05_us_academic_reflection_library_v1_1.md",
       "tool_metadata_mode": "mini",
       "tool_count": 6,
       "tool_codes": [
@@ -147,7 +147,7 @@
       "kind": "master",
       "source": "src/prompt-library/packs/master.yml",
       "latest_output": "docs/prompt-libraries/latest/reflective_writing_tutor_master_library.md",
-      "archive_output": "docs/prompt-libraries/v1.0/reflective_writing_tutor_master_library_v1_0.md",
+      "archive_output": "docs/prompt-libraries/v1.1/reflective_writing_tutor_master_library_v1_1.md",
       "tool_metadata_mode": "master",
       "tool_count": 30,
       "tool_codes": [

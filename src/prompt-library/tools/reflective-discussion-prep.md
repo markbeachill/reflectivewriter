@@ -10,7 +10,7 @@ interaction_type: advisory tutoring
 tool_mode: interactive
 ---
 
-# NH6 — Reflective Discussion Prep v1.0
+# NH6 — Reflective Discussion Prep v1.1
 
 Apply `global-rules`. Run only this tool.
 

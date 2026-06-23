@@ -136,6 +136,20 @@ def compile_scripts() -> int:
     return 0
 
 
+def check_version_metadata() -> int:
+    problems = _module("update_version").validate_release_consistency()
+    if problems:
+        print("Version metadata consistency: PROBLEMS FOUND", file=sys.stderr)
+        for problem in problems:
+            print(f"  - {problem}", file=sys.stderr)
+        print("\nCommon fix:", file=sys.stderr)
+        print("  python scripts/update_version.py <version> --date YYYY-MM-DD", file=sys.stderr)
+        print("  python scripts/build_all.py --ci", file=sys.stderr)
+        return 1
+    print("Version metadata consistency: OK")
+    return 0
+
+
 BUILD_STEPS: tuple[Step, ...] = (
     Step("Build prompt libraries", "python scripts/build_prompt_libraries.py", build_prompt_libraries),
     Step("Build source-material library", "python scripts/build_source_material_library.py", build_source_material),
@@ -148,6 +162,7 @@ BUILD_STEPS: tuple[Step, ...] = (
 )
 
 CHECK_STEPS: tuple[Step, ...] = (
+    Step("Check version metadata", "python scripts/update_version.py --check", check_version_metadata),
     Step("Check prompt libraries", "python scripts/build_prompt_libraries.py --check", check_prompt_libraries),
     Step("Check source-material library", "python scripts/build_source_material_library.py --check", check_source_material),
     Step("Check worked examples", "python scripts/build_examples.py --check", check_examples),

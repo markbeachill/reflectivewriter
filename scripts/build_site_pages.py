@@ -5,6 +5,9 @@ about, examples, student-help, guides (index + frameworks + anonymisation +
 teaching-approach), changelog, and the .nojekyll marker.
 """
 import os
+import html
+import re
+from pathlib import Path
 from _site import page, write, BRAND, VERSION, LAST_UPDATED, DOCS
 
 PL = "prompt-libraries/latest"
@@ -281,25 +284,66 @@ write("guides/teaching-approach.html", page(f"The teaching approach | {BRAND}", 
 # ---------------------------------------------------------------------------
 # CHANGELOG
 # ---------------------------------------------------------------------------
+def _inline_md(text):
+    """Very small inline Markdown renderer for CHANGELOG.md release notes."""
+    escaped = html.escape(text, quote=True)
+    return re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+
+
+def _render_changelog_sections():
+    path = Path(DOCS).parent / "CHANGELOG.md"
+    if not path.exists():
+        return f"""<section>
+<h2>v{VERSION} &mdash; {LAST_UPDATED}</h2>
+<p>No changelog source file found.</p>
+</section>"""
+
+    lines = path.read_text(encoding="utf-8").splitlines()
+    sections = []
+    current = []
+    in_list = False
+
+    def close_list():
+        nonlocal in_list
+        if in_list:
+            current.append("</ul>")
+            in_list = False
+
+    for raw in lines:
+        line = raw.strip()
+        if not line or line == "# Changelog":
+            close_list()
+            continue
+        if line.startswith("## "):
+            close_list()
+            if current:
+                sections.append("\n".join(current) + "</section>")
+                current = []
+            title = _inline_md(line[3:]).replace("—", "&mdash;")
+            current.append(f"<section>\n<h2>{title}</h2>")
+            continue
+        if line.startswith("- "):
+            if not in_list:
+                current.append('<ul class="list-clean">')
+                in_list = True
+            current.append(f"<li>{_inline_md(line[2:])}</li>")
+            continue
+        close_list()
+        current.append(f"<p>{_inline_md(line)}</p>")
+
+    close_list()
+    if current:
+        sections.append("\n".join(current) + "</section>")
+    if not sections:
+        return "<section><p>No release entries yet.</p></section>"
+    return "\n".join(sections)
+
+
 changelog_body = f"""<main>
 <article class="reading"><header class="page-intro"><p class="kicker">Changelog</p><h1>Version history</h1><p class="lead">A record of releases of the Reflective Report Writing Tutor toolkit.</p></header>
-<section>
-<h2>v{VERSION} &mdash; {LAST_UPDATED}</h2>
-<p>First public release.</p>
-<ul class="list-clean">
-<li>Two general libraries: Reflective Foundations and Reflective Frameworks.</li>
-<li>Three specialist libraries: NHS &amp; Healthcare (NMC), Medical (GMC / AoMRC), and US &amp; Academic (DEAL).</li>
-<li>Thirty tools in total, plus a combined master library.</li>
-<li>Strengthened no-ghost-writing rule: the tutor never invents the writer's experience, feelings, insight or learning.</li>
-<li>Anonymisation and confidentiality checks built into the healthcare and medical libraries, with a dedicated safety guide.</li>
-<li>Worked example pages for every tool, shown as chat transcripts using a separate chat stylesheet.</li>
-<li>Tutor and teacher guide, an educator case, and a ten-minute deployment check for confirming a tool refuses to ghost-write before classroom use.</li>
-<li>Source-material library of copy-ready practice passages, plus student guides for the reflective writing workflow and AI setup.</li>
-<li>A &ldquo;Try it&rdquo; page linking hosted ChatGPT and Gemini versions of the tutor, with a privacy and behaviour warning.</li>
-<li>File-based prompt source under <code>src/</code>: one Markdown file per tool, with pack manifests compiled by the build script.</li>
-</ul>
+{_render_changelog_sections()}
 <p class="small-note">Downloads: <a href="../{PL}/reflective_writing_tutor_mini_libraries.zip" download>all mini libraries (zip)</a> &middot; <a href="../{PL}/reflective_writing_tutor_master_library.md" download>master library</a>.</p>
-</section></article>
+</article>
 </main>"""
 write("changelog/index.html", page(f"Changelog | {BRAND}", changelog_body, base="../", body_class="reference"))
 

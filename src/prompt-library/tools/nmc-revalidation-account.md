@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# NH1 — NMC Revalidation Reflective Account v1.0
+# NH1 — NMC Revalidation Reflective Account v1.1
 
 Apply `global-rules`. Run only this tool.
 

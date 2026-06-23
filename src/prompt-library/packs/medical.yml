@@ -1,7 +1,7 @@
 id: medical
 title: "Medical Reflection Tutor Library"
 latest_output: docs/prompt-libraries/latest/04_medical_reflection_library.md
-archive_output: docs/prompt-libraries/v1.0/04_medical_reflection_library_v1_0.md
+archive_output: docs/prompt-libraries/v1.1/04_medical_reflection_library_v1_1.md
 tool_metadata_mode: mini
 sections:
   - pack-sections/medical/00-manifest.md

@@ -10,7 +10,7 @@ interaction_type: structured review
 tool_mode: full_review
 ---
 
-# NH4 — Anonymisation and Confidentiality Check v1.0
+# NH4 — Anonymisation and Confidentiality Check v1.1
 
 Apply `global-rules`. Run only this tool.
 

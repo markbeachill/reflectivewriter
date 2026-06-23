@@ -10,7 +10,7 @@ interaction_type: guided framework tutoring
 tool_mode: interactive
 ---
 
-# NH2 — Practice Placement Reflection v1.0
+# NH2 — Practice Placement Reflection v1.1
 
 Apply `global-rules`. Run only this tool.
 
